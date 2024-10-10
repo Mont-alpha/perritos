@@ -1,0 +1,85 @@
+{% extends "inicio_dhermes.html" %}
+{% load static %}
+
+{% block title %}Donaciones - Refugio Dhermes{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="section-title text-center">¡Tu ayuda puede cambiar vidas!</h1>
+    <p class="text-center">Con tu generosidad, podemos seguir rescatando y cuidando a los perritos abandonados. ¡Aquí te mostramos cómo puedes colaborar!</p>
+
+    <div class="donation-card card mb-4">
+        <h2 class="card-title text-center">Donaciones Nacionales</h2>
+        <div class="card-body">
+            <p>Si resides en Chile, considera las siguientes opciones para hacer tu donación:</p>
+            <ul>
+                <li>📦 Transferencia bancaria a nuestra cuenta.</li>
+                <li>💳 Donaciones a través de Mercado Pago.</li>
+                <li>🎁 Apoyo en especie (alimentos, juguetes, etc.).</li>
+            </ul>
+            <div class="text-center">
+                <a href="https://refugiodhermes.trytoku.com/forms/registro" target="_blank" class="btn btn-success donation-button">¡Dona Ahora!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="donation-card card mb-4">
+        <h2 class="card-title text-center">Donaciones Internacionales</h2>
+        <div class="card-body">
+            <p>Si deseas apoyar desde el extranjero, puedes hacer tu donación a través de:</p>
+            <ul>
+                <li>🌍 PayPal.</li>
+                <li>💵 Transferencias internacionales.</li>
+            </ul>
+            <div class="text-center">
+                <a href="https://www.paypal.com/paypalme/refugiodhermes?country.x=CL&locale.x=es_XC" target="_blank" class="btn btn-success donation-button">¡Dona desde el Extranjero!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="donation-card card mb-4">
+        <h2 class="card-title text-center">Donaciones a través de SOAP</h2>
+        <div class="card-body">
+            <p>¿Quieres hacer una donación a través de SOAP? Elige tu opción preferida:</p>
+            <div class="text-center">
+                <a href="https://soapayuda.netlify.app/views/donaciones/preciosdhermesmutual" target="_blank" class="btn btn-success donation-button me-2">👉 Mutual de Seguros</a>
+                <a href="https://soapayuda.netlify.app/views/donaciones/preciosdhermesbci" target="_blank" class="btn btn-success donation-button">👉 Seguros BCI</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        padding-top: 70px;
+        background-image: url("{% static 'img/turquesa.png' %}");
+        background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+        background-position: center; /* Centra la imagen */
+        color: #333; /* Color de texto general para mayor contraste */
+    }
+
+    h1, h2 {
+        color: black; /* Color de los títulos */
+    }
+
+    .donation-card {
+        background-color: #ffffff; /* Fondo blanco para las tarjetas */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .donation-button {
+        margin-top: 15px;
+        padding: 10px 20px; /* Mayor padding para botones */
+        font-size: 1.2rem; /* Tamaño de fuente más grande */
+        border-radius: 5px; /* Bordes redondeados */
+        transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+    }
+
+    .donation-button:hover {
+        background-color: #007bff; /* Color de fondo en hover */
+        transform: scale(1.05); /* Efecto de crecimiento al pasar el mouse */
+    }
+</style>
+{% endblock %}
