@@ -5,6 +5,15 @@
 
 {% block content %}
 <div class="container mt-5">
+
+    <!-- Video al principio -->
+    
+    <div class="text-center mb-4">
+        <video width="640" height="360" controls>
+            <source src="{% static 'img/video.mp4' %}" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </div>
     <h1 class="text-center display-4">La Historia de Refugio Dhermes</h1>
 
     <div class="row mt-4">
@@ -54,6 +63,8 @@
         </div>
     </div>
 </div>
+
+
 
 <style>
     body {
