@@ -1,0 +1,197 @@
+{% extends "inicio_dhermes.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="contenido mt-5">
+    <div id="titulo">
+        <h1>Ellos esperan por ti </h1>
+
+    </div>
+
+    <div class="tarjetas">
+        <div class="card perrito">
+            <h2 class="nombre-mascota">Nombre de la Mascota</h2>
+            <img src="{% static 'img/ejemplo.png' %}" alt="Imagen de la mascota" class="imagen_mascota">
+
+            <div class="tags">
+                <span class="tag raza">Raza: Golden Retriever</span>
+                <span class="tag edad">Edad: 2 años</span>
+                <span class="tag genero">Género: Macho</span>
+                <span class="tag hogar">Hogar: Apartamento</span>
+            </div>
+
+
+        </div>
+        <div class="card perrito">
+            <div class="card-body">
+
+            </div>
+
+
+        </div>
+        <div class="card perrito">
+            <div class="card-body">
+
+            </div>
+
+
+        </div>
+
+        <div class="card perrito">
+            <div class="card-body">
+
+            </div>
+
+
+        </div>
+        <div class="card perrito">
+            <div class="card-body">
+
+            </div>
+
+
+        </div>
+        <div class="card perrito">
+            <div class="card-body">
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+<style>
+    .tarjetas {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* Tres columnas iguales */
+        gap: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        /* Añade espacio entre las tarjetas */
+    }
+
+    .perrito {
+        width: 100%;
+        /* Asegura que cada tarjeta ocupe todo el ancho de su columna */
+        height: auto;
+    }
+
+    #titulo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .imagen_mascota {
+        width: 100%;
+        /* Ocupa el 100% del ancho del contenedor */
+        padding-left: 10px;
+        padding-right: 10px;
+
+        max-height: 350px;
+        /* Limita la altura máxima */
+        object-fit: fill;
+        /* Escala la imagen para cubrir el contenedor sin deformarse */
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+
+    body {
+        padding-top: 70px;
+        background-image: url("{% static 'img/turquesa.png' %}");
+        background-size: contain;
+        /* Asegura que la imagen cubra todo el fondo */
+        background-position: center;
+        /* Centra la imagen */
+        color: #333;
+        /* Color de texto general para mayor contraste */
+        padding-bottom: 70px;
+    }
+
+    .contenido {
+        min-height: 100vh;
+        width: 100%;
+        border-radius: 10px;
+        background-color: #fff;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 20% 80%;
+    }
+
+
+    .perritos-card {
+        background-color: #ae3838;
+        /* Fondo blanco para las tarjetas */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 600px) {
+        .tarjetas {
+            grid-template-columns: 1fr;
+            /* En pantallas pequeñas, una tarjeta por fila */
+        }
+
+        .perrito {
+            width: auto;
+            /* La tarjeta ocupa todo el ancho disponible */
+            margin: 20px 20px;
+            /* Añade un margen vertical entre las tarjetas */
+        }
+    }
+
+    .nombre-mascota {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+
+    .tags {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .raza {
+        background-color: #f39c12;
+        /* Naranja para raza */
+    }
+
+    .edad {
+        background-color: #3498db;
+        /* Azul para edad */
+    }
+
+    .genero {
+        background-color: #9b59b6;
+        /* Púrpura para género */
+    }
+
+    .hogar {
+        background-color: #2ecc71;
+        /* Verde para tipo de hogar */
+    }
+</style>
+{% endblock %}

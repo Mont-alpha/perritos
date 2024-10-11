@@ -21,3 +21,6 @@ def historia(request):
 def donaciones(request):
     return render(request,'donaciones.html')
     
+    
+def adopcion(request):
+    return render(request,'adopcion.html')
