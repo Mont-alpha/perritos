@@ -18,6 +18,7 @@ class perritos(models.Model):
     raza = models.CharField(choices=tupla,max_length=60,default= 'Akita')
     genero = models.CharField(choices=sexo,max_length=20,default='Macho')
     tipo_casa = models.CharField(choices=tipo_casa,max_length=20,default='Departamento')
+    descripcion = models.CharField(max_length=250,null=True,blank=True)
     pareja = models.ForeignKey(
             'self',  #relacion unaria
             on_delete=models.SET_NULL,  

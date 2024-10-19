@@ -5,8 +5,71 @@
 
 {% block content %}
 <div>
+<h2 class="my-4">Lista de Perritos</h2>
+<table class="table table-bordered">
+    <thead class="thead-dark"></thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Raza</th>
+            <th>Descripción</th>
+            <th>Eliminar perrito</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for perrito in perritos %}
+        <tr>
+            <td>{{ perrito.nombre_perrito }}</td>
+            <td>{{ perrito.edad }}</td>
+            <td>{{ perrito.raza }}</td>
+            <td>{{ perrito.descripcion }}</td>
+            <td><a href="{% url 'eliminar_perrito'  perrito.id %}" class="btn btn-danger">Eliminar </a></td>
 
-
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h3 class="my-4">Agregar Nuevo Perrito</h3>
+<form method="post" action="" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+        <div class="invalid-feedback">
+            Por favor, ingrese el nombre.
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="edad">Edad:</label>
+        <input type="number" class="form-control" id="edad" name="edad" required>
+        <div class="invalid-feedback">
+            Por favor, ingrese la edad.
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="raza">Raza:</label>
+        <select class="form-control" id="raza" name="raza" required>
+            {% for raza in razas %}
+            <option value="{{ raza }}">{{ raza }}</option>
+            {% endfor %}
+        </select>
+        <div class="invalid-feedback">
+            Por favor, ingrese la raza.
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+        <div class="invalid-feedback">
+            Por favor, ingrese la descripción.
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Agregar Perrito</button>
+</form>
 </div>
 <style>
 
