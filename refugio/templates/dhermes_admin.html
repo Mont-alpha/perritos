@@ -1,0 +1,37 @@
+{% extends "inicio_dhermes.html" %}
+{% load static %}
+
+{% block title %}Registro de Sesión - Refugio Dhermes{% endblock %}
+
+{% block content %}
+<div>
+    <div class="card mt-5">
+        <div class="card-header">
+            <h1>Administración</h1>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'dhermes_admin' %}" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="nombre_perrito" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="nombre_perrito" name="name_user">
+                </div>
+                <div class="mb-3">
+                    <label for="nombre_perrito" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="nombre_perrito" name="password_dhermes">
+                </div>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+                {% if error_message %}
+                <p style="color: red;">{{ error_message }}</p>
+                {% endif %}
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+<style>
+
+</style>
+{% endblock %}

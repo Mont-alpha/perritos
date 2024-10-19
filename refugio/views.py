@@ -9,6 +9,8 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.views.generic import DetailView
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+from .models import perritos
 
 
 # Create your views here.
@@ -23,4 +25,24 @@ def donaciones(request):
     
     
 def adopcion(request):
-    return render(request,'adopcion.html')
+    data = perritos.objects.all()
+    return render(request,'adopcion.html',{'data':data})
+
+def dhermes_admin(request):
+    data = {'error_message':''}
+    if request.POST:
+        username = request.POST['name_user']
+        password = request.POST['password_dhermes']
+        usuario_login = authenticate(request,username=username,password=password)
+        if usuario_login is not None:
+            login(request,usuario_login)
+            return redirect('administracion')
+        else:
+            data['error_message'] = 'Usuario o contraseña incorrectos'
+            return render(request,'dhermes_admin.html',data)
+    else:
+        return render(request,'dhermes_admin.html',data)
+
+@login_required
+def admin_section(request):
+    return render(request,'dhermes_admin_section.html')

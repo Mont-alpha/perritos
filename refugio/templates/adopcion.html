@@ -5,60 +5,59 @@
 
 <div class="contenido mt-5">
     <div id="titulo">
-        <h1>Ellos esperan por ti </h1>
+        <h1>Ellos esperan por ti
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000">
+                <path
+                    d="M194-80v-409h66.67v342.33h306.66v-213l103-103Q700-492.33 716-530t16-79.33q0-41.34-16.5-79Q699-726 670.33-755l-29.66-30.67L511-656H337.67L288-606.33 240.33-653 310-722.67h173.33L640.67-880 718-802.67q38.67 38.67 59.33 88.5 20.67 49.84 21.34 104.84-.67 55-21.34 104.83Q756.67-454.67 718-416l-84 84v252H194Zm190.33-205.67L181-489q-10.33-10.33-15.67-23.67-5.33-13.33-5.33-28 0-14.66 5.33-28.16 5.34-13.5 15.67-23.84L260.33-673l119.34 118.33q27.33 27.34 42.16 62.5 14.84 35.17 14.84 73.84 0 36.66-13.34 71.16-13.33 34.5-39 61.5Z" />
+            </svg>
+        </h1>
 
     </div>
 
     <div class="tarjetas">
+        {% for perrito in data %}
         <div class="card perrito">
-            <h2 class="nombre-mascota">Nombre de la Mascota</h2>
-            <img src="{% static 'img/ejemplo.png' %}" alt="Imagen de la mascota" class="imagen_mascota">
-
-            <div class="tags">
-                <span class="tag raza">Raza: Golden Retriever</span>
-                <span class="tag edad">Edad: 2 años</span>
-                <span class="tag genero">Género: Macho</span>
-                <span class="tag hogar">Hogar: Apartamento</span>
-            </div>
-
-
-        </div>
-        <div class="card perrito">
+            <img src="{% static 'img/ejemplo.png' %}" alt="Imagen de la mascota" class="imagen_mascota card-img-top">
             <div class="card-body">
+                <h2 class="nombre-mascota">
+                    {% if perrito.genero == 'Macho' %}
+                    {{perrito.nombre_perrito }} <svg xmlns="http://www.w3.org/2000/svg" height="30px"
+                        viewBox="0 -960 960 960" width="30px" fill="#000000">
+                        <path
+                            d="M768-768v216h-72v-93L564-513q17.54 26.15 26.77 55.58Q600-428 600-396.41q0 85.48-59.28 144.95Q481.44-192 396.22-192T251.5-251.28Q192-310.56 192-395.78t59.35-144.72Q310.69-600 396-600q32 0 61.5 8.5T513-564l132-132h-93v-72h216ZM395.78-528q-54.78 0-93.28 38.72t-38.5 93.5q0 54.78 38.72 93.28t93.5 38.5q54.78 0 93.28-38.72t38.5-93.5q0-54.78-38.72-93.28t-93.5-38.5Z" />
+                    </svg>
 
+                    {% else %}
+                    {{perrito.nombre_perrito }} <svg xmlns="http://www.w3.org/2000/svg" height="30px"
+                        viewBox="0 -960 960 960" width="30px" fill="#000000">
+                        <path
+                            d="M444-144v-72h-72v-72h72v-76q-73-14-120.5-70.07Q276-490.15 276-564q0-85.16 59.5-144.58Q395-768 480-768t144.5 59.42Q684-649.16 684-564q0 73.85-47.5 129.93Q589-378 516-364v75.8h72v72.2h-72v72h-72Zm36.22-288q54.78 0 93.28-38.72t38.5-93.5q0-54.78-38.72-93.28t-93.5-38.5q-54.78 0-93.28 38.72t-38.5 93.5q0 54.78 38.72 93.28t93.5 38.5Z" />
+                    </svg>
+                    {% endif %}
+
+
+                </h2>
+
+
+                <div class="tags">
+                    <span class="tag raza">Raza: {{perrito.raza }}</span>
+                    <span class="tag edad">
+                        {% if perrito.edad < 12 %}
+                        Edad: {{perrito.edad }} meses
+                        {% else %}
+                        Edad: {{perrito.edad }} años
+                        {% endif %}
+                        
+                        
+
+                    </span>
+                    <span class="tag hogar">Hogar: {{perrito.tipo_casa }}</span>
+                </div>
             </div>
 
-
         </div>
-        <div class="card perrito">
-            <div class="card-body">
+        {% endfor%}
 
-            </div>
-
-
-        </div>
-
-        <div class="card perrito">
-            <div class="card-body">
-
-            </div>
-
-
-        </div>
-        <div class="card perrito">
-            <div class="card-body">
-
-            </div>
-
-
-        </div>
-        <div class="card perrito">
-            <div class="card-body">
-
-            </div>
-
-
-        </div>
 
 
 
@@ -81,29 +80,25 @@
 
     .perrito {
         width: 100%;
+
         /* Asegura que cada tarjeta ocupe todo el ancho de su columna */
-        height: auto;
+        img {
+            height: 400px;
+        }
+
+        height: fit-content;
+
     }
+
 
     #titulo {
         width: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
-    .imagen_mascota {
-        width: 100%;
-        /* Ocupa el 100% del ancho del contenedor */
-        padding-left: 10px;
-        padding-right: 10px;
 
-        max-height: 350px;
-        /* Limita la altura máxima */
-        object-fit: fill;
-        /* Escala la imagen para cubrir el contenedor sin deformarse */
-        border-radius: 10px;
-        margin-bottom: 15px;
-    }
 
 
     body {
@@ -152,9 +147,11 @@
     }
 
     .nombre-mascota {
-        font-size: 24px;
+        font-size: 30px;
         font-weight: bold;
         margin-bottom: 15px;
+        display: flex;
+        align-items: center;
     }
 
 
