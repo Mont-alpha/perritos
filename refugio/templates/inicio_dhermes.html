@@ -19,6 +19,11 @@
             font-family: 'Roboto', sans-serif; /* Usar la fuente Roboto */
             font-weight: 400; /* Peso de fuente normal */
             transition: color 0.3s ease; /* Transición suave para el cambio de color */
+            text-align: center; /* Centrar el texto */
+            flex-grow: 1; /* Hacer que los enlaces crezcan proporcionalmente */
+            white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+            font-size: 1.2rem; /* Aumentar el tamaño del texto */
+            margin: 0 15px; /* Añadir margen horizontal para separar los elementos */
         }
 
         .navbar-nav .nav-link.active,
@@ -37,28 +42,41 @@
             height: 60px; /* Ajusta la altura del logo (puedes cambiar este valor) */
             width: auto;
         }
+
+        /* Ajustar el tamaño del texto de la navbar de manera proporcional al ancho de la pantalla */
+        @media (max-width: 768px) {
+            .navbar-nav .nav-link {
+                font-size: 1rem; /* Reducir el tamaño en pantallas pequeñas */
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-nav .nav-link {
+                font-size: 1.4rem; /* Aumentar el tamaño en pantallas grandes */
+            }
+        }
     </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top w-100"> <!-- Añadido w-100 para ocupar todo el ancho -->
-        <div class="container-fluid"> <!-- Mantiene la fluidez del contenido -->
-            <img src="{% static 'img/Logo-dhermes-sin-fondo.png' %}" alt="Logo" class="navbar-logo">
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top w-100">
+        <div class="container-fluid">
+            <img src="{% static 'img/Logo-dhermes-sin-fondo.png' %}" alt="Logo" class="navbar-logo me-3">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto"> <!-- Añadido mx-auto para centrar los elementos -->
-                    <li class="nav-item me-3"> <!-- Añadido me-3 para espacio -->
-                        <a class="nav-link" href="{% url 'adopcion' %}">Conoce a tu próximo amiguito</a>
+                <ul class="navbar-nav w-100 d-flex justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="{% url 'adopcion' %}">Conoce a tu próximo amiguito</a>
                     </li>
-                    <li class="nav-item me-3"> <!-- Añadido me-3 para espacio -->
-                        <a class="nav-link" href="{% url 'historia' %}">Nosotros</a>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="{% url 'historia' %}">Nosotros</a>
                     </li>
-                    <li class="nav-item me-3"> <!-- Añadido me-3 para espacio -->
-                        <a class="nav-link" href="{% url 'donaciones'%}">Donaciones</a>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="{% url 'donaciones' %}">Donaciones</a>
                     </li>
                 </ul>
             </div>
@@ -75,3 +93,4 @@
 </body>
 
 </html>
+

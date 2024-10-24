@@ -2,193 +2,137 @@
 {% load static %}
 
 {% block content %}
+<div class="container-fluid mt-5">
+    <h1 class="text-center mb-5">Perritos Disponibles para Adopción</h1>
 
-<div class="contenido mt-5">
-    <div id="titulo">
-        <h1>Ellos esperan por ti
-            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000">
-                <path
-                    d="M194-80v-409h66.67v342.33h306.66v-213l103-103Q700-492.33 716-530t16-79.33q0-41.34-16.5-79Q699-726 670.33-755l-29.66-30.67L511-656H337.67L288-606.33 240.33-653 310-722.67h173.33L640.67-880 718-802.67q38.67 38.67 59.33 88.5 20.67 49.84 21.34 104.84-.67 55-21.34 104.83Q756.67-454.67 718-416l-84 84v252H194Zm190.33-205.67L181-489q-10.33-10.33-15.67-23.67-5.33-13.33-5.33-28 0-14.66 5.33-28.16 5.34-13.5 15.67-23.84L260.33-673l119.34 118.33q27.33 27.34 42.16 62.5 14.84 35.17 14.84 73.84 0 36.66-13.34 71.16-13.33 34.5-39 61.5Z" />
-            </svg>
-        </h1>
-
-    </div>
-
-    <div class="tarjetas">
-        {% for perrito in data %}
-        <div class="card perrito">
-            <img src="{% static 'img/ejemplo.png' %}" alt="Imagen de la mascota" class="imagen_mascota card-img-top">
-            <div class="card-body">
-                <h2 class="nombre-mascota">
-                    {% if perrito.genero == 'Macho' %}
-                    {{perrito.nombre_perrito }} <svg xmlns="http://www.w3.org/2000/svg" height="30px"
-                        viewBox="0 -960 960 960" width="30px" fill="#000000">
-                        <path
-                            d="M768-768v216h-72v-93L564-513q17.54 26.15 26.77 55.58Q600-428 600-396.41q0 85.48-59.28 144.95Q481.44-192 396.22-192T251.5-251.28Q192-310.56 192-395.78t59.35-144.72Q310.69-600 396-600q32 0 61.5 8.5T513-564l132-132h-93v-72h216ZM395.78-528q-54.78 0-93.28 38.72t-38.5 93.5q0 54.78 38.72 93.28t93.5 38.5q54.78 0 93.28-38.72t38.5-93.5q0-54.78-38.72-93.28t-93.5-38.5Z" />
-                    </svg>
-
-                    {% else %}
-                    {{perrito.nombre_perrito }} <svg xmlns="http://www.w3.org/2000/svg" height="30px"
-                        viewBox="0 -960 960 960" width="30px" fill="#000000">
-                        <path
-                            d="M444-144v-72h-72v-72h72v-76q-73-14-120.5-70.07Q276-490.15 276-564q0-85.16 59.5-144.58Q395-768 480-768t144.5 59.42Q684-649.16 684-564q0 73.85-47.5 129.93Q589-378 516-364v75.8h72v72.2h-72v72h-72Zm36.22-288q54.78 0 93.28-38.72t38.5-93.5q0-54.78-38.72-93.28t-93.5-38.5q-54.78 0-93.28 38.72t-38.5 93.5q0 54.78 38.72 93.28t93.5 38.5Z" />
-                    </svg>
-                    {% endif %}
-
-
-                </h2>
-
-
-                <div class="tags">
-                    <span class="tag raza">Raza: {{perrito.raza }}</span>
-                    <span class="tag edad">
-                        {% if perrito.edad < 12 %}
-                        Edad: {{perrito.edad }} meses
-                        {% else %}
-                        Edad: {{perrito.edad }} años
-                        {% endif %}
-                        
-                        
-
-                    </span>
-                    <span class="tag hogar">Hogar: {{perrito.tipo_casa }}</span>
-                </div>
+    <!-- Formulario de filtros -->
+    <form method="get" class="mb-4">
+        <div class="row">
+            <!-- Filtro de nivel de energía -->
+            <div class="col-6 col-md mb-2">
+                <label for="nivel_energia">Nivel de Energía:</label>
+                <select name="nivel_energia" id="nivel_energia" class="form-control">
+                    <option value="">Todos</option>
+                    <option value="baja" {% if request.GET.nivel_energia == 'baja' %}selected{% endif %}>Baja</option>
+                    <option value="alta" {% if request.GET.nivel_energia == 'alta' %}selected{% endif %}>Alta</option>
+                </select>
             </div>
 
+            <!-- Filtro de sexo -->
+            <div class="col-6 col-md mb-2">
+                <label for="sexo">Sexo:</label>
+                <select name="sexo" id="sexo" class="form-control">
+                    <option value="">Todos</option>
+                    <option value="macho" {% if request.GET.sexo == 'macho' %}selected{% endif %}>Macho</option>
+                    <option value="hembra" {% if request.GET.sexo == 'hembra' %}selected{% endif %}>Hembra</option>
+                </select>
+            </div>
+
+            <!-- Filtro de adopción doble -->
+            <div class="col-6 col-md mb-2">
+                <label for="adopcion_doble">Adopción Doble:</label>
+                <select name="adopcion_doble" id="adopcion_doble" class="form-control">
+                    <option value="">Todos</option>
+                    <option value="True" {% if request.GET.adopcion_doble == 'True' %}selected{% endif %}>Sí</option>
+                </select>
+            </div>
+
+            <!-- Filtro de tamaño -->
+            <div class="col-6 col-md mb-2">
+                <label for="tamano">Tamaño:</label>
+                <select name="tamano" id="tamano" class="form-control">
+                    <option value="">Todos</option>
+                    <option value="pequeño" {% if request.GET.tamano == 'pequeño' %}selected{% endif %}>Pequeño</option>
+                    <option value="mediano" {% if request.GET.tamano == 'mediano' %}selected{% endif %}>Mediano</option>
+                    <option value="grande" {% if request.GET.tamano == 'grande' %}selected{% endif %}>Grande</option>
+                </select>
+            </div>
+
+            <!-- Filtro de edad -->
+            <div class="col-6 col-md mb-2">
+                <label for="edad">Edad:</label>
+                <select name="edad" id="edad" class="form-control">
+                    <option value="">Todas</option>
+                    <option value="menos_1" {% if request.GET.edad == 'menos_1' %}selected{% endif %}>Menos de 1 año</option>
+                    <option value="1_3" {% if request.GET.edad == '1_3' %}selected{% endif %}>1-3 años</option>
+                    <option value="4_6" {% if request.GET.edad == '4_6' %}selected{% endif %}>4-6 años</option>
+                    <option value="mayor_6" {% if request.GET.edad == 'mayor_6' %}selected{% endif %}>Mayor de 6 años</option>
+                </select>
+            </div>
+
+            <!-- Botón para aplicar los filtros -->
+            <div class="col-12 mt-2 text-center">
+                <button type="submit" class="btn btn-primary w-100">Aplicar Filtros</button>
+            </div>
         </div>
-        {% endfor%}
+    </form>
 
-
-
-
+    <!-- Tarjetas de perritos -->
+    <div class="row">
+        {% for perrito in perritos %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex align-items-stretch">
+                <!-- Enlace a la página de detalle del perrito -->
+                <a href="{% url 'detalle_perrito' perrito.id %}" class="card-link text-decoration-none w-100">
+                    <div class="card h-100 shadow-sm perrito-card">
+                        {% if perrito.imagen %}
+                            <img src="{{ perrito.imagen.url }}" class="card-img-top perrito-image" alt="Imagen de {{ perrito.nombre }}">
+                        {% else %}
+                            <img src="{% static 'perritos/placeholder.jpg' %}" class="card-img-top perrito-image" alt="Imagen no disponible">
+                        {% endif %}
+                        <div class="card-body p-3 d-flex flex-column">
+                            <h5 class="card-title text-center text-primary mb-2">{{ perrito.nombre }}</h5>
+                            <p class="card-text mb-1"><strong>Edad:</strong> {{ perrito.edad }} años</p>
+                            <p class="card-text mb-1"><strong>Sexo:</strong> {{ perrito.sexo }}</p>
+                            <p class="card-text mb-1"><strong>Tamaño:</strong> {{ perrito.tamano }}</p>
+                            <p class="card-text mb-1"><strong>Nivel de Energía:</strong> {{ perrito.nivel_energia }}</p>
+                            {% if perrito.es_adopcion_doble %}
+                                <p class="card-text mb-1"><strong>Adopción Doble</strong></p>
+                            {% endif %}
+                            <p class="card-text mt-2"><strong>Descripción:</strong> {{ perrito.descripcion|truncatewords:12 }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <p class="text-center">No hay perritos disponibles en este momento.</p>
+            </div>
+        {% endfor %}
     </div>
-
-
 </div>
 
+<!-- CSS para ajustar tamaño de imágenes, tarjetas y agregar movimiento -->
 <style>
-    .tarjetas {
+    .perrito-card {
         width: 100%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        /* Tres columnas iguales */
-        gap: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        /* Añade espacio entre las tarjetas */
+        min-height: 100%;
+        max-height: 500px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    .perrito {
+    .perrito-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    .perrito-image {
+        height: 250px;
+        object-fit: cover;
         width: 100%;
-
-        /* Asegura que cada tarjeta ocupe todo el ancho de su columna */
-        img {
-            height: 400px;
-        }
-
-        height: fit-content;
-
+        transition: transform 0.3s;
     }
-
-
-    #titulo {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .perrito-card:hover .perrito-image {
+        transform: scale(1.05);
     }
-
-
-
-
-    body {
-        padding-top: 70px;
-        background-image: url("{% static 'img/turquesa.png' %}");
-        background-size: contain;
-        /* Asegura que la imagen cubra todo el fondo */
-        background-position: center;
-        /* Centra la imagen */
-        color: #333;
-        /* Color de texto general para mayor contraste */
-        padding-bottom: 70px;
+    .card-body {
+        padding: 1rem;
+        transition: background-color 0.3s;
     }
-
-    .contenido {
-        min-height: 100vh;
-        width: 100%;
-        border-radius: 10px;
-        background-color: #fff;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 20% 80%;
+    .perrito-card:hover .card-body {
+        background-color: #f8f9fa;
     }
-
-
-    .perritos-card {
-        background-color: #ae3838;
-        /* Fondo blanco para las tarjetas */
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (max-width: 600px) {
-        .tarjetas {
-            grid-template-columns: 1fr;
-            /* En pantallas pequeñas, una tarjeta por fila */
-        }
-
-        .perrito {
-            width: auto;
-            /* La tarjeta ocupa todo el ancho disponible */
-            margin: 20px 20px;
-            /* Añade un margen vertical entre las tarjetas */
-        }
-    }
-
-    .nombre-mascota {
-        font-size: 30px;
-        font-weight: bold;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-    }
-
-
-    .tags {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin-top: 10px;
-    }
-
-    .tag {
-        display: inline-block;
-        padding: 5px 10px;
-        border-radius: 5px;
-        color: white;
-        font-size: 14px;
-        margin: 5px;
-    }
-
-    .raza {
-        background-color: #f39c12;
-        /* Naranja para raza */
-    }
-
-    .edad {
-        background-color: #3498db;
-        /* Azul para edad */
-    }
-
-    .genero {
-        background-color: #9b59b6;
-        /* Púrpura para género */
-    }
-
-    .hogar {
-        background-color: #2ecc71;
-        /* Verde para tipo de hogar */
+    .card-body .card-title,
+    .card-body .card-text {
+        color: black;  /* Cambia el color del texto a negro */
     }
 </style>
 {% endblock %}

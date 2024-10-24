@@ -10,7 +10,7 @@ from django.dispatch import receiver
 from django.views.generic import DetailView
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from .models import perritos
+from .models import Perrito
 
 
 # Create your views here.
@@ -25,7 +25,7 @@ def donaciones(request):
     
     
 def adopcion(request):
-    data = perritos.objects.all()
+    data = Perrito.objects.all()
     return render(request,'adopcion.html',{'data':data})
 
 def dhermes_admin(request):
@@ -45,7 +45,7 @@ def dhermes_admin(request):
 
 @login_required
 def admin_section(request):
-    perros = perritos.objects.all()
+    perros = Perrito.objects.all()
     lista_perros = ['Quiltro','Affenpinscher', 'Airedale terrier', 'Akita', 'Akita americano', 'Alaskan Husky', 'Alaskan malamute', 'American Foxhound', 'American pit bull terrier', 'American staffordshire terrier', 'Ariegeois', 'Artois', 'Australian silky terrier', 'Australian Terrier', 'Austrian Black & Tan Hound', 'Azawakh', 'Balkan Hound', 'Basenji', 'Basset Alpino (Alpine Dachsbracke)', 'Basset Artesiano Normando', 'Basset Azul de Gascuña (Basset Bleu de Gascogne)', 'Basset de Artois', 'Basset de Westphalie', 'Basset Hound', 'Basset Leonado de Bretaña (Basset fauve de Bretagne)', 'Bavarian Mountain Scenthound', 'Beagle', 'Beagle Harrier', 'Beauceron', 'Bedlington Terrier', 'Bichon Boloñes', 'Bichón Frisé', 'Bichón Habanero', 'Billy', 'Black and Tan Coonhound', 'Bloodhound (Sabueso de San Huberto)', 'Bobtail', 'Boerboel', 'Border Collie', 'Border terrier', 'Borzoi', 'Bosnian Hound', 'Boston terrier', 'Bouvier des Flandres', 'Boxer', 'Boyero de Appenzell', 'Boyero de Australia', 'Boyero de Entlebuch', 'Boyero de las Ardenas', 'Boyero de Montaña Bernes', 'Braco Alemán de pelo corto', 'Braco Alemán de pelo duro', 'Braco de Ariege', 'Braco de Auvernia', 'Braco de Bourbonnais', 'Braco de Saint Germain', 'Braco Dupuy', 'Braco Francés', 'Braco Italiano', 'Broholmer', 'Buhund Noruego', 'Bull terrier', 'Bulldog americano', 'Bulldog inglés', 'Bulldog francés', 'Bullmastiff', 'Ca de Bestiar', 'Cairn terrier', 'Cane Corso', 'Cane da Pastore Maremmano-Abruzzese', 'Caniche (Poodle)', 'Caniche Toy (Toy Poodle)', 'Cao da Serra de Aires', 'Cao da Serra de Estrela', 'Cao de Castro Laboreiro', 'Cao de Fila de Sao Miguel', 'Cavalier King Charles Spaniel', 'Cesky Fousek', 'Cesky Terrier', 'Chesapeake Bay Retriever', 'Chihuahua', 'Chin', 'Chow Chow', 'Cirneco del Etna', 'Clumber Spaniel', 'Cocker Spaniel Americano', 'Cocker Spaniel Inglés', 'Collie Barbudo', 'Collie de Pelo Cort', 'Collie de Pelo Largo', 'Cotón de Tuléar', 'Curly Coated Retriever', 'Dálmata', 'Dandie dinmont terrier', 'Deerhound', 'Dobermann', 'Dogo Argentino', 'Dogo de Burdeos', 'Dogo del Tibet', 'Drentse Partridge Dog', 'Drever', 'Dunker', 'Elkhound Noruego', 'Elkhound Sueco', 'English Foxhound', 'English Springer Spaniel', 'English Toy Terrier', 'Epagneul Picard', 'Eurasier', 'Fila Brasileiro', 'Finnish Lapphound', 'Flat Coated Retriever', 'Fox terrier de pelo de alambre', 'Fox terrier de pelo liso', 'Foxhound Inglés', 'Frisian Pointer', 'Galgo Español', 'Galgo húngaro (Magyar Agar)', 'Galgo Italiano', 'Galgo Polaco (Chart Polski)', 'Glen of Imaal Terrier', 'Golden Retriever', 'Gordon Setter', "Gos d'Atura Catalá", 'Gran Basset Griffon Vendeano', 'Gran Boyero Suizo', 'Gran Danés (Dogo Aleman)', 'Gran Gascón Saintongeois', 'Gran Griffon Vendeano', 'Gran Munsterlander', 'Gran Perro Japonés', 'Grand Anglo Francais Tricoleur', 'Grand Bleu de Gascogne', 'Greyhound', 'Griffon Bleu de Gascogne', 'Griffon de pelo duro (Grifón Korthals)', 'Griffon leonado de Bretaña', 'Griffon Nivernais', 'Grifon Belga', 'Grifón de Bruselas', 'Haldenstoever', 'Harrier', 'Hokkaido', 'Hovawart', 'Husky Siberiano (Siberian Husky)', 'Ioujnorousskaia Ovtcharka', 'Irish Glen of Imaal terrier', 'Irish soft coated wheaten terrier', 'Irish terrier', 'Irish Water Spaniel', 'Irish Wolfhound', 'Jack Russell terrier', 'Jindo Coreano', 'Kai', 'Keeshond', 'Kelpie australiano (Australian kelpie)', 'Kerry blue terrier', 'King Charles Spaniel', 'Kishu', 'Komondor', 'Kooiker', 'Kromfohrländer', 'Kuvasz', 'Labrador Retriever', 'Lagotto Romagnolo', 'Laika de Siberia Occidental', 'Laika de Siberia Oriental', 'Laika Ruso Europeo', 'Lakeland terrier', 'Landseer', 'Lapphund Sueco', 'Lebrel Afgano', 'Lebrel Arabe (Sloughi)', 'Leonberger', 'Lhasa Apso', 'Lowchen (Pequeño Perro León)', 'Lundehund Noruego', 'Malamute de Alaska', 'Maltés', 'Manchester terrier', 'Mastiff', 'Mastín de los Pirineos', 'Mastín Español', 'Mastín Napolitano', 'Mudi', 'Norfolk terrier', 'Norwich terrier', 'Nova Scotia duck tolling retriever', 'Ovejero alemán', 'Otterhound', 'Rafeiro do Alentejo', 'Ratonero Bodeguero Andaluz', 'Retriever de Nueva Escocia', 'Rhodesian Ridgeback', 'Ridgeback de Tailandia', 'Rottweiler', 'Saarloos', 'Sabueso de Hamilton', 'Sabueso de Hannover', 'Sabueso de Hygen', 'Sabueso de Istria', 'Sabueso de Posavaz', 'Sabueso de Schiller (Schillerstovare)', 'Sabueso de Smaland (Smalandsstovare)', 'Sabueso de Transilvania', 'Sabueso del Tirol', 'Sabueso Español', 'Sabueso Estirio de pelo duro', 'Sabueso Finlandés', 'Sabueso Francés blanco y negro', 'Sabueso Francés tricolor', 'Sabueso Griego', 'Sabueso Polaco (Ogar Polski)', 'Sabueso Serbio', 'Sabueso Suizo', 'Sabueso Yugoslavo de Montaña', 'Sabueso Yugoslavo tricolor', 'Saluki', 'Samoyedo', 'San Bernardo', 'Sarplaninac', 'Schapendoes', 'Schipperke', 'Schnauzer estándar', 'Schnauzer gigante (Riesenschnauzer)', 'Schnauzer miniatura (Zwergschnauzer)', 'Scottish terrier', 'Sealyham terrier', 'Segugio Italiano', 'Seppala Siberiano', 'Setter Inglés', 'Setter Irlandés', 'Setter Irlandés rojo y blanco', 'Shar Pei', 'Shiba Inu', 'Shih Tzu', 'Shikoku', 'Skye terrier', 'Slovensky Cuvac', 'Slovensky Kopov', 'Smoushond Holandés', 'Spaniel Alemán (German Wachtelhund)', 'Spaniel Azul de Picardía', 'Spaniel Bretón', 'Spaniel de Campo', 'Spaniel de Pont Audemer', 'Spaniel Francés', 'Spaniel Tibetano', 'Spinone Italiano', 'Spítz Alemán', 'Spitz de Norbotten (Norbottenspets)', 'Spitz Finlandés', 'Spitz Japonés', 'Staffordshire bull terrier', 'Staffordshire terrier americano', 'Sussex Spaniel', 'Teckel (Dachshund)', 'Tchuvatch eslovaco', 'Terranova (Newfoundland)', 'Terrier australiano (Australian terrier)', 'Terrier brasilero', 'Terrier cazador alemán', 'Terrier checo (Ceský teriér)', 'Terrier galés', 'Terrier irlandés (Irish terrier)', 'Terrier japonés (Nihon teria)', 'Terrier negro ruso', 'Terrier tibetano', 'Tosa', 'Viejo Pastor Inglés', 'Viejo Pointer Danés (Old Danish Pointer)', 'Vizsla', 'Volpino Italiano', 'Weimaraner', 'Welsh springer spaniel', 'Welsh Corgi Cardigan', 'Welsh Corgi Pembroke', 'Welsh terrier', 'West highland white terrier', 'Whippet', 'Wirehaired solvakian pointer', 'Xoloitzcuintle', 'Yorkshire Terrier']      
     data = {'perritos': perros,'razas': lista_perros}
     for perro in perros:
@@ -54,7 +54,7 @@ def admin_section(request):
 
 @login_required
 def eliminar_perrito(request,id):
-    perro = get_object_or_404(perritos,pk=id)
+    perro = get_object_or_404(Perrito,pk=id)
     perro.delete()
     return redirect('administracion')
 
@@ -67,8 +67,53 @@ def agregar_perrito(request):
         genero = request.POST['genero']
         tipo_casa = request.POST['tipo_casa']
         descripcion = request.POST['descripcion']
-        perro = perritos(nombre_perrito=nombre,edad=edad,raza=raza,genero=genero,tipo_casa=tipo_casa,descripcion=descripcion)
+        perro = Perrito(nombre_perrito=nombre,edad=edad,raza=raza,genero=genero,tipo_casa=tipo_casa,descripcion=descripcion)
         perro.save()
         return redirect('administracion')
     else:
         return render(request,'agregar_perrito.html')
+
+
+def lista_perritos(request):
+    # Obtener todos los perritos inicialmente
+    perritos = Perrito.objects.all()
+    
+    # Obtener los parámetros de filtrado desde el request
+    nivel_energia = request.GET.get('nivel_energia')
+    sexo = request.GET.get('sexo')
+    adopcion_doble = request.GET.get('adopcion_doble')
+    tamano = request.GET.get('tamano')
+    edad = request.GET.get('edad')  # Nuevo filtro de edad
+
+    # Filtrar por nivel de energía
+    if nivel_energia in ['baja', 'alta']:
+        perritos = perritos.filter(nivel_energia=nivel_energia)
+    
+    # Filtrar por sexo
+    if sexo in ['macho', 'hembra']:
+        perritos = perritos.filter(sexo=sexo)
+
+    # Filtrar por adopción doble
+    if adopcion_doble == 'True':
+        perritos = perritos.filter(es_adopcion_doble=True)
+
+    # Filtrar por tamaño
+    if tamano in ['pequeño', 'mediano', 'grande']:
+        perritos = perritos.filter(tamano=tamano)
+    
+    # Filtrar por edad
+    if edad:
+        if edad == 'menos_1':
+            perritos = perritos.filter(edad__lt=1)
+        elif edad == '1_3':
+            perritos = perritos.filter(edad__gte=1, edad__lte=3)
+        elif edad == '4_6':
+            perritos = perritos.filter(edad__gte=4, edad__lte=6)
+        elif edad == 'mayor_6':
+            perritos = perritos.filter(edad__gt=6)
+
+    return render(request, 'adopcion.html', {'perritos': perritos})
+
+def detalle_perrito(request, perrito_id):
+    perrito = get_object_or_404(Perrito, id=perrito_id)
+    return render(request, 'detalle_perrito.html', {'perrito': perrito})

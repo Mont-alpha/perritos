@@ -8,11 +8,30 @@
 
     <!-- Video al principio -->
     
-    <div class="text-center mb-4" id="video_card">
-        <video width="640" height="360" controls>
-            <source src="{% static 'img/video.mp4' %}" type="video/mp4">
-            Tu navegador no soporta la etiqueta de video.
-        </video>
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8 text-center" id="video_card">
+            <video width="100%" height="360" controls class="rounded shadow-sm">
+                <source src="{% static 'img/video.mp4' %}" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
+        <div class="col-md-4 text-center">
+            <!-- Botón de Donaciones -->
+            <a href="{% url 'donaciones'%}" class="btn btn-primary btn-lg mb-3 w-75 d-flex align-items-center justify-content-center">
+                <i class="bi bi-heart-fill me-2"></i><svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" class="bi bi-heart-pulse-fill" viewBox="0 0 16 16">
+                    <path d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9z"/>
+                    <path d="M.88 8C-2.427 1.68 4.41-2 7.823 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8z"/>
+                  </svg>
+                Donaciones
+            </a>
+            <!-- Botón de Adopta -->
+            <a href="{% url 'adopcion' %}" class="btn btn-success btn-lg w-75 d-flex align-items-center justify-content-center">
+                <i class="bi bi-house-door-fill me-2"></i><svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" class="bi bi-house-heart" viewBox="0 0 16 16">
+                    <path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982"/>
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                  </svg> Adopta
+            </a>
+        </div>
     </div>
     <h1 class="text-center display-4">La Historia de Refugio Dhermes</h1>
 
@@ -67,12 +86,7 @@
 
 
 <style>
-    body {
-        background-image: url("{% static 'img/turquesa.png' %}"); /* Establece la imagen de fondo */
-        background-size: contain; /* Asegúrate de que la imagen cubra todo el fondo */
-        
-        
-    }
+    
 
     h1 {
         font-family: 'Arial', sans-serif; /* Cambia la fuente a Arial */
@@ -107,5 +121,35 @@
     .social-links a:nth-child(2):hover {
         color: #3b5998; /* Cambia el color del ícono de Facebook al pasar el mouse */
     }
+    .btn-lg {
+        font-size: 1.5rem;
+        padding: 12px 20px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn-lg i {
+        font-size: 1.8rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+
 </style>
 {% endblock %}

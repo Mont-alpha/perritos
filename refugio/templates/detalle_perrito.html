@@ -1,0 +1,116 @@
+{% extends "inicio_dhermes.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5 display-3 text-primary">{{ perrito.nombre }}</h1>
+    <div class="row">
+        <!-- Imagen del perrito -->
+        <div class="col-md-6 d-flex align-items-center justify-content-center mb-4">
+            {% if perrito.imagen %}
+                <img src="{{ perrito.imagen.url }}" class="img-fluid rounded shadow-lg perrito-image" alt="Imagen de {{ perrito.nombre }}">
+            {% else %}
+                <img src="{% static 'perritos/placeholder.jpg' %}" class="img-fluid rounded shadow-lg perrito-image" alt="Imagen no disponible">
+            {% endif %}
+        </div>
+
+        <!-- Detalles del perrito -->
+        <div class="col-md-6">
+            <div class="perrito-details p-5 bg-light rounded shadow-lg">
+                <p class="lead"><strong>Edad:</strong> {{ perrito.edad }} años</p>
+                <p class="lead"><strong>Sexo:</strong> {{ perrito.sexo }}</p>
+                <p class="lead"><strong>Tamaño:</strong> {{ perrito.tamano }}</p>
+                <p class="lead"><strong>Nivel de Energía:</strong> {{ perrito.nivel_energia }}</p>
+                {% if perrito.es_adopcion_doble %}
+                    <p class="lead"><strong>Adopción Doble:</strong> Sí</p>
+                {% endif %}
+                <hr class="my-4">
+                <p class="lead text-justify"><strong>Descripción Completa:</strong> {{ perrito.descripcion }}</p>
+
+                <!-- Sección de contacto -->
+                <div class="contacto mt-5 text-center">
+                    <h3 class="mb-3 text-primary">Contacto</h3>
+                    <div class="social-media">
+                        <a href="https://www.instagram.com" target="_blank" class="btn btn-outline-primary me-2">
+                            <i class="bi bi-instagram"></i> Instagram
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" class="btn btn-outline-primary">
+                            <i class="bi bi-facebook"></i> Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS para mejorar el diseño -->
+<style>
+    /* Estilo para el título */
+    .display-3 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff;
+    }
+
+    /* Estilo para la imagen del perrito */
+    .perrito-image {
+        max-height: 600px;
+        width: 100%;
+        object-fit: cover;
+        border: 4px solid #007bff;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .perrito-image:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Estilo para los detalles del perrito */
+    .perrito-details {
+        font-size: 1.3rem;
+        line-height: 1.7;
+    }
+
+    .perrito-details p.lead {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+        color: #333;
+    }
+
+    .perrito-details strong {
+        color: #007bff;
+    }
+
+    .perrito-details hr {
+        border-top: 3px solid #007bff;
+    }
+
+    .text-justify {
+        text-align: justify;
+    }
+
+    /* Estilo para la sección de contacto */
+    .contacto h3 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    /* Estilo para los íconos de redes sociales */
+    .social-media .btn {
+        font-size: 1.2rem;
+        display: inline-flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .social-media .bi {
+        font-size: 1.5rem;
+        margin-right: 8px;
+    }
+</style>
+
+<!-- Incluir Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
+{% endblock %}
