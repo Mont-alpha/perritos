@@ -5,73 +5,132 @@
 
 {% block content %}
 <div>
-<h2 class="my-4">Lista de Perritos</h2>
-<table class="table table-bordered">
-    <thead class="thead-dark"></thead>
+    <h2 class="my-4">Lista de Perritos</h2>
+    <table class="table table-bordered">
+        <thead class="thead-dark"></thead>
         <tr>
+            <th>Imagen</th>
             <th>Nombre</th>
             <th>Edad</th>
-            <th>Raza</th>
+            <th>Tamaño</th>
+            <th>energia</th>
             <th>Descripción</th>
+            <th>Modificar</th>
             <th>Eliminar perrito</th>
         </tr>
-    </thead>
-    <tbody>
-        {% for perrito in perritos %}
-        <tr>
-            <td>{{ perrito.nombre_perrito }}</td>
-            <td>{{ perrito.edad }}</td>
-            <td>{{ perrito.raza }}</td>
-            <td>{{ perrito.descripcion }}</td>
-            <td><a href="{% url 'eliminar_perrito'  perrito.id %}" class="btn btn-danger">Eliminar </a></td>
+        </thead>
+        <tbody>
+            {% for perrito in perritos %}
+            <tr>
+                <form action="{% url 'editar_perrito'  perrito.id %}" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <td>
+                        <img src="{{ perrito.imagen.url }}" alt="Imagen de {{ perrito.nombre }}" class="img-thumbnail" style="width: 100px; height: auto;" id="imagen-preview-{{ perrito.id }}">
 
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<h3 class="my-4">Agregar Nuevo Perrito</h3>
-<form method="post" action="" class="needs-validation" novalidate>
-    {% csrf_token %}
-    <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" required>
-        <div class="invalid-feedback">
-            Por favor, ingrese el nombre.
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="edad">Edad:</label>
-        <input type="number" class="form-control" id="edad" name="edad" required>
-        <div class="invalid-feedback">
-            Por favor, ingrese la edad.
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="raza">Raza:</label>
-        <select class="form-control" id="raza" name="raza" required>
-            {% for raza in razas %}
-            <option value="{{ raza }}">{{ raza }}</option>
+                        <input type="file" name="imagen" class="form-control file mt-2" accept="image/*" onchange="onFileSelected(event, '{{ perrito.id }}')">
+                    </td>
+                    <td><input type="text" name="nombre" value="{{ perrito.nombre }}" class="form-control"></td>
+                    <td><input type="number" name="edad" value="{{ perrito.edad }}" class="form-control"></td>
+                    <td>
+                        <select name="tamano" class="form-control" required>
+                            <option value="Pequeño" {% if perrito.tamano == "Pequeño" %}selected{% endif %}>Pequeño</option>
+                            <option value="Mediano" {% if perrito.tamano == "Mediano" %}selected{% endif %}>Mediano</option>
+                            <option value="Grande" {% if perrito.tamano == "Grande" %}selected{% endif %}>Grande</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="nivel_energia" class="form-control" required>
+                            <option value="Bajo" {% if perrito.nivel_energia == "Bajo" %}selected{% endif %}>Bajo</option>
+                            <option value="Medio" {% if perrito.nivel_energia == "Medio" %}selected{% endif %}>Medio</option>
+                            <option value="Alto" {% if perrito.nivel_energia == "Alto" %}selected{% endif %}>Alto</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="descripcion" value="{{ perrito.descripcion }}" class="form-control">
+                    </td>
+                    <td><button type="submit" class="btn btn-primary">Modificar</button></td>
+                </form>
+
+                <td><a href="{% url 'eliminar_perrito'  perrito.id %}" class="btn btn-danger">Eliminar </a></td>
+
+            </tr>
             {% endfor %}
-        </select>
-        <div class="invalid-feedback">
-            Por favor, ingrese la raza.
+        </tbody>
+    </table>
+    <h3 class="my-4">Agregar Nuevo Perrito</h3>
+    <form method="post" action="" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese el nombre.
+            </div>
         </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="descripcion">Descripción:</label>
-        <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
-        <div class="invalid-feedback">
-            Por favor, ingrese la descripción.
-        </div>
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Agregar Perrito</button>
-</form>
-</div>
-<style>
 
-</style>
+        <div class="form-group">
+            <label for="edad">Edad:</label>
+            <input type="number" class="form-control" id="edad" name="edad" required>
+            <div class="invalid-feedback">
+                Por favor, ingrese la edad.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="tamano">Tamaño:</label>
+            <select class="form-control" id="tamano" name="tamano" required>
+                <option value="Pequeño">Pequeño</option>
+                <option value="Mediano">Mediano</option>
+                <option value="Grande">Grande</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor, seleccione el tamaño.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="nivel_energia">Nivel de Energía:</label>
+            <select class="form-control" id="nivel_energia" name="nivel_energia" required>
+                <option value="Bajo">Bajo</option>
+                <option value="Medio">Medio</option>
+                <option value="Alto">Alto</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor, seleccione el nivel de energía.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+            <div class="invalid-feedback">
+                Por favor, ingrese la descripción.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="imagen">Imagen:</label>
+            <input type="file" class="form-control file" id="imagen" name="imagen" required>
+            <div class="invalid-feedback">
+                Por favor, suba una imagen.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Agregar Perrito</button>
+    </form>
+</div>
+<script>
+function onFileSelected(event) {
+  var selectedFile = event.target.files[0];
+  var reader = new FileReader();
+
+    var imgtag = document.getElementById("imagen-preview-" + event.target.id.split('-').pop());
+    imgtag.title = selectedFile.name;
+
+    reader.onload = function(event) {
+        imgtag.src = event.target.result;
+    };
+
+    reader.readAsDataURL(selectedFile);
+}
+</script>
 {% endblock %}
