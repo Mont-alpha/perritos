@@ -23,7 +23,7 @@ class Perrito(models.Model):
     nivel_energia = models.CharField(max_length=4, choices=NIVELES_ENERGIA)
     sexo = models.CharField(max_length=6, choices=SEXO)
     tamano = models.CharField(max_length=7, choices=TAMANOS)
-    es_adopcion_doble = models.BooleanField(default=False)
+    es_adopcion_doble = models.OneToOneField('Perrito', on_delete=models.DO_NOTHING,null=True, blank=True)
     descripcion = models.TextField()
     imagen = models.ImageField(upload_to='perritos/')
     

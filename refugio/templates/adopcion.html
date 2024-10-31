@@ -4,35 +4,6 @@
 {% block content %}
 <div class="container-fluid mt-5">
     <h1 class="text-center mb-5">Perritos Disponibles para Adopción</h1>
-    <div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_adopcion">
-            Ver guia de adopción
-        </button>
-
-        <div class="modal" tabindex="-1" id="modal_adopcion">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Guia de adopción</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <ol>
-                            <li>Llenar el formulario de adopción <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOGM03UHJgD0Jh0pLFysQe6Qmul9aRXSr0c-dBpLjls9Xfqg/viewform">click aqui</a></li>
-                            <li>Esperar a que un voluntario se comunique contigo mediante uan entrevista via online</li>
-                            <li>Ya pasada la etapa de contacto, se le realizara una visita guiada por el refugio</li>
-                            <li>Firmado el contrato de adopción, podras llevar a tu nuevo amigo a casa 🐶</li>
-                        </ol>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Salir</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
 </div>
 <script>
     const myModal = document.getElementById('myModal')
@@ -122,12 +93,22 @@
                 {% endif %}
                 <div class="card-body p-3 d-flex flex-column">
                     <h5 class="card-title text-center text-primary mb-2">{{ perrito.nombre }}</h5>
-                    <p class="card-text mb-1"><strong>Edad:</strong> {{ perrito.edad }} años</p>
+                    <p class="card-text mb-1"><strong>Edad:</strong> 
+                        {% if perrito.edad < 1 %}
+                        Menos de un año
+                        {% elif  perrito.edad == 1 %}
+                        1 año
+                        {% else %}
+                        {{ perrito.edad }} años
+                        {% endif %}
+                    </p>
                     <p class="card-text mb-1"><strong>Sexo:</strong> {{ perrito.sexo }}</p>
                     <p class="card-text mb-1"><strong>Tamaño:</strong> {{ perrito.tamano }}</p>
                     <p class="card-text mb-1"><strong>Nivel de Energía:</strong> {{ perrito.nivel_energia }}</p>
                     {% if perrito.es_adopcion_doble %}
                     <p class="card-text mb-1"><strong>Adopción Doble</strong></p>
+                    {% else %}
+                    <p class="card-text mb-1"><strong>Adopción Simple</strong></p>
                     {% endif %}
                     <p class="card-text mt-2"><strong>Descripción:</strong> {{ perrito.descripcion|truncatewords:12 }}
                     </p>
