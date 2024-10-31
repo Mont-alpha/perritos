@@ -5,12 +5,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refugio Dhermes</title>
+    <title>{% block title %}Refugio Dhermes{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Importar fuente -->
     <style>
         /* Cambiar el color del navbar */
         .navbar-custom {
-            background-color: #7fbabe;
+            background-color: #000; /* Negro */
+        }
+
+        .navbar-nav .nav-link {
+            color: #00bcd4; /* Turquesa */
+            font-family: 'Roboto', sans-serif; /* Usar la fuente Roboto */
+            font-weight: 400; /* Peso de fuente normal */
+            transition: color 0.3s ease; /* Transición suave para el cambio de color */
+            text-align: center; /* Centrar el texto */
+            flex-grow: 1; /* Hacer que los enlaces crezcan proporcionalmente */
+            white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+            font-size: 1.2rem; /* Aumentar el tamaño del texto */
+            margin: 0 15px; /* Añadir margen horizontal para separar los elementos */
+        }
+
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            color: #00ffcc; /* Cambia a un tono más claro al pasar el mouse */
+            font-weight: 700; /* Peso de fuente negrita para el hover */
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Sombra de texto */
         }
 
         /* Añadir margen superior al contenido para que no quede oculto por el navbar */
@@ -19,103 +39,58 @@
         }
 
         .navbar-logo {
-            height: 50px;
-            /* Ajusta la altura del logo */
+            height: 60px; /* Ajusta la altura del logo (puedes cambiar este valor) */
             width: auto;
         }
 
-        .instagram-image {
-            width: 100%;
-            max-width: 540px;
-            /* Ancho máximo de la imagen */
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            /* Centrar la imagen */
+        /* Ajustar el tamaño del texto de la navbar de manera proporcional al ancho de la pantalla */
+        @media (max-width: 768px) {
+            .navbar-nav .nav-link {
+                font-size: 1rem; /* Reducir el tamaño en pantallas pequeñas */
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-nav .nav-link {
+                font-size: 1.4rem; /* Aumentar el tamaño en pantallas grandes */
+            }
         }
     </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top w-100">
         <div class="container-fluid">
-            <img src="{% static 'img/Logo-dhermes-sin-fondo.png' %}" alt="Logo" class="navbar-logo">
-            <!-- Aquí se coloca el logo -->
+            <img src="{% static 'img/Logo-dhermes-sin-fondo.png' %}" alt="Logo" class="navbar-logo me-3">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav w-100 d-flex justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link mx-3" href="{% url 'adopcion' %}">Conoce a tu próximo amiguito</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Conoce a tu proximo amiguito</a>
+                        <a class="nav-link mx-3" href="{% url 'historia' %}">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto_dhermes">Contacto</a>
+                        <a class="nav-link mx-3" href="{% url 'donaciones' %}">Donaciones</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Contenido de la página -->
-    <!-- Carrusel de Bootstrap -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-        </div>
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://via.placeholder.com/900x500" class="d-block w-100" alt="Primera imagen">
-            </div>
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/900x500/ff7f7f" class="d-block w-100" alt="Segunda imagen">
-            </div>
-            {% comment %}
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/900x500/77ff77" class="d-block w-100" alt="Tercera imagen">
-            </div>
-            {% endcomment %}
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-        </button>
+    <div class="container">
+        {% block content %}
+        <!-- Contenido de las plantillas hijas -->
+        {% endblock %}
     </div>
 
-    <!-- embeded de instagram -->
-    {% comment %}
-    en data-instgrm-permalink tendremos que dinamicamente poner los links de los perritos, que van a
-    estar guardados en los modelos {% endcomment %}
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DAZm4XbPg1f"
-        data-instgrm-version="14" style="max-width: 540px; width: 100%; margin: 0 auto;">
-
-    </blockquote>
-
-
-
-
-
-
     {% include "scripts_necesarios.html" %}
-
 </body>
 
 </html>
+

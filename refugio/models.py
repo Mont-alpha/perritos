@@ -1,16 +1,31 @@
 from django.db import models
 
 # Create your models here.
-class perritos(models.Model):
-    nombre_perrito = models.CharField(max_length=100)
-    edad = models.DateField()
-    raza = models.CharField(max_length=100)
-    genero = models.CharField(max_length=100)
+class Perrito(models.Model):
+    NIVELES_ENERGIA = [
+        ('baja', 'Baja'),
+        ('alta', 'Alta'),
+    ]
 
-    def __str__(self):
-        return self.name
+    SEXO = [
+        ('macho', 'Macho'),
+        ('hembra', 'Hembra'),
+    ]
+
+    TAMANOS = [
+        ('pequeño', 'Pequeño'),
+        ('mediano', 'Mediano'),
+        ('grande', 'Grande'),
+    ]
+
+    nombre = models.CharField(max_length=50)
+    edad = models.IntegerField()
+    nivel_energia = models.CharField(max_length=4, choices=NIVELES_ENERGIA)
+    sexo = models.CharField(max_length=6, choices=SEXO)
+    tamano = models.CharField(max_length=7, choices=TAMANOS)
+    es_adopcion_doble = models.BooleanField(default=False)
+    descripcion = models.TextField()
+    imagen = models.ImageField(upload_to='perritos/')
     
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=100)
     def __str__(self):
-        return self.nombre
+        return f"{self.nombre} - {self.sexo} - {self.tamano}"
