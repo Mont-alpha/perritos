@@ -10,6 +10,7 @@ from django.dispatch import receiver
 from django.views.generic import DetailView
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django import forms
 
 from .forms import ImageForm,PerritoForm
 from .models import Perrito
@@ -62,34 +63,20 @@ def eliminar_perrito(request,id):
 
 @login_required
 def agregar_perrito(request):
-    if request.POST:
-        nombre = request.POST['nombre']
-        edad = request.POST['edad']
-        raza = request.POST['raza']
-        genero = request.POST['genero']
-        tipo_casa = request.POST['tipo_casa']
-        descripcion = request.POST['descripcion']
-        nivel_energia = request.POST['nivel_energia']
-        tamano = request.POST['tamano']
-        es_adopcion_doble = request.POST.get('es_adopcion_doble', False)
-        img = request.FILES.get('img')
+    class modelo_perrito(forms.ModelForm):
+        class  Meta:
+            model = Perrito
+            fields = ['nombre', 'edad','sexo','descripcion','nivel_energia','es_adopcion_doble','tamano','imagen' ]
+  
 
-        perro = Perrito(
-            nombre=nombre,
-            edad=edad,
-            raza=raza,
-            sexo=genero,
-            tipo_casa=tipo_casa,
-            descripcion=descripcion,
-            nivel_energia=nivel_energia,
-            tamano=tamano,
-            es_adopcion_doble=es_adopcion_doble,
-            imagen=img
-        )
-        perro.save()
-        return redirect('administracion')
-    else:
-        return render(request,'agregar_perrito.html')
+    if request.POST:
+        formulario_creacion = modelo_perrito(request.POST,request.FILES)
+        if formulario_creacion.is_valid():
+            guardado = formulario_creacion.save()
+            return redirect('administracion')
+        else:
+            print(formulario_creacion.errors)
+            return redirect('administracion')
 
 
 def lista_perritos(request):

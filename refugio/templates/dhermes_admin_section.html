@@ -13,7 +13,7 @@
             <th>Nombre</th>
             <th>Edad</th>
             <th>Tamaño</th>
-            <th>energia</th>
+            <th>Energia</th>
             <th>Descripción</th>
             <th>Modificar</th>
             <th>Eliminar perrito</th>
@@ -25,24 +25,26 @@
                 <form action="{% url 'editar_perrito'  perrito.id %}" enctype="multipart/form-data" method="post">
                     {% csrf_token %}
                     <td>
+                        {% if perrito.imagen %}
                         <img src="{{ perrito.imagen.url }}" alt="Imagen de {{ perrito.nombre }}" class="img-thumbnail" style="width: 100px; height: auto;" id="imagen-preview-{{ perrito.id }}">
-
+                        {% else %}
+                        <img src="" alt="Imagen de {{ perrito.nombre }}" class="img-thumbnail" style="width: 100px; height: auto;" id="imagen-preview-{{ perrito.id }}">
+                        {% endif %}
                         <input type="file" name="imagen" class="form-control file mt-2" accept="image/*" onchange="onFileSelected(event, '{{ perrito.id }}')">
                     </td>
                     <td><input type="text" name="nombre" value="{{ perrito.nombre }}" class="form-control"></td>
                     <td><input type="number" name="edad" value="{{ perrito.edad }}" class="form-control"></td>
                     <td>
                         <select name="tamano" class="form-control" required>
-                            <option value="Pequeño" {% if perrito.tamano == "Pequeño" %}selected{% endif %}>Pequeño</option>
-                            <option value="Mediano" {% if perrito.tamano == "Mediano" %}selected{% endif %}>Mediano</option>
-                            <option value="Grande" {% if perrito.tamano == "Grande" %}selected{% endif %}>Grande</option>
+                            <option value="pequeño" {% if perrito.tamano == "Pequeño" %}selected{% endif %}>Pequeño</option>
+                            <option value="mediano" {% if perrito.tamano == "Mediano" %}selected{% endif %}>Mediano</option>
+                            <option value="grande" {% if perrito.tamano == "Grande" %}selected{% endif %}>Grande</option>
                         </select>
                     </td>
                     <td>
                         <select name="nivel_energia" class="form-control" required>
-                            <option value="Bajo" {% if perrito.nivel_energia == "Bajo" %}selected{% endif %}>Bajo</option>
-                            <option value="Medio" {% if perrito.nivel_energia == "Medio" %}selected{% endif %}>Medio</option>
-                            <option value="Alto" {% if perrito.nivel_energia == "Alto" %}selected{% endif %}>Alto</option>
+                            <option value="baja" {% if perrito.nivel_energia == "Bajo" %}selected{% endif %}>Bajo</option>
+                            <option value="alta" {% if perrito.nivel_energia == "Alto" %}selected{% endif %}>Alto</option>
                         </select>
                     </td>
                     <td><input type="text" name="descripcion" value="{{ perrito.descripcion }}" class="form-control">
@@ -53,11 +55,15 @@
                 <td><a href="{% url 'eliminar_perrito'  perrito.id %}" class="btn btn-danger">Eliminar </a></td>
 
             </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8" style="text-align: center;">No hay perritos registrados.</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
     <h3 class="my-4">Agregar Nuevo Perrito</h3>
-    <form method="post" action="" class="needs-validation" novalidate>
+    <form method="post" action="{% url 'agregar_perrito' %}" enctype="multipart/form-data" class="needs-validation" novalidate>
         {% csrf_token %}
         <div class="form-group">
             <label for="nombre">Nombre:</label>
@@ -78,21 +84,27 @@
         <div class="form-group">
             <label for="tamano">Tamaño:</label>
             <select class="form-control" id="tamano" name="tamano" required>
-                <option value="Pequeño">Pequeño</option>
-                <option value="Mediano">Mediano</option>
-                <option value="Grande">Grande</option>
+                <option value="pequeño">Pequeño</option>
+                <option value="mediano">Mediano</option>
+                <option value="grande">Grande</option>
             </select>
             <div class="invalid-feedback">
                 Por favor, seleccione el tamaño.
             </div>
         </div>
+        <div class="form-group">
+            <label for="nombre">Sexo:</label>
+            <select class="form-control" id="sexo" name="sexo" required>
+                <option value="macho">Macho</option>
+                <option value="hembra">Hembra</option>
+            </select>
+        </div>
 
         <div class="form-group">
             <label for="nivel_energia">Nivel de Energía:</label>
             <select class="form-control" id="nivel_energia" name="nivel_energia" required>
-                <option value="Bajo">Bajo</option>
-                <option value="Medio">Medio</option>
-                <option value="Alto">Alto</option>
+                <option value="baja">Bajo</option>
+                <option value="alta">Alto</option>
             </select>
             <div class="invalid-feedback">
                 Por favor, seleccione el nivel de energía.
