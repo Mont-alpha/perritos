@@ -7,7 +7,7 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  scrollbar-color: #4A9B8D #313131;
+  scrollbar-color: #537FE7 #313131;
   overflow-x: hidden;
 }
 
@@ -110,11 +110,11 @@ body {
   font-size: 16px;
   line-height: 1.3;
   overflow-x: hidden;
-  color: #fff;
+  color: #000000;
 }
 
 .home {
-  background: linear-gradient(107.75deg, #4A9B8D 6.18%, #428F81 37.46%, #148773 81.25%);
+  background: linear-gradient(107.75deg, #E9F8F9 6.18%, #C0EEF2 37.46%, #537FE7 81.25%);
   position: relative;
 }
 
@@ -170,7 +170,7 @@ body {
   left: 0;
   right: 0;
   bottom: -3px;
-  background: #fff;
+  background: #181823;
   transform: translateX(-101%);
   transition: all 0.3s;
 }
@@ -211,7 +211,7 @@ body {
   display: flex;
   align-items: center;
   padding: 18px 21px;
-  border: 1px solid #fff;
+  border: 1px solid #000000;
   border-radius: 10px 5px;
   gap: 15px;
   font-size: 14px;
@@ -230,7 +230,7 @@ body {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: #fff;
+  background: #C0EEF2;
   transition: width 0.5s, height 0.5s;
 }
 
@@ -474,7 +474,7 @@ body {
   cursor: pointer;
   transition: all .3s ease;
   z-index: 1;
-  background: linear-gradient(107.75deg, #4A9B8D 6.18%, #428F81 37.46%, #148773 81.25%);
+  background: linear-gradient(107.75deg, #E9F8F9 6.18%, #C0EEF2 37.46%, #537FE7 81.25%);
   animation: about-skelet 0.6s linear infinite alternate;
 }
 
@@ -531,7 +531,7 @@ body {
 }
 
 .features {
-  background: linear-gradient(107.75deg, #4A9B8D 6.18%, #428F81 37.46%, #148773 81.25%);
+  background: linear-gradient(107.75deg, #E9F8F9 6.18%, #C0EEF2 37.46%, #537FE7 81.25%);
   position: relative;
   overflow: hidden;
 }

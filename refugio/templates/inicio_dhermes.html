@@ -11,7 +11,7 @@
 	<meta name="keywords" content="Green Shelter, Team, About, Gallery, Dog, War">
 	<title>Green Shelter</title>
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" href="{% static 'img/logo.svg' %}">
+    <link rel="icon" href="{% static 'img/logo_real.svg' %}">
 </head>
 
 <body>
@@ -26,8 +26,9 @@
 				<div class="container">
 					<nav class="header__inner">
 						<div class="header__logo">
-							<svg width="60" height="59" viewBox="0 0 60 59" fill="none" xmlns="http://www.w3.org/2000/svg"
-								class="header-img">
+							
+							<img src="{% static 'img/Logo-dhermes-sin-fondo.png' %}" alt="Logo de dhermes" width="60" height="59" viewBox="0 0 60 59" fill="none" class="header-img">
+
 								<g clip-path="url(#clip0_320_427)">
 									<path
 										d="M30 0C13.458 0 0 13.1941 0 29.4118C0 45.6294 13.458 58.8235 30 58.8235C46.542 58.8235 60 45.6294 60 29.4118C60 13.1941 46.542 0 30 0ZM58.8413 29.4118C58.8413 45.0031 45.9032 57.6875 30 57.6875C14.0968 57.6875 1.1587 45.0031 1.1587 29.4118C1.1587 13.8204 14.0968 1.13598 30 1.13598C45.9032 1.13598 58.8413 13.8204 58.8413 29.4118Z"
@@ -84,17 +85,16 @@
 									</clipPath>
 								</defs>
 							</svg>
-							<span class="header__logo-text">Green Shelter</span>
+							<span class="header__logo-text">Fundacion Dhermes</span>
 						</div>
 						<ul class="header__menu">
 							<li class="header__menu-list"><a aria-label="About" href="#about"
-									class="header__menu-link language-nav-about">Хто ми</a>
+									class="header__menu-link language-nav-about">Conoce a tu proximo amiguito</a>
 							</li>
 							<li class="header__menu-list"><a aria-label="Our activities" href="#blog"
-									class="header__menu-link language-nav-activities">Наша
-									діяльність</a></li>
+									class="header__menu-link language-nav-activities">Nosotros</a></li>
 							<li class="header__menu-list"><a aria-label="Team" href="#team"
-									class="header__menu-link language-nav-team">Команда</a>
+									class="header__menu-link language-nav-team">Donaciones</a>
 							</li>
 							<li class="header__menu-list"><a aria-label="Gallery" href="#gallery"
 									class="header__menu-link language-nav-gallery">Галерея</a>
@@ -106,17 +106,14 @@
 						</ul>
 						<div class="header__btn">
 							<button class="header__button">
-								<span class="language-btn">Підтримати</span>
+								<span class="language-btn">Donar</span>
 								<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path
 										d="M11.5683 19.0758C11.2566 19.1858 10.7433 19.1858 10.4316 19.0758C7.77325 18.1683 1.83325 14.3825 1.83325 7.96584C1.83325 5.13334 4.11575 2.84167 6.92992 2.84167C8.59825 2.84167 10.0741 3.64834 10.9999 4.89501C11.4709 4.25873 12.0843 3.74159 12.7911 3.38502C13.4978 3.02846 14.2783 2.84237 15.0699 2.84167C17.8841 2.84167 20.1666 5.13334 20.1666 7.96584C20.1666 14.3825 14.2266 18.1683 11.5683 19.0758Z"
 										stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
 								</svg>
 							</button>
-							<div class="header-languages">
-								<div class="languages-selctor ua">UA</div>
-								<div class="languages-selctor en">EN</div>
-							</div>
+			
 						</div>
 						<div class="header__burger">
 							<div class="header__burger-item"></div>
@@ -129,6 +126,8 @@
 			</header>
 
 			<!-- /header -->
+
+			
 			<!-- top	 -->
 
 			<section class="top" id="top">
@@ -136,28 +135,27 @@
 					xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M29.4127 45.6499C30.9946 47.2242 30.9946 49.7768 29.4127 51.3511C27.8307 52.9254 25.266 52.9254 23.684 51.3511L2.08012 29.8505C0.49821 28.2762 0.49821 25.7237 2.08012 24.1493L23.684 2.64879C25.266 1.07444 27.8307 1.07444 29.4127 2.64879C30.9946 4.22313 30.9946 6.77564 29.4127 8.34998L14.7238 22.9686L67.0557 22.9686C69.2929 22.9686 71.1064 24.7735 71.1064 26.9999C71.1064 29.2264 69.2929 31.0313 67.0557 31.0313L14.7238 31.0313L29.4127 45.6499Z"
-						stroke="white" stroke-opacity="0.2" stroke-linecap="round" />
+						stroke="black" stroke-opacity="1" stroke-linecap="round" />
 				</svg>
 				<svg class="top-arrow top-arrow-right" width="72" height="54" viewBox="0 0 72 54" fill="none"
 					xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M29.4127 45.6499C30.9946 47.2242 30.9946 49.7768 29.4127 51.3511C27.8307 52.9254 25.266 52.9254 23.684 51.3511L2.08012 29.8505C0.49821 28.2762 0.49821 25.7237 2.08012 24.1493L23.684 2.64879C25.266 1.07444 27.8307 1.07444 29.4127 2.64879C30.9946 4.22313 30.9946 6.77564 29.4127 8.34998L14.7238 22.9686L67.0557 22.9686C69.2929 22.9686 71.1064 24.7735 71.1064 26.9999C71.1064 29.2264 69.2929 31.0313 67.0557 31.0313L14.7238 31.0313L29.4127 45.6499Z"
-						stroke="white" stroke-opacity="0.2" stroke-linecap="round" />
+						stroke="black" stroke-opacity="1" stroke-linecap="round" />
 				</svg>
 				<div class="top__wrapper">
 					<div class="top-content">
 						<div class="top-line" data-offset="0">
 							<div class="container">
 								<div class="top__info">
-									<img src="{% static 'img/dog-1.webp' %}" alt="dog" class="top-img">
+									<img src="{% static 'img/dog-1.png' %}" alt="dog" class="top-img">
 									<div class="top__about">
-										<h1 class="top__title language-paw">Дай мені шанс пережити цю війну. Я тобі дам лапу</h1>
-										<p class="top__text language-subtitle">На даний момент багато собак потребують евакувації
-											з зони бойових <br> дій. цим якраз займаємося ми Green Shelter.
+										<h1 class="top__title language-paw">Adoptame!</h1>
+										<p class="top__text language-subtitle">¡Adopta y cambia una vida! 🐾 En Refugio DHermes, cada perro está esperando una segunda oportunidad y un hogar lleno de amor. Al adoptar, no solo le das una familia a un amigo fiel, sino que haces espacio para salvar a otro. Ven y encuentra a tu compañero ideal, ¡tu nuevo mejor amigo te está esperando en DHermes! ❤️
 										</p>
 										<button class="top__button">
 											<a aria-label="Top button-first" href="#contact">
-												<span class="language-top-btn">Знайти друга</span>
+												<span class="language-top-btn">Adoptar</span>
 												<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
 													xmlns="http://www.w3.org/2000/svg">
 													<path
@@ -176,16 +174,12 @@
 								<div class="top__info">
 									<img src="{% static 'img/dog-2.webp' %}" alt="dog" class="top-img">
 									<div class="top__about">
-										<h1 class="top__title top-title-second language-contribution">Зроби свій внесок у
-											будівництво
-											нашого притулку – подаруй
-											шанс песику знайти мирну домівку.</h1>
-										<p class="top__text language-subtitle">На даний момент багато собак потребують евакувації
-											з
-											зони бойових <br> дій. цим якраз займаємося ми Green Shelter.</p>
+										<h1 class="top__title top-title-second language-contribution">Tus donaciones nos ayudan mucho!</h1>
+										<p class="top__text language-subtitle">
+											¡Tu ayuda salva vidas! 🐾 Si no puedes adoptar, aún puedes hacer una gran diferencia con una donación a Refugio DHermes. Cada aporte nos ayuda a cubrir alimento, tratamientos médicos y cuidados para nuestros peludos mientras esperan un hogar. Con tu apoyo, seguimos brindando esperanza y bienestar a quienes más lo necesitan. ¡Dona y sé parte de esta misión de amor! ❤️</p>
 										<button class="top__button">
 											<a aria-label="Top button-second" href="#contact">
-												<span class="language-top-btn">Знайти друга</span>
+												<span class="language-top-btn">Donar</span>
 												<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
 													xmlns="http://www.w3.org/2000/svg">
 													<path
@@ -204,17 +198,13 @@
 								<div class="top__info">
 									<img src="{% static 'img/dog-1.webp' %}" alt="dog" class="top-img">
 									<div class="top__about">
-										<h1 class="top__title  language-paw">Дай мені шанс пережити цю війну. Я тобі дам лапу</h1>
-										<p class="top__text language-subtitle">На даний момент багато собак потребують евакувації
-											з
-											зони
-											бойових
-											<br>
-											дій. цим якраз займаємося ми Green Shelter.
+										<h1 class="top__title  language-paw">Porque cualquier ayuda sirve!</h1>
+										<p class="top__text language-subtitle">¡Tus donaciones en especie son pura alegría para ellos! 🐾 En Refugio DHermes siempre necesitamos juguetes, alimento y mantas para mejorar la vida de nuestros perritos mientras esperan una familia. Cada aportación ayuda a que se sientan queridos y cuidados. ¡Acércate con lo que puedas, y dale un momento de felicidad a estos amigos que lo necesitan tanto! 🧡
+											
 										</p>
 										<button class="top__button">
 											<a aria-label="Top button-third" href="#contact">
-												<span class="language-top-btn">Знайти друга</span>
+												<span class="language-top-btn">Aportar</span>
 												<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
 													xmlns="http://www.w3.org/2000/svg">
 													<path
@@ -233,16 +223,11 @@
 								<div class="top__info">
 									<img src="{% static 'img/dog-2.webp' %}" alt="dog" class="top-img">
 									<div class="top__about">
-										<h1 class="top__title top-title-second language-contribution">Зроби свій внесок у
-											будівництво
-											нашого притулку – подаруй
-											шанс песику знайти мирну домівку.</h1>
-										<p class="top__text language-subtitle">На даний момент багато собак потребують евакувації
-											з
-											зони бойових <br> дій. цим якраз займаємося ми Green Shelter.</p>
+										<h1 class="top__title top-title-second language-contribution">¡Transforma Vidas con DHermes: Adopta, Dona, y Haz la Diferencia!</h1>
+										<p class="top__text language-subtitle">¡Únete a la causa de DHermes! 🐾 Adopta y dale un hogar a un peludo amigo, o apoya con donaciones monetarias, alimentos, mantas y juguetes. Cada aporte cuenta y hace posible que nuestros perritos tengan la vida que merecen mientras esperan una familia. ¡Sé parte del cambio y ayuda a transformar vidas con DHermes! ❤️</p>
 										<button class="top__button">
 											<a aria-label="Top button-fourth" href="#contact">
-												<span class="language-top-btn">Знайти друга</span>
+												<span class="language-top-btn">Informacion</span>
 												<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
 													xmlns="http://www.w3.org/2000/svg">
 													<path
@@ -278,17 +263,21 @@
 				<div class="container">
 					<div class="about__inner">
 						<div data-tilt class="about__img">
-							<img data-src="{% static 'img/about/about-1.webp'%}" src="{% static 'img/lazy.png' %}" alt="about images"
-								class="about-img anim-items">
+							<video width="100%" height="360" controls class="rounded shadow-sm about-img anim-items">
+								<source src="{% static 'img/video.mp4' %}" type="video/mp4">
+								Tu navegador no soporta la etiqueta de video.
+							</video>
+								
 						</div>
 						<div class="about__info">
-							<h2 class="about__title title anim-items"><span>Green house</span> dogs shelter</h2>
-							<p class="about__text text anim-items language-about">Громадська організація, що опікується
-								безпритульними собаками, яких евакуювали з зони бойових дій. Наша мета – надати належні умови
-								для
-								евакуйованих притулків та приватних собак, які шукають тимчасовий прихисток. Допомогти з
-								підготовкою вакцин та документів для подальшого виїзду за кордон у приймаючі сім’ї чи притулки
-								інших організацій.</p>
+							<h2 class="about__title title anim-items"><span>Historia</span> Fundacion Dhermes</h2>
+							<p class="about__text text anim-items language-about">En el año 2005, el vertedero de Viña del Mar anunciaba el cierre definitivo de sus puertas, pero
+								con un problema que involucraría el sacrificio de aproximadamente 60 perros abandonados. Es así
+								como gracias a la fundadora Helena Ganón Roselot nace Refugio Dhermes, que a partir de ese
+								momento se convirtió en una organización de voluntarios que no solo se hizo cargo de los
+								animales que se encontraban en aquel lugar, sino que su obra ha ido creciendo a través del
+								tiempo, llevando una labor de rescate y cuidado de decenas de perros a lo largo de toda la
+								quinta región.</p>
 						</div>
 					</div>
 				</div>
@@ -301,41 +290,38 @@
 			<section class="features">
 				<div class="container">
 					<div class="features__inner">
-						<h2 class="features__title anim-items title language-features"><span>Окрім</span> донату для
-							будівництва, ми потребуємо:
+						<h2 class="features__title anim-items title language-features"><span>Tambien</span> nos puedes ayudar aportando cosas como:
 						</h2>
 						<div class="features__items">
 							<div class="features__item">
-								<img data-src="{% static 'img/features/features-1.svg' %}" src="{% static 'img/lazy.png' %}" alt="bowl"
+								<img data-src="{% static 'img/features/features-1.svg' %}" src="{% static 'img/lazy.png' %}" alt="Comida"
 									class="features-img anim-items">
-								<span class="anim-items language-features-bowl">Миски</span>
+								<span class="anim-items language-features-bowl">Comida</span>
 							</div>
 							<div class="features__item">
-								<img data-src="{% static 'img/features/features-2.svg' %}" src="{% static 'img/lazy.png' %}" alt="Dog food"
+								<img data-src="{% static 'img/features/features-2.svg' %}" src="{% static 'img/lazy.png' %}" alt="Juguetes"
 									class="features-img anim-items">
-								<span class="anim-items language-features-collars">Нашийники</span>
+								<span class="anim-items language-features-collars">Juguetes</span>
 							</div>
 							<div class="features__item">
 								<img data-src="{% static 'img/features/features-3.svg' %}" src="{% static 'img/lazy.png' %}" alt="collars"
 									class="features-img anim-items">
-								<span class="anim-items language-features-feed">Корми</span>
+								<span class="anim-items language-features-feed">Mantas</span>
 							</div>
 							<div class="features__item">
 								<img data-src="{% static 'img/features/features-4.svg' %}" src="{% static 'img/lazy.png' %}" alt="medication"
 									class="features-img anim-items">
-								<span class="anim-items language-features-volunteers">Волонтери для <br> догляду за
-									собаками</span>
+								<span class="anim-items language-features-volunteers">Medicamentos</span>
 							</div>
 							<div class="features__item">
 								<img data-src="{% static 'img/features/features-5.svg' %}" src="{% static 'img/lazy.png' %}" alt="vitamins"
 									class="features-img anim-items">
-								<span class="anim-items language-features-treatment">Припарати для <br> обробки від
-									кліщів</span>
+								<span class="anim-items language-features-treatment">Productos<br>de higiene</span>
 							</div>
 							<div class="features__item">
 								<img data-src="{% static 'img/features/features-6.svg' %}" src="{% static 'img/lazy.png' %}" alt="kennels for dogs"
 									class="features-img anim-items">
-								<span class="anim-items language-features-booth">Будки для <br> собак</span>
+								<span class="anim-items language-features-booth">Cajas de <br> transporte</span>
 							</div>
 						</div>
 					</div>
