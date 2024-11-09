@@ -9,9 +9,12 @@
 	<meta name="description"
 		content="Green Shelter is an NGO that takes care of homeless dogs that were evacuated from the war zone.">
 	<meta name="keywords" content="Green Shelter, Team, About, Gallery, Dog, War">
-	<title>Green Shelter</title>
+	<title>Regufio Dhermes</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Importar fuente -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" href="{% static 'img/logo_real.svg' %}">
+
 </head>
 
 <body>
@@ -88,7 +91,7 @@
 							<span class="header__logo-text">Fundacion Dhermes</span>
 						</div>
 						<ul class="header__menu">
-							<li class="header__menu-list"><a aria-label="About" href="#about"
+							<li class="header__menu-list"><a aria-label="About" href="{% url 'adopcion' %}"
 									class="header__menu-link language-nav-about">Conoce a tu proximo amiguito</a>
 							</li>
 							<li class="header__menu-list"><a aria-label="Our activities" href="#blog"
@@ -294,32 +297,33 @@
 						</h2>
 						<div class="features__items">
 							<div class="features__item">
-								<img data-src="{% static 'img/features/features-1.svg' %}" src="{% static 'img/lazy.png' %}" alt="Comida"
+								
+								<img src="{% static 'img/features/features-1.svg' %}" src="{% static 'img/lazy.png' %}" alt="Comida"
 									class="features-img anim-items">
 								<span class="anim-items language-features-bowl">Comida</span>
 							</div>
 							<div class="features__item">
-								<img data-src="{% static 'img/features/features-2.svg' %}" src="{% static 'img/lazy.png' %}" alt="Juguetes"
+								<img src="{% static 'img/features/features-2.svg' %}" src="{% static 'img/lazy.png' %}" alt="Juguetes"
 									class="features-img anim-items">
 								<span class="anim-items language-features-collars">Juguetes</span>
 							</div>
 							<div class="features__item">
-								<img data-src="{% static 'img/features/features-3.svg' %}" src="{% static 'img/lazy.png' %}" alt="collars"
+								<img src="{% static 'img/features/features-3.svg' %}" src="{% static 'img/lazy.png' %}" alt="collars"
 									class="features-img anim-items">
 								<span class="anim-items language-features-feed">Mantas</span>
 							</div>
 							<div class="features__item">
-								<img data-src="{% static 'img/features/features-4.svg' %}" src="{% static 'img/lazy.png' %}" alt="medication"
+								<img src="{% static 'img/features/features-4.svg' %}" src="{% static 'img/lazy.png' %}" alt="medication"
 									class="features-img anim-items">
 								<span class="anim-items language-features-volunteers">Medicamentos</span>
 							</div>
 							<div class="features__item">
-								<img data-src="{% static 'img/features/features-5.svg' %}" src="{% static 'img/lazy.png' %}" alt="vitamins"
+								<img src="{% static 'img/features/features-5.svg' %}" src="{% static 'img/lazy.png' %}" alt="vitamins"
 									class="features-img anim-items">
 								<span class="anim-items language-features-treatment">Productos<br>de higiene</span>
 							</div>
 							<div class="features__item">
-								<img data-src="{% static 'img/features/features-6.svg' %}" src="{% static 'img/lazy.png' %}" alt="kennels for dogs"
+								<img src="{% static 'img/features/features-6.svg' %}" src="{% static 'img/lazy.png' %}" alt="kennels for dogs"
 									class="features-img anim-items">
 								<span class="anim-items language-features-booth">Cajas de <br> transporte</span>
 							</div>
@@ -385,27 +389,27 @@
 			<section class="gallery" id="gallery">
 				<div class="container">
 					<div class="gallery__inner">
-						<h2 class="gallery__title title anim-items language-gallery-title"><span>Г</span>алерея</h2>
+						<h2 class="gallery__title title anim-items language-gallery-title"><span></span> Galeria</h2>
 						<div class="gallery__items">
 							<div class="gallery__column">
-								<img data-src="./images/gallery/gellery-1.webp" src="{% static 'img/lazy.png' %}" alt="dog"
+								<img src="{% static 'img/1.webp' %}" src="{% static 'img/lazy.png' %}" alt="dog"
 									class="gallery-img dog-1 anim-items">
-								<img data-src="./images/gallery/gellery-5.webp" src="{% static 'img/lazy.png' %}" alt="dog"
+								<img src="{% static 'img/a.png' %}" src="{% static 'img/lazy.png' %}" alt="dog"
 									class="gallery-img dog-2 anim-items">
 							</div>
 							<div class="gallery__column">
 								<div class="gallery__row">
-									<img data-src="./images/gallery/gellery-2.webp" src="{% static 'img/lazy.png' %}" alt="dog"
+									<img src="{% static 'img/2.jpg' %}" src="{% static 'img/lazy.png' %}" alt="dog"
 										class="gallery-img dog-3 anim-items">
-									<img data-src="./images/gallery/gellery-3.webp" src="{% static 'img/lazy.png' %}" alt="dog"
+									<img src="{% static 'img/3.webp' %}" src="{% static 'img/lazy.png' %}" alt="dog"
 										class="gallery-img dog-4 anim-items">
 								</div>
-								<img data-src="./images/gallery/gellery-4.webp" src="{% static 'img/lazy.png' %}" alt="dog"
+								<img src="{% static 'img/4.jpg' %}" src="{% static 'img/lazy.png' %}" alt="dog"
 									class="gallery-img dog-5 anim-items">
 								<div class="gallery__row">
-									<img data-src="./images/gallery/gellery-6.webp" src="{% static 'img/lazy.png' %}" alt="dog"
+									<img src="{% static 'img/5.webp' %}" src="{% static 'img/lazy.png' %}" alt="dog"
 										class="gallery-img dog-6 anim-items">
-									<img data-src="./images/gallery/gellery-7.webp" src="{% static 'img/lazy.png' %}" alt="dog"
+									<img src="{% static 'img/6.jpg' %}" src="{% static 'img/lazy.png' %}" alt="dog"
 										class="gallery-img dog-7 anim-items">
 								</div>
 							</div>
@@ -588,36 +592,36 @@
 				<div class="container">
 					<div class="contact__inner">
 						<div class="contact__column">
-							<h2 class="contact__title title hello-title language-contact-hello">Скажи привіт</h2>
+							<h2 class="contact__title title hello-title language-contact-hello">Contactanos</h2>
 							<form class="contact-form" action="https://formspree.io/f/xrgvoayl" method="POST"
 								autocomplete="off" required>
-								<input autocomplete="off" required placeholder="Ваше імя" type="text"
+								<input autocomplete="off" required placeholder="Nombre" type="text"
 									class="contact-input anim-input anim-items" name="name">
-								<input autocomplete="off" required placeholder="Ваш номер телефону" name="number" type="tel"
+								<input autocomplete="off" required placeholder="Telefono" name="number" type="tel"
 									class="contact-input anim-input anim-items">
 								<div class="contact-sent-input anim-items">
-									<input autocomplete="off" required placeholder="Ваш імейл" type="email" name="email"
+									<input autocomplete="off" required placeholder="Correo" type="email" name="email"
 										class="contact-input">
-									<button class="contact__button" id="my-form-button">Надіслати</button>
+									<button class="contact__button" id="my-form-button">Enviar</button>
 								</div>
 							</form>
 							<ul class="contact__nav">
 								<li class="contact-item">
 									<a aria-label="Contact link map place email" href="https://goo.gl/maps/5kgZPnrX68R21BXm9">
 										<img src="./images/contact/loaction.svg" alt="location" class="contact-img">
-										<span class="language-location">м. Яворів Львівська область</span>
+										<span class="language-location">Ubicacion</span>
 									</a>
 								</li>
 								<li class="contact-item">
 									<a aria-label="Contact link-email" href="mailto: greenhousedogsshelter@gmail.com">
 										<img src="./images/contact/mail.svg" alt="mail" class="contact-img">
-										<span>greenhousedogsshelter@gmail.com</span>
+										<span>Correo@dhermescorreo.cl</span>
 									</a>
 								</li>
 							</ul>
 						</div>
 						<div class="contact__column">
-							<h2 class="contact__title title language-contact-loaction">Наша локація</h2>
+							<h2 class="contact__title title language-contact-loaction">Ubicacion</h2>
 							<a aria-label="Contact link-map" target="_blank" href="https://goo.gl/maps/5kgZPnrX68R21BXm9">
 								<div class="contact__map"
 									data-map="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1659.786036252768!2d23.37400318453778!3d49.94737350612621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDnCsDU2JzUwLjYiTiAyM8KwMjInMzEuMCJF!5e1!3m2!1suk!2spl!4v1681425424517!5m2!1suk!2spl">
@@ -637,19 +641,15 @@
 		<footer class="footer">
 			<div class="container">
 				<div class="footer__inner">
-					<div class="footer__copyright">© Green Shelter 2023</div>
+					<div class="footer__copyright">© Refugio Dhermes 2024</div>
 					<ul class="footer__social">
 						<li class="footer__item">
-							<a aria-label="Footer links instagram" href="https://www.instagram.com/green_house_dogs_shelter/"
+							<a aria-label="Footer links instagram" href="https://www.instagram.com/refugiodhermes/"
 								target="_blank">
 								<img src="./images/footer/footer-2.svg" alt="instagram" class="footer-img">
 							</a>
 						</li>
-						<li class="footer__item">
-							<a aria-label="Footer links telegram" href="https://web.telegram.org/k/" target="_blank">
-								<img src="./images/footer/footer-3.svg" alt="telegram" class="footer-img">
-							</a>
-						</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -671,6 +671,8 @@
 
 	<script src="{% static 'js/vanilla-tilt.min.js' %}" defer></script>
     <script src="{% static 'js/main.js' %}" defer></script>
+	{% include "scripts_necesarios.html" %}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
 </body>
 
 </html>
