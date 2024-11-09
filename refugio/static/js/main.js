@@ -16,15 +16,9 @@ const sliderLine = document.querySelector(".top-content"),
 	blogBtns = document.querySelectorAll(".blog__more-btn"),
 	blogVideo = document.querySelectorAll(".blog-video"),
 	blogItems = document.querySelectorAll(".blog__more-item"),
-	cardBtn = document.querySelector("#card-btn"),
-	cardAboutBtn = document.querySelector(".card__about-btn"),
-	cardClose = document.querySelector(".card-close"),
-	card = document.querySelector(".card"),
-	payClose = document.querySelector(".pay-close"),
 	html = document.querySelector("HTML"),
 	popup = document.querySelector(".popup"),
 	topLines = document.querySelectorAll(".top-line"),
-	cardAboutButton = document.querySelector(".card__about-btn"),
 	contactBtn = document.querySelector("#my-form-button"),
 	contactInputs = document.querySelectorAll(".contact-input");
 
@@ -130,31 +124,9 @@ headerBtn.addEventListener("click", () => {
 	pay.classList.add("active");
 });
 
-payClose.addEventListener("click", () => {
-	sectionsOn(disableArray);
-	pay.classList.remove("active");
-	card.classList.remove("active");
-});
 
-cardBtn.addEventListener("click", () => {
-	pay.classList.remove("active");
-	card.classList.add("active");
-});
 
-cardClose.addEventListener("click", () => {
-	sectionsOn(disableArray);
-	header.classList.remove("popup");
-	main.classList.remove("popup");
-	footer.classList.remove("popup");
-	pay.classList.remove("active");
-	card.classList.remove("active");
-});
 
-cardAboutBtn.addEventListener("click", (e) => {
-	paymentAppear()
-	card.classList.remove("active")
-	sectionsOn(disableArray)
-})
 
 // /popups
 
@@ -206,7 +178,6 @@ function btnAnimation(element) {
 }
 
 btnAnimation(headerBtn);
-btnAnimation(cardAboutBtn);
 
 // /button animation
 
@@ -297,19 +268,6 @@ if (window.innerWidth < 1024) {
 
 // input validation
 
-const inputToValidate = [16, 2, 4, 3, 10];
-const cardInputs = document.querySelectorAll(".card__input");
-
-for (let i = 0;i < inputToValidate.length;i++) {
-	const currentInput = cardInputs[i];
-	currentInput.addEventListener("input", (e) => {
-		let input = e.target.value;
-		if (input.length > inputToValidate[i]) {
-			input = input.slice(0, inputToValidate[i]);
-			currentInput.value = input;
-		};
-	});
-};
 // /input validation
 
 // forms spree
