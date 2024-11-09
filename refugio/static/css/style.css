@@ -1140,7 +1140,7 @@ body {
 }
 
 .contact {
-  background: #313340;
+  background: #459dd3;
 }
 
 .contact__inner {
@@ -1286,7 +1286,7 @@ body {
   border-radius: 8px;
   position: relative;
   overflow: hidden;
-  background: #333;
+  background: #2195c7;
   animation: contact-skelet 0.6s linear infinite alternate;
 }
 
@@ -1342,7 +1342,7 @@ body {
 }
 
 .footer {
-  background: #313340;
+  background: #73c0d5;
 }
 
 .footer__inner {

@@ -24,7 +24,7 @@ def home(request):
     return render(request,'inicio_dhermes.html')
 
 def historia(request):
-    return render(request,'historia.html')
+    return render(request,'inicio_dhermes.html')
 def donaciones(request):
     return render(request,'donaciones.html')
     
