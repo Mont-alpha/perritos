@@ -4,422 +4,438 @@
 {% block title %}Home - Refugio Dhermes{% endblock %}
 
 {% block content %}
-			
-			<!-- top	 -->
 
-			<section class="top" id="top">
-				<svg class="top-arrow top-arrow-left" width="72" height="54" viewBox="0 0 72 54" fill="none"
-					xmlns="http://www.w3.org/2000/svg">
-					<path
-						d="M29.4127 45.6499C30.9946 47.2242 30.9946 49.7768 29.4127 51.3511C27.8307 52.9254 25.266 52.9254 23.684 51.3511L2.08012 29.8505C0.49821 28.2762 0.49821 25.7237 2.08012 24.1493L23.684 2.64879C25.266 1.07444 27.8307 1.07444 29.4127 2.64879C30.9946 4.22313 30.9946 6.77564 29.4127 8.34998L14.7238 22.9686L67.0557 22.9686C69.2929 22.9686 71.1064 24.7735 71.1064 26.9999C71.1064 29.2264 69.2929 31.0313 67.0557 31.0313L14.7238 31.0313L29.4127 45.6499Z"
-						stroke="black" stroke-opacity="1" stroke-linecap="round" />
-				</svg>
-				<svg class="top-arrow top-arrow-right" width="72" height="54" viewBox="0 0 72 54" fill="none"
-					xmlns="http://www.w3.org/2000/svg">
-					<path
-						d="M29.4127 45.6499C30.9946 47.2242 30.9946 49.7768 29.4127 51.3511C27.8307 52.9254 25.266 52.9254 23.684 51.3511L2.08012 29.8505C0.49821 28.2762 0.49821 25.7237 2.08012 24.1493L23.684 2.64879C25.266 1.07444 27.8307 1.07444 29.4127 2.64879C30.9946 4.22313 30.9946 6.77564 29.4127 8.34998L14.7238 22.9686L67.0557 22.9686C69.2929 22.9686 71.1064 24.7735 71.1064 26.9999C71.1064 29.2264 69.2929 31.0313 67.0557 31.0313L14.7238 31.0313L29.4127 45.6499Z"
-						stroke="black" stroke-opacity="1" stroke-linecap="round" />
-				</svg>
-				<div class="top__wrapper">
-					<div class="top-content">
-						<div class="top-line" data-offset="0">
-							<div class="container">
-								<div class="top__info">
-									<img src="{% static 'img/dog-1.png' %}" alt="dog" class="top-img">
-									<div class="top__about">
-										<h1 class="top__title language-paw">Adoptame!</h1>
-										<p class="top__text language-subtitle">¡Adopta y cambia una vida! 🐾 En Refugio DHermes, cada perro está esperando una segunda oportunidad y un hogar lleno de amor. Al adoptar, no solo le das una familia a un amigo fiel, sino que haces espacio para salvar a otro. Ven y encuentra a tu compañero ideal, ¡tu nuevo mejor amigo te está esperando en DHermes! ❤️
-										</p>
-										<button class="top__button">
-											<a aria-label="Top button-first" href="{% url 'adopcion' %}">
-												<span class="language-top-btn">Adoptar</span>
-												<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M11.5683 19.0758C11.2566 19.1858 10.7433 19.1858 10.4316 19.0758C7.77325 18.1683 1.83325 14.3825 1.83325 7.96584C1.83325 5.13334 4.11575 2.84167 6.92992 2.84167C8.59825 2.84167 10.0741 3.64834 10.9999 4.89501C11.4709 4.25873 12.0843 3.74159 12.7911 3.38502C13.4978 3.02846 14.2783 2.84237 15.0699 2.84167C17.8841 2.84167 20.1666 5.13334 20.1666 7.96584C20.1666 14.3825 14.2266 18.1683 11.5683 19.0758Z"
-														stroke="#333333" stroke-width="1.2" stroke-linecap="round"
-														stroke-linejoin="round" />
-												</svg>
-											</a>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="top-line" data-offset="100">
-							<div class="container">
-								<div class="top__info">
-									<img src="{% static 'img/dog-2.png' %}" alt="dog" class="top-img">
-									<div class="top__about">
-										<h1 class="top__title top-title-second language-contribution">Tus donaciones nos ayudan mucho!</h1>
-										<p class="top__text language-subtitle">
-											¡Tu ayuda salva vidas! 🐾 Si no puedes adoptar, aún puedes hacer una gran diferencia con una donación a Refugio DHermes. Cada aporte nos ayuda a cubrir alimento, tratamientos médicos y cuidados para nuestros peludos mientras esperan un hogar. Con tu apoyo, seguimos brindando esperanza y bienestar a quienes más lo necesitan. ¡Dona y sé parte de esta misión de amor! ❤️</p>
-										<button class="top__button">
-											<a aria-label="Top button-second" href="{% url 'donaciones' %}">
-												<span class="language-top-btn">Donar</span>
-												<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M11.5683 19.0758C11.2566 19.1858 10.7433 19.1858 10.4316 19.0758C7.77325 18.1683 1.83325 14.3825 1.83325 7.96584C1.83325 5.13334 4.11575 2.84167 6.92992 2.84167C8.59825 2.84167 10.0741 3.64834 10.9999 4.89501C11.4709 4.25873 12.0843 3.74159 12.7911 3.38502C13.4978 3.02846 14.2783 2.84237 15.0699 2.84167C17.8841 2.84167 20.1666 5.13334 20.1666 7.96584C20.1666 14.3825 14.2266 18.1683 11.5683 19.0758Z"
-														stroke="#333333" stroke-width="1.2" stroke-linecap="round"
-														stroke-linejoin="round" />
-												</svg>
-											</a>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="top-line" data-offset="200">
-							<div class="container">
-								<div class="top__info">
-									<img src="{% static 'img/dog-3.png' %}" alt="dog" class="top-img">
-									<div class="top__about">
-										<h1 class="top__title  language-paw">Porque cualquier ayuda sirve!</h1>
-										<p class="top__text language-subtitle">¡Tus donaciones en especie son pura alegría para ellos! 🐾 En Refugio DHermes siempre necesitamos juguetes, alimento y mantas para mejorar la vida de nuestros perritos mientras esperan una familia. Cada aportación ayuda a que se sientan queridos y cuidados. ¡Acércate con lo que puedas, y dale un momento de felicidad a estos amigos que lo necesitan tanto! 🧡
-											
-										</p>
-										<button class="top__button">
-											<a aria-label="Top button-third" href="#contact">
-												<span class="language-top-btn">Aportar</span>
-												<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M11.5683 19.0758C11.2566 19.1858 10.7433 19.1858 10.4316 19.0758C7.77325 18.1683 1.83325 14.3825 1.83325 7.96584C1.83325 5.13334 4.11575 2.84167 6.92992 2.84167C8.59825 2.84167 10.0741 3.64834 10.9999 4.89501C11.4709 4.25873 12.0843 3.74159 12.7911 3.38502C13.4978 3.02846 14.2783 2.84237 15.0699 2.84167C17.8841 2.84167 20.1666 5.13334 20.1666 7.96584C20.1666 14.3825 14.2266 18.1683 11.5683 19.0758Z"
-														stroke="#333333" stroke-width="1.2" stroke-linecap="round"
-														stroke-linejoin="round" />
-												</svg>
-											</a>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="top-line" data-offset="300">
-							<div class="container">
-								<div class="top__info">
-									<img src="{% static 'img/dog-2.webp' %}" alt="dog" class="top-img">
-									<div class="top__about">
-										<h1 class="top__title top-title-second language-contribution">¡Transforma Vidas con DHermes: Adopta, Dona, y Haz la Diferencia!</h1>
-										<p class="top__text language-subtitle">¡Únete a la causa de DHermes! 🐾 Adopta y dale un hogar a un peludo amigo, o apoya con donaciones monetarias, alimentos, mantas y juguetes. Cada aporte cuenta y hace posible que nuestros perritos tengan la vida que merecen mientras esperan una familia. ¡Sé parte del cambio y ayuda a transformar vidas con DHermes! ❤️</p>
-										<button class="top__button">
-											<a aria-label="Top button-fourth" href="#contact">
-												<span class="language-top-btn">Informacion</span>
-												<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<path
-														d="M11.5683 19.0758C11.2566 19.1858 10.7433 19.1858 10.4316 19.0758C7.77325 18.1683 1.83325 14.3825 1.83325 7.96584C1.83325 5.13334 4.11575 2.84167 6.92992 2.84167C8.59825 2.84167 10.0741 3.64834 10.9999 4.89501C11.4709 4.25873 12.0843 3.74159 12.7911 3.38502C13.4978 3.02846 14.2783 2.84237 15.0699 2.84167C17.8841 2.84167 20.1666 5.13334 20.1666 7.96584C20.1666 14.3825 14.2266 18.1683 11.5683 19.0758Z"
-														stroke="#333333" stroke-width="1.2" stroke-linecap="round"
-														stroke-linejoin="round" />
-												</svg>
-											</a>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="top__pagination">
-					<div data-page="0" class="top__pagination-item top__pagination-item--active"></div>
-					<div data-page="1" class="top__pagination-item"></div>
-					<div data-page="2" class="top__pagination-item"></div>
-					<div data-page="3" class="top__pagination-item"></div>
-				</div>
-			</section>
+<!-- top	 -->
 
-			<!-- top	 -->
-
-        </section>   
-
-		<main class="main">
-
-			<!-- about -->
-
-			<section class="about" id="about">
+<section class="top" id="top">
+	<svg class="top-arrow top-arrow-left" width="72" height="54" viewBox="0 0 72 54" fill="none"
+		xmlns="http://www.w3.org/2000/svg">
+		<path
+			d="M29.4127 45.6499C30.9946 47.2242 30.9946 49.7768 29.4127 51.3511C27.8307 52.9254 25.266 52.9254 23.684 51.3511L2.08012 29.8505C0.49821 28.2762 0.49821 25.7237 2.08012 24.1493L23.684 2.64879C25.266 1.07444 27.8307 1.07444 29.4127 2.64879C30.9946 4.22313 30.9946 6.77564 29.4127 8.34998L14.7238 22.9686L67.0557 22.9686C69.2929 22.9686 71.1064 24.7735 71.1064 26.9999C71.1064 29.2264 69.2929 31.0313 67.0557 31.0313L14.7238 31.0313L29.4127 45.6499Z"
+			stroke="black" stroke-opacity="1" stroke-linecap="round" />
+	</svg>
+	<svg class="top-arrow top-arrow-right" width="72" height="54" viewBox="0 0 72 54" fill="none"
+		xmlns="http://www.w3.org/2000/svg">
+		<path
+			d="M29.4127 45.6499C30.9946 47.2242 30.9946 49.7768 29.4127 51.3511C27.8307 52.9254 25.266 52.9254 23.684 51.3511L2.08012 29.8505C0.49821 28.2762 0.49821 25.7237 2.08012 24.1493L23.684 2.64879C25.266 1.07444 27.8307 1.07444 29.4127 2.64879C30.9946 4.22313 30.9946 6.77564 29.4127 8.34998L14.7238 22.9686L67.0557 22.9686C69.2929 22.9686 71.1064 24.7735 71.1064 26.9999C71.1064 29.2264 69.2929 31.0313 67.0557 31.0313L14.7238 31.0313L29.4127 45.6499Z"
+			stroke="black" stroke-opacity="1" stroke-linecap="round" />
+	</svg>
+	<div class="top__wrapper">
+		<div class="top-content">
+			<div class="top-line" data-offset="0">
 				<div class="container">
-					<div class="about__inner">
-						<div data-tilt class="about__img">
-							<video width="100%" height="360" controls class="rounded shadow-sm about-img anim-items">
-								<source src="{% static 'img/video.mp4' %}" type="video/mp4">
-								Tu navegador no soporta la etiqueta de video.
-							</video>
-								
-						</div>
-						<div class="about__info">
-							<h2 class="about__title title anim-items"><span>Historia</span> Fundacion Dhermes</h2>
-							<p class="about__text text anim-items language-about">En el año 2005, el vertedero de Viña del Mar anunciaba el cierre definitivo de sus puertas, pero
-								con un problema que involucraría el sacrificio de aproximadamente 60 perros abandonados. Es así
-								como gracias a la fundadora Helena Ganón Roselot nace Refugio Dhermes, que a partir de ese
-								momento se convirtió en una organización de voluntarios que no solo se hizo cargo de los
-								animales que se encontraban en aquel lugar, sino que su obra ha ido creciendo a través del
-								tiempo, llevando una labor de rescate y cuidado de decenas de perros a lo largo de toda la
-								quinta región.</p>
+					<div class="top__info">
+						<img src="{% static 'img/dog-1.png' %}" alt="dog" class="top-img">
+						<div class="top__about">
+							<h1 class="top__title language-paw">Adoptame!</h1>
+							<p class="top__text language-subtitle">¡Adopta y cambia una vida! 🐾 En Refugio DHermes,
+								cada perro está esperando una segunda oportunidad y un hogar lleno de amor. Al adoptar,
+								no solo le das una familia a un amigo fiel, sino que haces espacio para salvar a otro.
+								Ven y encuentra a tu compañero ideal, ¡tu nuevo mejor amigo te está esperando en
+								DHermes! ❤️
+							</p>
+							<button class="top__button">
+								<a aria-label="Top button-first" href="{% url 'adopcion' %}">
+									<span class="language-top-btn">Adoptar</span>
+									<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M11.5683 19.0758C11.2566 19.1858 10.7433 19.1858 10.4316 19.0758C7.77325 18.1683 1.83325 14.3825 1.83325 7.96584C1.83325 5.13334 4.11575 2.84167 6.92992 2.84167C8.59825 2.84167 10.0741 3.64834 10.9999 4.89501C11.4709 4.25873 12.0843 3.74159 12.7911 3.38502C13.4978 3.02846 14.2783 2.84237 15.0699 2.84167C17.8841 2.84167 20.1666 5.13334 20.1666 7.96584C20.1666 14.3825 14.2266 18.1683 11.5683 19.0758Z"
+											stroke="#333333" stroke-width="1.2" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+							</button>
 						</div>
 					</div>
 				</div>
-			</section>
-
-			<!-- /about -->
-
-			<!-- features -->
-
-			<section class="features">
+			</div>
+			<div class="top-line" data-offset="100">
 				<div class="container">
-					<div class="features__inner">
-						<h2 class="features__title anim-items title language-features"><span>Tambien</span> nos puedes ayudar aportando cosas como:
-						</h2>
-						<div class="features__items">
-							<div class="features__item">
-								
-								<img src="{% static 'img/features/features-1.svg' %}" src="{% static 'img/lazy.png' %}" alt="Comida"
-									class="features-img anim-items">
-								<span class="anim-items language-features-bowl">Comida</span>
-							</div>
-							<div class="features__item">
-								<img src="{% static 'img/dog-toy.png' %}" src="{% static 'img/lazy.png' %}" alt="Juguetes"
-									class="features-img anim-items">
-								<span class="anim-items language-features-collars">Juguetes</span>
-							</div>
-							<div class="features__item">
-								<img src="{% static 'img/bed-sheets.png' %}" src="{% static 'img/lazy.png' %}" alt="collars"
-									class="features-img anim-items">
-								<span class="anim-items language-features-feed">Mantas</span>
-							</div>
-							<div class="features__item">
-								<img src="{% static 'img/features/features-4.svg' %}" src="{% static 'img/lazy.png' %}" alt="medication"
-									class="features-img anim-items">
-								<span class="anim-items language-features-volunteers">Medicamentos</span>
-							</div>
-							<div class="features__item">
-								<img src="{% static 'img/shampoo.png' %}" src="{% static 'img/lazy.png' %}" alt="vitamins"
-									class="features-img anim-items">
-								<span class="anim-items language-features-treatment">Productos<br>de higiene</span>
-							</div>
-							<div class="features__item">
-								<img src="{% static 'img/features/features-6.svg' %}" src="{% static 'img/lazy.png' %}" alt="kennels for dogs"
-									class="features-img anim-items">
-								<span class="anim-items language-features-booth">Cajas de <br> transporte</span>
-							</div>
+					<div class="top__info">
+						<img src="{% static 'img/dog-2.png' %}" alt="dog" class="top-img">
+						<div class="top__about">
+							<h1 class="top__title top-title-second language-contribution">Tus donaciones nos ayudan
+								mucho!</h1>
+							<p class="top__text language-subtitle">
+								¡Tu ayuda salva vidas! 🐾 Si no puedes adoptar, aún puedes hacer una gran diferencia con
+								una donación a Refugio DHermes. Cada aporte nos ayuda a cubrir alimento, tratamientos
+								médicos y cuidados para nuestros peludos mientras esperan un hogar. Con tu apoyo,
+								seguimos brindando esperanza y bienestar a quienes más lo necesitan. ¡Dona y sé parte de
+								esta misión de amor! ❤️</p>
+							<button class="top__button">
+								<a aria-label="Top button-second" href="{% url 'donaciones' %}">
+									<span class="language-top-btn">Donar</span>
+									<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M11.5683 19.0758C11.2566 19.1858 10.7433 19.1858 10.4316 19.0758C7.77325 18.1683 1.83325 14.3825 1.83325 7.96584C1.83325 5.13334 4.11575 2.84167 6.92992 2.84167C8.59825 2.84167 10.0741 3.64834 10.9999 4.89501C11.4709 4.25873 12.0843 3.74159 12.7911 3.38502C13.4978 3.02846 14.2783 2.84237 15.0699 2.84167C17.8841 2.84167 20.1666 5.13334 20.1666 7.96584C20.1666 14.3825 14.2266 18.1683 11.5683 19.0758Z"
+											stroke="#333333" stroke-width="1.2" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+							</button>
 						</div>
 					</div>
 				</div>
-			</section>
-
-			<!-- /features -->
-
-			<!-- blog -->
-
-			<section class="blog" id="blog">
+			</div>
+			<div class="top-line" data-offset="200">
 				<div class="container">
-					<div class="blog__inner">
-						<div class="blog__info">
-							<h2 class="blog__title title anim-items language-blog-title"><span>Test</span> lorem
-							</h2>
-							<p class="blog__text text anim-items language-blog">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ullam aspernatur est modi suscipit eum aliquam esse, unde aut? Excepturi expedita temporibus numquam distinctio quaerat, quod tenetur libero. Nihil, quisquam!</p>
-							<div class="blog__end">
-								<button class="blog__button anim-items">
-									<a aria-label="Button blog-hook" href="#contact">
-										<svg width="28" height="29" viewBox="0 0 28 29" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M26.3961 17.3996C28.2931 15.9318 28.2931 13.0679 26.3961 11.6001C20.6633 7.16423 14.2618 3.66788 7.4312 1.24191L6.18335 0.798722C3.79603 -0.049167 1.27437 1.56606 0.95118 4.0304C0.0481748 10.9158 0.0481745 18.0838 0.951179 24.9692C1.27437 27.4336 3.79602 29.0488 6.18334 28.2009L7.4312 27.7577C14.2618 25.3318 20.6633 21.8354 26.3961 17.3996Z"
-												fill="#4A9B8D" />
-										</svg>
-									</a>
-								</button>
-								<span class="anim-items language-find-us">Test</span>
-							</div>
-						</div>
-						<div class="blog__more">
-							<div class="blog__more-item anim-items">
-								<video class="blog-video" poster="./images/blog/blog-1.webp">
-									<source class="blog-source" src="./blog-video-1.mp4" type="video/mp4">
-								</video>
-								<img data-play="1" data-src="./images/blog/play.svg" src="{% static 'img/lazy.png' %}"
-									alt="Video blog button play & start" class="blog__more-btn play">
-							</div>
-							<div class="blog__more-item anim-items">
-								<video class="blog-video" poster="./images/blog/blog-2.webp">
-									<source class="blog-source" src="./blog-video-1.mp4" type="video/mp4">
-								</video>
-								<img data-play="2" data-src="./images/blog/play.svg" src="{% static 'img/lazy.png' %}"
-									alt="Video blog button play & start" class="blog__more-btn">
-							</div>
+					<div class="top__info">
+						<img src="{% static 'img/dog-3.png' %}" alt="dog" class="top-img">
+						<div class="top__about">
+							<h1 class="top__title  language-paw">Porque cualquier ayuda sirve!</h1>
+							<p class="top__text language-subtitle">¡Tus donaciones en especie son pura alegría para
+								ellos! 🐾 En Refugio DHermes siempre necesitamos juguetes, alimento y mantas para
+								mejorar la vida de nuestros perritos mientras esperan una familia. Cada aportación ayuda
+								a que se sientan queridos y cuidados. ¡Acércate con lo que puedas, y dale un momento de
+								felicidad a estos amigos que lo necesitan tanto! 🧡
+
+							</p>
+							<button class="top__button">
+								<a aria-label="Top button-third" href="#contact">
+									<span class="language-top-btn">Aportar</span>
+									<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M11.5683 19.0758C11.2566 19.1858 10.7433 19.1858 10.4316 19.0758C7.77325 18.1683 1.83325 14.3825 1.83325 7.96584C1.83325 5.13334 4.11575 2.84167 6.92992 2.84167C8.59825 2.84167 10.0741 3.64834 10.9999 4.89501C11.4709 4.25873 12.0843 3.74159 12.7911 3.38502C13.4978 3.02846 14.2783 2.84237 15.0699 2.84167C17.8841 2.84167 20.1666 5.13334 20.1666 7.96584C20.1666 14.3825 14.2266 18.1683 11.5683 19.0758Z"
+											stroke="#333333" stroke-width="1.2" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+							</button>
 						</div>
 					</div>
 				</div>
-			</section>
-
-			<!-- /blog -->
-
-			<!-- gallery -->
-
-			<section class="gallery" id="gallery">
+			</div>
+			<div class="top-line" data-offset="300">
 				<div class="container">
-					<div class="gallery__inner">
-						<h2 class="gallery__title title anim-items language-gallery-title"><span></span> Galeria</h2>
-						<div class="gallery__items">
-							<div class="gallery__column">
-								<img src="{% static 'img/1.webp' %}" src="{% static 'img/lazy.png' %}" alt="dog"
-									class="gallery-img dog-1 anim-items">
-								<img src="{% static 'img/a.png' %}" src="{% static 'img/lazy.png' %}" alt="dog"
-									class="gallery-img dog-2 anim-items">
-							</div>
-							<div class="gallery__column">
-								<div class="gallery__row">
-									<img src="{% static 'img/2.jpg' %}" src="{% static 'img/lazy.png' %}" alt="dog"
-										class="gallery-img dog-3 anim-items">
-									<img src="{% static 'img/3.webp' %}" src="{% static 'img/lazy.png' %}" alt="dog"
-										class="gallery-img dog-4 anim-items">
+					<div class="top__info">
+						<img src="{% static 'img/dog-2.webp' %}" alt="dog" class="top-img">
+						<div class="top__about">
+							<h1 class="top__title top-title-second language-contribution">¡Transforma Vidas con DHermes:
+								Adopta, Dona, y Haz la Diferencia!</h1>
+							<p class="top__text language-subtitle">¡Únete a la causa de DHermes! 🐾 Adopta y dale un
+								hogar a un peludo amigo, o apoya con donaciones monetarias, alimentos, mantas y
+								juguetes. Cada aporte cuenta y hace posible que nuestros perritos tengan la vida que
+								merecen mientras esperan una familia. ¡Sé parte del cambio y ayuda a transformar vidas
+								con DHermes! ❤️</p>
+							<button class="top__button">
+								<a aria-label="Top button-fourth" href="#contact">
+									<span class="language-top-btn">Informacion</span>
+									<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M11.5683 19.0758C11.2566 19.1858 10.7433 19.1858 10.4316 19.0758C7.77325 18.1683 1.83325 14.3825 1.83325 7.96584C1.83325 5.13334 4.11575 2.84167 6.92992 2.84167C8.59825 2.84167 10.0741 3.64834 10.9999 4.89501C11.4709 4.25873 12.0843 3.74159 12.7911 3.38502C13.4978 3.02846 14.2783 2.84237 15.0699 2.84167C17.8841 2.84167 20.1666 5.13334 20.1666 7.96584C20.1666 14.3825 14.2266 18.1683 11.5683 19.0758Z"
+											stroke="#333333" stroke-width="1.2" stroke-linecap="round"
+											stroke-linejoin="round" />
+									</svg>
+								</a>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top__pagination">
+		<div data-page="0" class="top__pagination-item top__pagination-item--active"></div>
+		<div data-page="1" class="top__pagination-item"></div>
+		<div data-page="2" class="top__pagination-item"></div>
+		<div data-page="3" class="top__pagination-item"></div>
+	</div>
+</section>
+
+<!-- top	 -->
+
+</section>
+
+<main class="main">
+
+	<!-- about -->
+
+	<section class="about" id="about">
+		<div class="container">
+			<div class="about__inner">
+				<div data-tilt class="about__img">
+					<video width="100%" height="360" controls class="rounded shadow-sm about-img anim-items">
+						<source src="{% static 'img/video.mp4' %}" type="video/mp4">
+						Tu navegador no soporta la etiqueta de video.
+					</video>
+
+				</div>
+				<div class="about__info">
+					<h2 class="about__title title anim-items"><span>Historia</span> Fundacion Dhermes</h2>
+					<p class="about__text text anim-items language-about">En el año 2005, el vertedero de Viña del Mar
+						anunciaba el cierre definitivo de sus puertas, pero
+						con un problema que involucraría el sacrificio de aproximadamente 60 perros abandonados. Es así
+						como gracias a la fundadora Helena Ganón Roselot nace Refugio Dhermes, que a partir de ese
+						momento se convirtió en una organización de voluntarios que no solo se hizo cargo de los
+						animales que se encontraban en aquel lugar, sino que su obra ha ido creciendo a través del
+						tiempo, llevando una labor de rescate y cuidado de decenas de perros a lo largo de toda la
+						quinta región.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- /about -->
+
+	<!-- features -->
+
+	<section class="features">
+		<div class="container">
+			<div class="features__inner">
+				<h2 class="features__title anim-items title language-features"><span>Tambien</span> nos puedes ayudar
+					aportando cosas como:
+				</h2>
+				<div class="features__items">
+					<div class="features__item">
+
+						<img src="{% static 'img/features/features-1.svg' %}" src="{% static 'img/lazy.png' %}"
+							alt="Comida" class="features-img anim-items">
+						<span class="anim-items language-features-bowl">Comida</span>
+					</div>
+					<div class="features__item">
+						<img src="{% static 'img/dog-toy.png' %}" src="{% static 'img/lazy.png' %}" alt="Juguetes"
+							class="features-img anim-items">
+						<span class="anim-items language-features-collars">Juguetes</span>
+					</div>
+					<div class="features__item">
+						<img src="{% static 'img/bed-sheets.png' %}" src="{% static 'img/lazy.png' %}" alt="collars"
+							class="features-img anim-items">
+						<span class="anim-items language-features-feed">Mantas</span>
+					</div>
+					<div class="features__item">
+						<img src="{% static 'img/features/features-4.svg' %}" src="{% static 'img/lazy.png' %}"
+							alt="medication" class="features-img anim-items">
+						<span class="anim-items language-features-volunteers">Medicamentos</span>
+					</div>
+					<div class="features__item">
+						<img src="{% static 'img/shampoo.png' %}" src="{% static 'img/lazy.png' %}" alt="vitamins"
+							class="features-img anim-items">
+						<span class="anim-items language-features-treatment">Productos<br>de higiene</span>
+					</div>
+					<div class="features__item">
+						<img src="{% static 'img/features/features-6.svg' %}" src="{% static 'img/lazy.png' %}"
+							alt="kennels for dogs" class="features-img anim-items">
+						<span class="anim-items language-features-booth">Cajas de <br> transporte</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- /features -->
+
+	<!-- blog -->
+	<section class="blog" id="blog">
+		<div class="container">
+			<div class="blog__inner">
+				<div class="blog__info">
+					<h2 class="blog__title title anim-items language-blog-title">Fundación<span> Dhermes</span>
+					</h2>
+					<p class="blog__text text anim-items language-blog"> es un refugio con más de 16 años de vida que alberga perritos abandonados en Viña
+						del Mar, y nuestro propósito es encontrarles un hogar a través de jornadas de adopción. <br>Puedes
+						ayudar y ver su hermosa labor donde están ubicados en un hermoso refugio en Viña del Mar, V Región,
+						Chile, también puedes contactarlos por correo a: dhermeshermanosmenores@gmail.com o en sus redes
+						sociales cuenta con más de 150 perritos en adopción.</p>
+					
+				</div>
+				<div class="blog__more">
+					<div class="blog__more-item anim-items">
+						<img class="blog__image" src="{% static 'img/hola.png' %}" alt="Imagen Bienvenida">
+						
+					</div>
+					<div class="blog__more-item anim-items">
+						<img class="blog__image" src="{% static 'img/adopta.jpg' %}" alt="Imagen de adopcion">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- /blog -->
+
+	<!-- gallery -->
+
+	<section class="gallery" id="gallery">
+		<div class="container">
+			<div class="gallery__inner">
+				<h2 class="gallery__title title anim-items language-gallery-title"><span></span> Galeria</h2>
+				<div class="gallery__items">
+					<div class="gallery__column">
+						<img src="{% static 'img/1.webp' %}" src="{% static 'img/lazy.png' %}" alt="dog"
+							class="gallery-img dog-1 anim-items">
+						<img src="{% static 'img/a.png' %}" src="{% static 'img/lazy.png' %}" alt="dog"
+							class="gallery-img dog-2 anim-items">
+					</div>
+					<div class="gallery__column">
+						<div class="gallery__row">
+							<img src="{% static 'img/2.jpg' %}" src="{% static 'img/lazy.png' %}" alt="dog"
+								class="gallery-img dog-3 anim-items">
+							<img src="{% static 'img/3.webp' %}" src="{% static 'img/lazy.png' %}" alt="dog"
+								class="gallery-img dog-4 anim-items">
+						</div>
+						<img src="{% static 'img/4.jpg' %}" src="{% static 'img/lazy.png' %}" alt="dog"
+							class="gallery-img dog-5 anim-items">
+						<div class="gallery__row">
+							<img src="{% static 'img/5.webp' %}" src="{% static 'img/lazy.png' %}" alt="dog"
+								class="gallery-img dog-6 anim-items">
+							<img src="{% static 'img/6.jpg' %}" src="{% static 'img/lazy.png' %}" alt="dog"
+								class="gallery-img dog-7 anim-items">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- /gallery -->
+
+	<!-- team -->
+
+	<section class="team" id="team">
+		<div class="container">
+			<div class="team__inner">
+				<div class="team__info">
+					<h2 class="team__title title anim-items language-team-title"><span>Conoce </span>sus historias</h2>
+					<p class="team__text text anim-items language-team-text">Cada perrito en <span> Refugio
+							DHermes</span> tiene un pasado único y una historia de valentía y amor incondicional. Aquí
+						te compartimos sus vivencias, sus momentos difíciles y sus ganas de encontrar un hogar. Explora
+						sus historias y descubre a tu nuevo mejor amigo; ellos están listos para comenzar un nuevo
+						capítulo a tu lado. ❤️
+						<br>
+						<br> <span>Clickea para conocer sus historias completas</span>
+
+				</div>
+				<div class="team__slider">
+					<div class="team__slider-line">
+						<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
+							<img class="team__item-worker" src="{% static 'img/historias/gemita.jpg' %}"
+								src="{% static 'img/lazy.png' %}" alt="ira creator">
+							<div class="team__row">
+								<h3 class="team-worker-name language-ira">Gemita</h3>
+								<p class="team-worker-text language-creator">fui abandonada afuera del refugio junto a
+									mis dos pequeñas hijas</p>
+								<hr class="team-worker-line">
+								<div class="team-worker-social">
+
+
 								</div>
-								<img src="{% static 'img/4.jpg' %}" src="{% static 'img/lazy.png' %}" alt="dog"
-									class="gallery-img dog-5 anim-items">
-								<div class="gallery__row">
-									<img src="{% static 'img/5.webp' %}" src="{% static 'img/lazy.png' %}" alt="dog"
-										class="gallery-img dog-6 anim-items">
-									<img src="{% static 'img/6.jpg' %}" src="{% static 'img/lazy.png' %}" alt="dog"
-										class="gallery-img dog-7 anim-items">
+							</div>
+						</div>
+						<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
+							<img class="team__item-worker" src="{% static 'img/historias/burak.jpg' %}"
+								src="{% static 'img/lazy.png' %}" alt="snizhanna filmmaker">
+							<div class="team__row">
+								<h3 class="team-worker-name language-snizhanna">Burak</h3>
+								<p class="team-worker-text language-filmmaker">Mi historia ha sido un camino difícil</p>
+								<hr class="team-worker-line">
+								<div class="team-worker-social">
+
+
+								</div>
+							</div>
+						</div>
+						<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
+							<img class="team__item-worker" src="{% static 'img/historias/miguelito.jpg' %}"
+								src="{% static 'img/lazy.png' %}" alt="liana designer">
+							<div class="team__row">
+								<h3 class="team-worker-name language-liana">Miguelito</h3>
+								<p class="team-worker-text language-designer">viví en una construcción, un lugar que,
+									aunque no muy cómodo, era mi hogar.</p>
+								<hr class="team-worker-line">
+								<div class="team-worker-social">
+
+
+								</div>
+							</div>
+						</div>
+						<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
+							<img class="team__item-worker" src="{% static 'img/historias/mimi.jpg' %}"
+								src="{% static 'img/lazy.png' %}" alt="ivan visualizer">
+							<div class="team__row">
+								<h3 class="team-worker-name language-ivan">Mimi</h3>
+								<p class="team-worker-text language-visualizer">puedes verme sonriendo en todas mis
+									fotos pero la verdad que tuve una vida llena de abandono</p>
+								<hr class="team-worker-line">
+								<div class="team-worker-social">
+
+
+								</div>
+							</div>
+						</div>
+						<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
+							<img class="team__item-worker" src="{% static 'img/historias/thanos.jpg' %}"
+								src="{% static 'img/lazy.png' %}" alt="Perrito Thanos">
+							<div class="team__row">
+								<h3 class="team-worker-name language-ira">Thanos</h3>
+								<p class="team-worker-text language-creator">Soy un perrito demasiado regalón y que ha
+									esperado un hogar por mucho tiempo</p>
+								<hr class="team-worker-line">
+								<div class="team-worker-social">
+
+
+								</div>
+							</div>
+						</div>
+						<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
+							<img class="team__item-worker" src="{% static 'img/historias/orejon.jpg' %}"
+								src="{% static 'img/lazy.png' %}" alt="snizhanna filmmaker copy">
+							<div class="team__row">
+								<h3 class="team-worker-name language-snizhanna">Orejon</h3>
+								<p class="team-worker-text language-filmmaker">Desde que tenía solo 7 meses, he estado
+									vagando por las calles de Forestal Alto</p>
+								<hr class="team-worker-line">
+								<div class="team-worker-social">
+
+
+								</div>
+							</div>
+						</div>
+						<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
+							<img class="team__item-worker" src="{% static 'img/historias/lulu.jpg' %}"
+								src="{% static 'img/lazy.png' %}" alt="liana designer copy">
+							<div class="team__row">
+								<h3 class="team-worker-name language-liana">Lulú</h3>
+								<p class="team-worker-text language-designer">con su mirada llena de dulzura y un aire
+									de inocencia que contradecía los signos de su pasado en abandono</p>
+								<hr class="team-worker-line">
+								<div class="team-worker-social">
+
+								</div>
+							</div>
+						</div>
+						<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
+							<img class="team__item-worker" src="{% static 'img/historias/estela.jpg' %}"
+								src="{% static 'img/lazy.png' %}" alt="ivan visualizer copy">
+							<div class="team__row">
+								<h3 class="team-worker-name language-ivan">Estela</h3>
+								<p class="team-worker-text language-visualizer">Todo comenzó en junio de 2023, cuando
+									algunos vecinos encontraron a mis cachorros abandonados</p>
+								<hr class="team-worker-line">
+								<div class="team-worker-social">
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
+			</div>
+		</div>
+	</section>
 
-			<!-- /gallery -->
+	<!-- /team -->
 
-			<!-- team -->
+	<!-- contact -->
 
-			<section class="team" id="team">
-				<div class="container">
-					<div class="team__inner">
-						<div class="team__info">
-							<h2 class="team__title title anim-items language-team-title"><span>Conoce </span>sus historias</h2>
-							<p class="team__text text anim-items language-team-text">Cada perrito en <span> Refugio DHermes</span>   tiene un pasado único y una historia de valentía y amor incondicional. Aquí te compartimos sus vivencias, sus momentos difíciles y sus ganas de encontrar un hogar. Explora sus historias y descubre a tu nuevo mejor amigo; ellos están listos para comenzar un nuevo capítulo a tu lado. ❤️
-								<br>
-								<br> <span>Clickea para conocer sus historias completas</span>
-								
-						</div>
-						<div class="team__slider">
-							<div class="team__slider-line">
-								<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
-									<img class="team__item-worker" src="{% static 'img/historias/gemita.jpg' %}" src="{% static 'img/lazy.png' %}"
-										alt="ira creator">
-									<div class="team__row">
-										<h3 class="team-worker-name language-ira">Gemita</h3>
-										<p class="team-worker-text language-creator">fui abandonada afuera del refugio junto a mis dos pequeñas hijas</p>
-										<hr class="team-worker-line">
-										<div class="team-worker-social">
-											
-											
-										</div>
-									</div>
-								</div>
-								<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
-									<img class="team__item-worker" src="{% static 'img/historias/burak.jpg' %}" src="{% static 'img/lazy.png' %}"
-										alt="snizhanna filmmaker">
-									<div class="team__row">
-										<h3 class="team-worker-name language-snizhanna">Burak</h3>
-										<p class="team-worker-text language-filmmaker">Mi historia ha sido un camino difícil</p>
-										<hr class="team-worker-line">
-										<div class="team-worker-social">
-											
-											
-										</div>
-									</div>
-								</div>
-								<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
-									<img class="team__item-worker" src="{% static 'img/historias/miguelito.jpg' %}" src="{% static 'img/lazy.png' %}"
-										alt="liana designer">
-									<div class="team__row">
-										<h3 class="team-worker-name language-liana">Miguelito</h3>
-										<p class="team-worker-text language-designer">viví en una construcción, un lugar que, aunque no muy cómodo, era mi hogar.</p>
-										<hr class="team-worker-line">
-										<div class="team-worker-social">
-											
-											
-										</div>
-									</div>
-								</div>
-								<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
-									<img class="team__item-worker" src="{% static 'img/historias/mimi.jpg' %}" src="{% static 'img/lazy.png' %}"
-										alt="ivan visualizer">
-									<div class="team__row">
-										<h3 class="team-worker-name language-ivan">Mimi</h3>
-										<p class="team-worker-text language-visualizer">puedes verme sonriendo en todas mis fotos pero la verdad que tuve una vida llena de abandono</p>
-										<hr class="team-worker-line">
-										<div class="team-worker-social">
-											
-											
-										</div>
-									</div>
-								</div>
-								<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
-									<img class="team__item-worker" src="{% static 'img/historias/thanos.jpg' %}" src="{% static 'img/lazy.png' %}"
-										alt="ira creator copy">
-									<div class="team__row">
-										<h3 class="team-worker-name language-ira">Thanos</h3>
-										<p class="team-worker-text language-creator">Soy un perrito demasiado regalón y que ha esperado un hogar por mucho tiempo</p>
-										<hr class="team-worker-line">
-										<div class="team-worker-social">
-											
-											
-										</div>
-									</div>
-								</div>
-								<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
-									<img class="team__item-worker" src="{% static 'img/historias/orejon.jpg' %}" src="{% static 'img/lazy.png' %}"
-										alt="snizhanna filmmaker copy">
-									<div class="team__row">
-										<h3 class="team-worker-name language-snizhanna">Orejon</h3>
-										<p class="team-worker-text language-filmmaker">Desde que tenía solo 7 meses, he estado vagando por las calles de Forestal Alto</p>
-										<hr class="team-worker-line">
-										<div class="team-worker-social">
-											
-											
-										</div>
-									</div>
-								</div>
-								<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
-									<img class="team__item-worker" src="{% static 'img/historias/lulu.jpg' %}" src="{% static 'img/lazy.png' %}"
-										alt="liana designer copy">
-									<div class="team__row">
-										<h3 class="team-worker-name language-liana">Lulú</h3>
-										<p class="team-worker-text language-designer">con su mirada llena de dulzura y un aire de inocencia que contradecía los signos de su pasado en abandono</p>
-										<hr class="team-worker-line">
-										<div class="team-worker-social">
-											
-										</div>
-									</div>
-								</div>
-								<div class="team__item" data-src="team" onclick="window.location.href='URL_DE_DESTINO'">
-									<img class="team__item-worker" src="{% static 'img/historias/estela.jpg' %}" src="{% static 'img/lazy.png' %}"
-										alt="ivan visualizer copy">
-									<div class="team__row">
-										<h3 class="team-worker-name language-ivan">Estela</h3>
-										<p class="team-worker-text language-visualizer">Todo comenzó en junio de 2023, cuando algunos vecinos encontraron a mis cachorros abandonados</p>
-										<hr class="team-worker-line">
-										<div class="team-worker-social">
-											
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<!-- /team -->
-
-			<!-- contact -->
-			
-
-			<!-- contact -->
-			<script src="{% static 'js/vanilla-tilt.min.js' %}" defer></script>
-			<script src="{% static 'js/main.js' %}" defer></script>
-			{% include "scripts_necesarios.html" %}
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
-		</main>
-		{% endblock %}
+	<!-- contact -->
+	<script src="{% static 'js/vanilla-tilt.min.js' %}" defer></script>
+	<script src="{% static 'js/main.js' %}" defer></script>
+	{% include "scripts_necesarios.html" %}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</main>
+{% endblock %}
