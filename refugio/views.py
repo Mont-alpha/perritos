@@ -27,7 +27,11 @@ def historia(request):
     return render(request,'inicio_dhermes.html')
 def donaciones(request):
     return render(request,'donaciones.html')
-    
+
+def voluntariado(request):
+    return render(request,'voluntariado.html')
+def alianzas(request):
+    return render(request,'alianzas.html')    
     
 def adopcion(request):
     data = Perrito.objects.all()

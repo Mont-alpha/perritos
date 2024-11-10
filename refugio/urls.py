@@ -6,6 +6,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('',views.historia,name='historia'),
     path('donaciones/',views.donaciones,name='donaciones'),
+    path('alianzas/',views.alianzas,name='alianzas'),
+    path('voluntariado/',views.voluntariado,name='voluntariado'),
     path('adopcion/',views.lista_perritos,name='adopcion'),
     path('dhermes_admin/', views.dhermes_admin, name='dhermes_admin'),
     path('dhermes_admin_section/', views.admin_section, name='administracion'),
