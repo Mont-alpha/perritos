@@ -1,51 +1,82 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Voluntariado - Refugio Dhermes{% endblock %}
+{% block title %}Home - Refugio Dhermes{% endblock %}
 
 {% block content %}
 
+<!-- top	 -->
 
-<section class="team" id="team">
-    <div class="container">
-        <div class="team__inner">
-            <div class="team__info">
-                <h2 class="team__title title anim-items language-team-title"><span>¡Sé un Héroe </span>para Nuestros
-                    Peludos: Únete como Voluntario! </h2>
-                <p class="team__text text anim-items language-team-text">Únete como <span> voluntario</span>
-                     y sé parte de una comunidad que transforma vidas. Con tu tiempo y cariño,
-                    puedes hacer la diferencia en la vida de muchos perros que esperan una segunda oportunidad. ¡Juntos,
-                    podemos cambiar sus historias 
-                     <span>y regalarles un futuro mejor!❤️</span>
+<section class="top" id="top">
+	
+	<div class="top__wrapper">
+		<div class="top-content">
+			<div class="top-line" data-offset="0">
+				<div class="container">
+					<div class="top__info">
+						<img src="{% static 'img/dog-1.png' %}" alt="dog" class="top-img">
+						<div class="top__about">
+							<h1 class="top__title language-paw">Porque nuestras alianzas <span>importan!</span></h1>
+							<p class="top__text language-subtitle">En Dhermes, creemos en el poder de la colaboración
+								para transformar vidas. Gracias a las alianzas con empresas, organizaciones y
+								voluntarios comprometidos, logramos mejorar las condiciones de nuestros perros y
+								promover la adopción responsable. Cada uno de nuestros aliados es una pieza clave en el
+								camino hacia un hogar feliz para nuestros peludos. Si deseas unirte a esta misión,
+								¡contáctanos! Juntos, podemos hacer la diferencia.
+							</p>
+						</div>
+					</div>
+				</div>
+                
+			</div>
+			
+		</div>
+        
+	</div>
+	<div class="top__pagination">
+        <a class="btn btn-primary" href="#" role="button">Link</a>
+		<div data-page="0" class="top__pagination-item top__pagination-item--active"></div>
 
-            </div>
-            <div class="team__slider">
-                <div class="team__slider-line">
-                    <div class="team__item" data-src="team" onclick="window.location.href=''">
-                        <img class="team__item-worker" src="{% static 'img/voluntariado1.jpg' %}"
-                            src="{% static 'img/lazy.png' %}" alt="Imagen voluntariado">
-
-                    </div>
-                    <div class="team__item" data-src="team" onclick="window.location.href=''">
-                        <img class="team__item-worker" src="{% static 'img/voluntariado2.jpg' %}"
-                            src="{% static 'img/lazy.png' %}" alt="Imagen voluntariado">
-
-                    </div>
-                    <div class="team__item" data-src="team" onclick="window.location.href=''">
-                        <img class="team__item-worker" src="{% static 'img/voluntariado3.jpg' %}"
-                            src="{% static 'img/lazy.png' %}" alt="Imagen voluntariado">
-
-                    </div>
-                    <div class="team__item" data-src="team" onclick="window.location.href=''">
-                        <img class="team__item-worker" src="{% static 'img/voluntariado4.jpg' %}"
-                            src="{% static 'img/lazy.png' %}" alt="Imagen voluntariado">
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+	</div>
 </section>
 
+<!-- top	 -->
+
+
+	<!-- /team -->
+
+	<!-- contact -->
+
+    <div class="d-flex justify-content-center align-items-center carousel-container">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/perritotest1.png' %}" class="d-block carousel-image" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/perritotest2.png' %}" class="d-block carousel-image" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/perritotest3.png' %}" class="d-block carousel-image" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/perritotest4.png' %}" class="d-block carousel-image" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+	<!-- contact -->
+	<script src="{% static 'js/vanilla-tilt.min.js' %}" defer></script>
+	<script src="{% static 'js/main.js' %}" defer></script>
+	{% include "scripts_necesarios.html" %}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</main>
 {% endblock %}

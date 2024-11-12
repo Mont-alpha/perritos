@@ -4,6 +4,10 @@
   font-display: swap;
 }
 
+
+
+
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -1001,6 +1005,7 @@ body {
   gap: 110px;
   justify-content: center;
   animation: scroll 16s linear infinite;
+  
 }
 
 .team__slider-line:hover {
@@ -2517,3 +2522,18 @@ body {
 }
 
 /*# sourceMappingURL=style.css.map */
+.carousel-item {
+  height: 400px !important; /* Ajusta a la altura deseada */
+}
+
+.carousel-image-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+.carousel-image-wrapper img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}

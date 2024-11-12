@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Alianzas - Refugio Dhermes{% endblock %}
+
+{% block content %}
+<section class="team" id="team">
+    <div class="container">
+        <div class="team__inner">
+            <div class="team__info">
+                <h2 class="team__title title  language-team-title"><span>Nuestras </span>alianzas importan
+                </h2>
+                <p class="team__text text  language-team-text">En<span> Refugio DHermes</span>
+                    nuestras alianzas a lo largo del tiempo han sido fundamentales para el bienestar de nuestros
+                    perritos. Gracias al apoyo continuo de organizaciones y personas comprometidas, hemos podido brindar
+                    una vida mejor a los animales del refugio. Juntos, seguimos creando un impacto positivo cada día.
+                    <br>
+                    <br> <span>Clickea para conocerlas en detalle</span>
+
+            </div>
+            <div>
+                <h2><span>Nuestras </span>alianzas importan</h2>
+                <p>En <span>Refugio DHermes</span> nuestras alianzas...
+                </p>
+            </div>
+            
+            <div class="team__slider">
+                <div class="team__slider-line">
+                    <div class="team__item" data-src="team"
+                        onclick="window.location.href='https://www.instagram.com/centromascotte/'">
+                        <img class="team__item-worker" src="{% static 'img/mascotte.jpg' %}"
+                            src="{% static 'img/lazy.png' %}" alt="ira creator">
+                        <div class="team__row">
+                            <h3 class="team-worker-name language-ira">Centro Mascotte</h3>
+                            
+                            <hr class="team-worker-line">
+                            <div class="team-worker-social">
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team__item" data-src="team"
+                        onclick="window.location.href='https://www.instagram.com/dogmatch.cl/'">
+                        <img class="team__item-worker" src="{% static 'img/dogmatch.jpg' %}"
+                            src="{% static 'img/lazy.png' %}" alt="snizhanna filmmaker">
+                        <div class="team__row">
+                            <h3 class="team-worker-name language-snizhanna">Dogmatch</h3>
+                            
+                            <hr class="team-worker-line">
+                            <div class="team-worker-social">
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team__item" data-src="team"
+                        onclick="window.location.href='https://www.instagram.com/pethouse_veterinaria/?hl=en'">
+                        <img class="team__item-worker" src="{% static 'img/pethouse.jpg' %}"
+                            src="{% static 'img/lazy.png' %}" alt="liana designer">
+                        <div class="team__row">
+                            <h3 class="team-worker-name language-liana">Clinica PetHouse</h3>
+                            
+                            <hr class="team-worker-line">
+                            <div class="team-worker-social">
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
