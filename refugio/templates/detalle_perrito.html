@@ -6,7 +6,11 @@
     <h1 class="text-center mb-5 display-3 text-primary">{{ perrito.nombre }}</h1>
     <div class="row">
         <!-- Imagen del perrito -->
+<<<<<<< Updated upstream
         <div class="col-md-6 d-flex align-items-center justify-content-center mb-4">
+=======
+        <div class="col-md-6 d-flex flex-column align-items-start justify-content-start mb-4">
+>>>>>>> Stashed changes
             {% if perrito.imagen %}
                 <img src="{{ perrito.imagen.url }}" class="img-fluid rounded shadow-lg perrito-image" alt="Imagen de {{ perrito.nombre }}">
             {% else %}
@@ -31,28 +35,46 @@
                 <p class="lead"><strong>Nivel de Energía:</strong> {{ perrito.nivel_energia }}</p>
                 {% if perrito.es_adopcion_doble %}
                     <p class="lead"><strong>Adopción Doble:</strong> Sí junto a <a href="{% url 'detalle_perrito' perrito.es_adopcion_doble.id %}" >{{perrito.es_adopcion_doble.nombre}} 🐶</a></p>
+<<<<<<< Updated upstream
 
                 {% else %}
                 <p class="lead"><strong>Adopción Doble:</strong> No</p>
+=======
+                {% else %}
+                    <p class="lead"><strong>Adopción Doble:</strong> No</p>
+>>>>>>> Stashed changes
                 {% endif %}
                 <hr class="my-4">
                 <p class="lead text-justify"><strong>Descripción Completa:</strong> {{ perrito.descripcion }}</p>
                 <div class="text-center mb-4">
+<<<<<<< Updated upstream
                     <p>¿Te ha encantado/a?, entonces visita nuestro formulario de adopción y estaras a un paso mas de conocerlo/a:</p>
                     <a href="https://forms.gle/323TJBSa12ybXysy9" class="btn btn-success">Ir a formulario de adopción</a>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_adopcion">
                         Ver guia de adopción
                     </button>
             
+=======
+                    <p>¿Te ha encantado/a?, entonces visita nuestro formulario de adopción y estarás a un paso más de conocerlo/a:</p>
+                    <a href="https://forms.gle/323TJBSa12ybXysy9" class="btn btn-success">Ir a formulario de adopción</a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_adopcion">
+                        Ver guía de adopción
+                    </button>
+>>>>>>> Stashed changes
                     <div class="modal" tabindex="-1" id="modal_adopcion">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
+<<<<<<< Updated upstream
                                     <h5 class="modal-title">Guia de adopción</h5>
+=======
+                                    <h5 class="modal-title">Guía de adopción</h5>
+>>>>>>> Stashed changes
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <ol>
+<<<<<<< Updated upstream
                                         <li>Llenar el formulario de adopción <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOGM03UHJgD0Jh0pLFysQe6Qmul9aRXSr0c-dBpLjls9Xfqg/viewform">click aqui</a></li>
                                         <li>Esperar a que un voluntario se comunique contigo mediante uan entrevista via online</li>
                                         <li>Ya pasada la etapa de contacto, se le realizara una visita guiada por el refugio</li>
@@ -60,6 +82,14 @@
                                     </ol>
                                 </div>
 
+=======
+                                        <li>Llenar el formulario de adopción <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOGM03UHJgD0Jh0pLFysQe6Qmul9aRXSr0c-dBpLjls9Xfqg/viewform">click aquí</a></li>
+                                        <li>Esperar a que un voluntario se comunique contigo mediante una entrevista vía online</li>
+                                        <li>Ya pasada la etapa de contacto, se le realizará una visita guiada por el refugio</li>
+                                        <li>Firmado el contrato de adopción, podrás llevar a tu nuevo amigo a casa 🐶</li>
+                                    </ol>
+                                </div>
+>>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>
@@ -99,7 +129,11 @@
 
     /* Estilo para la imagen del perrito */
     .perrito-image {
+<<<<<<< Updated upstream
         max-height: 600px;
+=======
+        max-height: 800px;
+>>>>>>> Stashed changes
         width: 100%;
         object-fit: cover;
         border: 4px solid #007bff;
