@@ -104,7 +104,9 @@ def lista_perritos(request):
 
     # Filtrar por adopción doble
     if adopcion_doble == 'True':
-        perritos = perritos.filter(es_adopcion_doble=True)
+        perritos = perritos.filter(es_adopcion_doble__isnull=False)
+    elif adopcion_doble == 'False':
+        perritos = perritos.filter(es_adopcion_doble__isnull=True)
 
     # Filtrar por tamaño
     if tamano in ['pequeño', 'mediano', 'grande']:

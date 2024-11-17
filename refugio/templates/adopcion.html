@@ -44,6 +44,7 @@
             <select name="adopcion_doble" id="adopcion_doble" class="form-control">
                 <option value="">Todos</option>
                 <option value="True" {% if request.GET.adopcion_doble == 'True' %}selected{% endif %}>Sí</option>
+                <option value="False" {% if request.GET.adopcion_doble == 'False' %}selected{% endif %}>No</option>
             </select>
         </div>
 
