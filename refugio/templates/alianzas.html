@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - Refugio Dhermes{% endblock %}
+
+{% block content %}
+
+<!-- top	 -->
+
+<section class="top" id="top">
+	
+	<div class="top__wrapper">
+		<div class="top-content">
+			<div class="top-line" data-offset="0">
+				<div class="container">
+					<div class="top__info">
+						<img src="{% static 'img/dog-1.png' %}" alt="dog" class="top-img">
+						<div class="top__about">
+							<h1 class="top__title language-paw">Porque nuestras alianzas <span>importan!</span></h1>
+							<p class="top__text language-subtitle">En Dhermes, creemos en el poder de la colaboración
+								para transformar vidas. Gracias a las alianzas con empresas, organizaciones y
+								voluntarios comprometidos, logramos mejorar las condiciones de nuestros perros y
+								promover la adopción responsable. Cada uno de nuestros aliados es una pieza clave en el
+								camino hacia un hogar feliz para nuestros peludos. Si deseas unirte a esta misión,
+								¡contáctanos! Juntos, podemos hacer la diferencia.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="top__pagination">
+		<div data-page="0" class="top__pagination-item top__pagination-item--active"></div>
+
+	</div>
+</section>
+
+<!-- top	 -->
+
+<main class="main">
+
+	
+
+	<section class="team" id="team">
+		<div class="container">
+			<div class="team__inner">
+				<div class="team__info">
+					<h2 class=" title anim-items language-team-title"><span>Conoce </span>sus historias</h2>
+					<p class=" text anim-items language-team-text">Cada perrito en <span> Refugio
+							DHermes</span> tiene un pasado único y una historia de valentía y amor incondicional. Aquí
+						te compartimos sus vivencias, sus momentos difíciles y sus ganas de encontrar un hogar. Explora
+						sus historias y descubre a tu nuevo mejor amigo; ellos están listos para comenzar un nuevo
+						capítulo a tu lado. ❤️
+						<br>
+						 <span>Clickea para conocer sus historias completas</span>
+
+				</div>
+				<div class="container text-center">
+					<div class="row">
+					  <div class="col">
+						<div class="card" style="width: 18rem;">
+							<img src="{% static 'img/mascotte.jpg' %}" class="card-img-top" alt="...">
+							<div class="card-body">
+							  <h5 class="card-title">Centro Mascotte</h5>
+							  
+							  <a href="https://www.instagram.com/centromascotte/" class="btn btn-primary">Visitar</a>
+							</div>
+						  </div>
+					  </div>
+					  <div class="col">
+						<div class="card" style="width: 18rem;">
+							<img src="{% static 'img/dogmatch.jpg' %}" class="card-img-top" alt="...">
+							<div class="card-body">
+							  <h5 class="card-title">Dogmatch</h5>
+							  
+							  <a href="https://www.instagram.com/dogmatch.cl/" class="btn btn-primary">Visitar</a>
+							</div>
+						  </div>
+					  </div>
+					  <div class="col">
+						<div class="card" style="width: 18rem;">
+							<img src="{% static 'img/pethouse.jpg' %}" class="card-img-top" alt="...">
+							<div class="card-body">
+							  <h5 class="card-title">Clinica PetHouse</h5>
+							  
+							  <a href="https://www.instagram.com/pethouse_veterinaria/?hl=en" class="btn btn-primary">Visitar</a>
+							</div>
+						  </div>
+					  </div>
+					</div>
+				  </div>
+				
+	</section>
+
+	<!-- /team -->
+
+	<!-- contact -->
+
+
+	<!-- contact -->
+	<script src="{% static 'js/vanilla-tilt.min.js' %}" defer></script>
+	<script src="{% static 'js/main.js' %}" defer></script>
+	{% include "scripts_necesarios.html" %}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</main>
+{% endblock %}

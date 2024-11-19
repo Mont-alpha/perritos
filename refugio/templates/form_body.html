@@ -1,0 +1,91 @@
+<form method="post" action="{% url 'agregar_perrito' %}" enctype="multipart/form-data" class="needs-validation"
+    novalidate>
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+        <div class="invalid-feedback">
+            Por favor, ingrese el nombre.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="edad">Edad:</label>
+        <input type="number" class="form-control" id="edad" name="edad" required>
+        <div class="invalid-feedback">
+            Por favor, ingrese la edad.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="tamano">Tamaño:</label>
+        <select class="form-control" id="tamano" name="tamano" required>
+            <option value="pequeño">Pequeño</option>
+            <option value="mediano">Mediano</option>
+            <option value="grande">Grande</option>
+        </select>
+        <div class="invalid-feedback">
+            Por favor, seleccione el tamaño.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nombre">Sexo:</label>
+        <select class="form-control" id="sexo" name="sexo" required>
+            <option value="macho">Macho</option>
+            <option value="hembra">Hembra</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="adopcion_doble">Adopción:</label>
+        <div class="input-group mb-3" id="adopcion_doble">
+
+            <div class="input-group-text">
+                <input class="form-check-input mt-0" type="checkbox" value="doble"
+                    aria-label="Checkbox for following text input">
+            </div>
+            <select name="perito_elegido_doble" id="select_doble" class="form-control" disabled>
+                {% for perrito in perritos %}
+                <option value="{{ perrito.id }}">{{ perrito.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('input[type="checkbox"][value="doble"]').addEventListener('change', function () {
+            document.getElementById('select_doble').disabled = !this.checked;
+        });
+    </script>
+
+
+
+    <div class="form-group">
+        <label for="nivel_energia">Nivel de Energía:</label>
+        <select class="form-control" id="nivel_energia" name="nivel_energia" required>
+            <option value="baja">Bajo</option>
+            <option value="alta">Alto</option>
+        </select>
+        <div class="invalid-feedback">
+            Por favor, seleccione el nivel de energía.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+        <div class="invalid-feedback">
+            Por favor, ingrese la descripción.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="imagen">Imagen:</label>
+        <input type="file" class="form-control file" id="imagen" name="imagen" required>
+        <div class="invalid-feedback">
+            Por favor, suba una imagen.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Agregar Perrito</button>
+</form>

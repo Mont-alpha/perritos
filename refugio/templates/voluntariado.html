@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - Refugio Dhermes{% endblock %}
+
+{% block content %}
+<style>
+	/* Botón voluntario */
+.btn-voluntario {
+    display: inline-block; /* Asegura que respeta márgenes y se centra */
+    margin: 20px auto; /* Centrado horizontal y espacio superior/inferior */
+    padding: 15px 30px; /* Tamaño del botón (ajusta según prefieras) */
+    font-size: 18px; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centra el texto */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #007bff; /* Azul primario */
+    color: #fff; /* Texto blanco */
+    transition: all 0.3s ease; /* Suaviza las transiciones */
+}
+
+/* Efecto al pasar el mouse */
+.btn-voluntario:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+.top__about {
+    text-align: center; /* Centra el contenido dentro del contenedor */
+}
+</style>
+<!-- top	 -->
+
+<section class="top" id="top">
+
+	<div class="top__wrapper">
+		<div class="top-content">
+			<div class="top-line" data-offset="0">
+				<div class="container">
+					<div class="top__info">
+						<img src="{% static 'img/dog-1.png' %}" alt="dog" class="top-img">
+						<div class="top__about">
+							<h1 class="top__title language-paw">Únete como <span>Voluntario!</span></h1>
+							<p class="top__text language-subtitle">¿Te apasionan los animales y quieres marcar la
+								diferencia? En Dhermes, siempre estamos en busca de personas comprometidas y llenas de
+								amor para ayudar a nuestros perros a encontrar el hogar que merecen. Al unirte a nuestro
+								equipo de voluntarios, te convertirás en una parte esencial de nuestra misión, apoyando
+								en el cuidado, socialización y bienestar de cada uno de ellos. ¡Únete a nosotros y sé el
+								cambio en sus vidas!
+							</p>
+							<a class="btn btn-primary btn-voluntario"
+							href="https://docs.google.com/forms/d/e/1FAIpQLSe6BB2V-R3lawBvR1FsqfF3vWkxdI5c_OHJCZbYvitHdt6nkQ/viewform"
+							role="button">Link a formulario</a>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	<div class="top__pagination">
+		
+		<div data-page="0" class="top__pagination-item top__pagination-item--active"></div>
+
+	</div>
+</section>
+
+<!-- top	 -->
+
+
+<!-- /team -->
+
+<!-- contact -->
+<br>
+
+<br>
+
+<!-- contact -->
+	<script src="{% static 'js/vanilla-tilt.min.js' %}" defer></script>
+	<script src="{% static 'js/main.js' %}" defer></script>
+	{% include "scripts_necesarios.html" %}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</main>
+{% endblock %}
