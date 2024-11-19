@@ -4,8 +4,117 @@
 {% block title %}Administración - Refugio Dhermes{% endblock %}
 
 {% block content %}
-<div>
-    <h2 class="my-4">Lista de Perritos</h2>
+<style>
+    /* Ajuste de imágenes para que sean responsivas */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilo adicional para la tabla */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Espaciado para elementos en pantallas pequeñas */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%; /* Botones ocupan todo el ancho */
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        margin-bottom: 10px;
+    }
+}
+
+</style>
+<div class="container-fluid">
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+    </form>
+    <h2 class="my-4 text-center">Lista de Perritos</h2>
+    <form method="get" action="{% url 'administracion' %}" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="buscar" class="form-control" placeholder="Buscar por nombre" value="{{ request.GET.buscar }}">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+    {% if unico_perrito %}
+    <!-- Mostrar solo el perrito filtrado -->
+    <div class="table_collapse">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Tamaño</th>
+                    <th>Energía</th>
+                    <th>Adopción Doble</th>
+                    <th>Descripción</th>
+                    <th>Modificar</th>
+                    <th>Eliminar Perrito</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <form action="{% url 'editar_perrito' unico_perrito.id %}" enctype="multipart/form-data" method="post">
+                        {% csrf_token %}
+                        <td>
+                            <div >
+                                {% if unico_perrito.imagen %}
+                                <img src="{{ unico_perrito.imagen.url }}" alt="Imagen de {{ unico_perrito.nombre }}" 
+                                     class="img-thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+                                {% else %}
+                                <img src="{% static 'images/default.png' %}" alt="Sin imagen disponible" 
+                                     class="img-thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+                                {% endif %}
+                            </div>
+                            
+                        </td>
+                        <td><input type="text" name="nombre" value="{{ unico_perrito.nombre }}" class="form-control"></td>
+                        <td><input type="number" name="edad" value="{{ unico_perrito.edad }}" class="form-control"></td>
+                        <td>
+                            <select name="tamano" class="form-control" required>
+                                <option value="pequeño" {% if unico_perrito.tamano == "pequeño" %}selected{% endif %}>Pequeño</option>
+                                <option value="mediano" {% if unico_perrito.tamano == "mediano" %}selected{% endif %}>Mediano</option>
+                                <option value="grande" {% if unico_perrito.tamano == "grande" %}selected{% endif %}>Grande</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="nivel_energia" class="form-control" required>
+                                <option value="baja" {% if unico_perrito.nivel_energia == "baja" %}selected{% endif %}>Baja</option>
+                                <option value="alta" {% if unico_perrito.nivel_energia == "alta" %}selected{% endif %}>Alta</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="es_adopcion_doble" class="form-control">
+                                <option value="" {% if not perrito.es_adopcion_doble %}selected{% endif %}>Ninguno</option>
+                                {% for otro_perrito in perritos %}
+                                {% if otro_perrito.id != perrito.id %}
+                                <option value="{{ otro_perrito.id }}" {% if perrito.es_adopcion_doble and perrito.es_adopcion_doble.id == otro_perrito.id %}selected{% endif %}>
+                                    {{ otro_perrito.nombre }}
+                                </option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                            <textarea class="form-control" id="input_descripcion" rows="3" name="descripcion" cols="">{{ unico_perrito.descripcion }}</textarea>
+                        </td>
+                        <td><button type="submit" class="btn btn-primary">Modificar</button></td>
+                    </form>
+                    <td><a href="{% url 'eliminar_perrito' unico_perrito.id %}" class="btn btn-danger">Eliminar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    
+    <!-- Mostrar la tabla si no hay un único resultado -->
     <div class="table_collapse">
         <table class="table table-bordered">
             <thead>
@@ -14,43 +123,53 @@
                 <th>Nombre</th>
                 <th>Edad</th>
                 <th>Tamaño</th>
-                <th>Energia</th>
+                <th>Energía</th>
+                <th>Adopción Doble</th>
                 <th>Descripción</th>
                 <th>Modificar</th>
-                <th>Eliminar perrito</th>
+                <th>Eliminar Perrito</th>
             </tr>
             </thead>
             <tbody>
                 {% for perrito in perritos %}
                 <tr>
-                    <form action="{% url 'editar_perrito'  perrito.id %}" enctype="multipart/form-data" method="post">
+                    <form action="{% url 'editar_perrito' perrito.id %}" enctype="multipart/form-data" method="post">
                         {% csrf_token %}
                         <td>
                             {% if perrito.imagen %}
-                            <img src="{{ perrito.imagen.url }}" alt="Imagen de {{ perrito.nombre }}" class="img_thumbnail"
+                            <img src="{{ perrito.imagen.url }}" alt="Imagen de {{ perrito.nombre }}" class="img-thumbnail"
                                  id="imagen-preview-{{ perrito.id }}">
                             {% else %}
-                            <img src="" alt="Imagen de {{ perrito.nombre }}" class="img-thumbnail"
-                                style="width: 100px; height: auto;" id="imagen-preview-{{ perrito.id }}">
+                            <img src="{% static 'images/default.png' %}" alt="Sin imagen disponible" class="img-thumbnail"
+                                 style="width: 100px; height: auto;" id="imagen-preview-{{ perrito.id }}">
                             {% endif %}
-                            <input type="file" name="imagen" class="form-control file mt-2" accept="image/*"
-                                onchange="onFileSelected(event, '{{ perrito.id }}')">
+                            
                         </td>
                         <td><input type="text" name="nombre" value="{{ perrito.nombre }}" class="form-control"></td>
                         <td><input type="number" name="edad" value="{{ perrito.edad }}" class="form-control"></td>
                         <td>
                             <select name="tamano" class="form-control" required>
-                                <option value="pequeño" {% if perrito.tamano == "Pequeño" %}selected{% endif %}>Pequeño
-                                </option>
-                                <option value="mediano" {% if perrito.tamano == "Mediano" %}selected{% endif %}>Mediano
-                                </option>
-                                <option value="grande" {% if perrito.tamano == "Grande" %}selected{% endif %}>Grande</option>
+                                <option value="pequeño" {% if perrito.tamano == "pequeño" %}selected{% endif %}>Pequeño</option>
+                                <option value="mediano" {% if perrito.tamano == "mediano" %}selected{% endif %}>Mediano</option>
+                                <option value="grande" {% if perrito.tamano == "grande" %}selected{% endif %}>Grande</option>
                             </select>
                         </td>
                         <td>
                             <select name="nivel_energia" class="form-control" required>
-                                <option value="baja" {% if perrito.nivel_energia == "Bajo" %}selected{% endif %}>Bajo</option>
-                                <option value="alta" {% if perrito.nivel_energia == "Alto" %}selected{% endif %}>Alto</option>
+                                <option value="baja" {% if perrito.nivel_energia == "baja" %}selected{% endif %}>Baja</option>
+                                <option value="alta" {% if perrito.nivel_energia == "alta" %}selected{% endif %}>Alta</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="es_adopcion_doble" class="form-control">
+                                <option value="" {% if not perrito.es_adopcion_doble %}selected{% endif %}>Ninguno</option>
+                                {% for otro_perrito in perritos %}
+                                {% if otro_perrito.id != perrito.id %}
+                                <option value="{{ otro_perrito.id }}" {% if perrito.es_adopcion_doble and perrito.es_adopcion_doble.id == otro_perrito.id %}selected{% endif %}>
+                                    {{ otro_perrito.nombre }}
+                                </option>
+                                {% endif %}
+                                {% endfor %}
                             </select>
                         </td>
                         <td>
@@ -61,17 +180,18 @@
                         <td><button type="submit" class="btn btn-primary">Modificar</button></td>
                     </form>
     
-                    <td><a href="{% url 'eliminar_perrito'  perrito.id %}" class="btn btn-danger">Eliminar </a></td>
+                    <td><a href="{% url 'eliminar_perrito' perrito.id %}" class="btn btn-danger">Eliminar</a></td>
     
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="8" style="text-align: center;">No hay perritos registrados.</td>
+                    <td colspan="9" style="text-align: center;">No hay perritos registrados.</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+    {% endif %}
 
     <h3 class="my-4">Agregar Nuevo Perrito</h3>
     {% include "form_body.html" %}

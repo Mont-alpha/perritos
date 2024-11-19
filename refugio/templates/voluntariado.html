@@ -5,6 +5,55 @@
 
 {% block content %}
 <style>
+/* Estilo general para la galería */
+/* Estilo general para la galería */
+.gallery {
+    width: 100%; /* Abarca todo el ancho de la página */
+    margin: 0 auto; /* Centra el contenido */
+    padding: 20px 0; /* Espaciado opcional */
+    background-color: transparent; /* Sin fondo */
+}
+
+.gallery__inner {
+    width: 100%; /* Ancho completo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.gallery__items {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espaciado entre columnas */
+    flex-wrap: wrap;
+}
+
+.gallery__column {
+    flex: 1; /* Permite que cada columna ocupe el mismo espacio */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaciado entre imágenes */
+}
+
+.gallery__row {
+    display: flex;
+    gap: 20px; /* Espaciado entre imágenes en filas */
+}
+
+.gallery-img {
+    width: 100%; /* Ajusta al ancho del contenedor */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 8px; /* Opcional: Bordes redondeados */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsión */
+    box-shadow: none; /* Sin sombras opcionales */
+}
+
 	/* Botón voluntario */
 .btn-voluntario {
     display: inline-block; /* Asegura que respeta márgenes y se centra */
@@ -60,6 +109,7 @@
 		</div>
 
 	</div>
+	
 	<div class="top__pagination">
 		
 		<div data-page="0" class="top__pagination-item top__pagination-item--active"></div>
@@ -67,15 +117,41 @@
 	</div>
 </section>
 
+<section class="gallery" id="gallery">
+    <div class="gallery__inner">
+        <h2 class="gallery__title title anim-items language-gallery-title">
+            <span></span> Galería Voluntariado
+        </h2>
+        <div class="gallery__items">
+            <div class="gallery__column">
+                <img src="{% static 'img/ab.jpg' %}" alt="dog" class="gallery-img anim-items">
+                <img src="{% static 'img/b.jpg' %}" alt="dog" class="gallery-img anim-items">
+            </div>
+            <div class="gallery__column">
+                <div class="gallery__row">
+                    <img src="{% static 'img/c.jpg' %}" alt="dog" class="gallery-img anim-items">
+                    <img src="{% static 'img/ac.jpg' %}" alt="dog" class="gallery-img anim-items">
+                </div>
+                <img src="{% static 'img/f.jpg' %}" alt="dog" class="gallery-img anim-items">
+                <div class="gallery__row">
+                    <img src="{% static 'img/af.jpg' %}" alt="dog" class="gallery-img anim-items">
+                    <img src="{% static 'img/6.jpg' %}" alt="dog" class="gallery-img anim-items">
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 <!-- top	 -->
 
 
 <!-- /team -->
 
 <!-- contact -->
-<br>
 
-<br>
 
 <!-- contact -->
 	<script src="{% static 'js/vanilla-tilt.min.js' %}" defer></script>

@@ -6,7 +6,8 @@
 {% block content %}
 <div class="container mt-5">
     <h1 class="section-title text-center">¡Tu ayuda puede cambiar vidas!</h1>
-    <p class="text-center">Con tu generosidad, podemos seguir rescatando y cuidando a los perritos abandonados. ¡Aquí te mostramos cómo puedes colaborar!</p>
+    <p class="text-center">Con tu generosidad, podemos seguir rescatando y cuidando a los perritos abandonados. ¡Aquí te
+        mostramos cómo puedes colaborar!</p>
 
     <div class="donation-card card mb-4">
         <h2 class="card-title text-center">Donaciones Nacionales</h2>
@@ -14,11 +15,45 @@
             <p>Si resides en Chile, considera las siguientes opciones para hacer tu donación:</p>
             <ul>
                 <li>📦 Transferencia bancaria a nuestra cuenta.</li>
-                <li>💳 Donaciones a través de Mercado Pago.</li>
+                <li>💳 Donaciones individuales.</li>
+                <li>🐶 Asociarse</li>
                 <li>🎁 Apoyo en especie (alimentos, juguetes, etc.).</li>
             </ul>
+            <div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal_transferencia" tabindex="-1"
+                    aria-labelledby="modal_transferenciaLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="modal_transferenciaLabel">Transferencias Dhermes</h1>
+                            </div>
+                            <div class="modal-body">
+                                <ul>
+                                    <li>Rut: 65.194.655-7</li>
+                                    <li>BANCO ESTADO</li>
+                                    <li>Chequera electrónica o cuenta vista</li>
+                                    <li>N°24470065300</li>
+                                    <li id="correo_lista"></li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <div class="text-center">
-                <a href="https://refugiodhermes.trytoku.com/forms/registro" target="_blank" class="btn btn-success donation-button">¡Dona Ahora!</a>
+                <a href="https://refugiodhermes.trytoku.com/forms/registro" target="_blank"
+                    class="btn btn-success donation-button">¡hazte socio!</a>
+                <button type="button" class="btn btn-success donation-button" data-bs-toggle="modal"
+                    data-bs-target="#modal_transferencia">
+                    Transferencias
+                </button>
             </div>
         </div>
     </div>
@@ -32,7 +67,10 @@
                 <li>💵 Transferencias internacionales.</li>
             </ul>
             <div class="text-center">
-                <a href="https://www.paypal.com/paypalme/refugiodhermes?country.x=CL&locale.x=es_XC" target="_blank" class="btn btn-success donation-button">¡Dona desde el Extranjero!</a>
+                <a href="https://www.paypal.com/paypalme/refugiodhermes?country.x=CL&locale.x=es_XC" target="_blank"
+                    class="btn btn-success donation-button">¡Dona desde el Extranjero!</a>
+                <!-- Button trigger modal -->
+
             </div>
         </div>
     </div>
@@ -42,27 +80,66 @@
         <div class="card-body">
             <p>¿Quieres hacer una donación a través de SOAP? Elige tu opción preferida:</p>
             <div class="text-center">
-                <a href="https://soapayuda.netlify.app/views/donaciones/preciosdhermesmutual" target="_blank" class="btn btn-success donation-button me-2">👉 Mutual de Seguros</a>
-                <a href="https://soapayuda.netlify.app/views/donaciones/preciosdhermesbci" target="_blank" class="btn btn-success donation-button">👉 Seguros BCI</a>
+                <a href="https://soapayuda.netlify.app/views/donaciones/preciosdhermesmutual" target="_blank"
+                    class="btn btn-success donation-button me-2">👉 Mutual de Seguros</a>
+                <a href="https://soapayuda.netlify.app/views/donaciones/preciosdhermesbci" target="_blank"
+                    class="btn btn-success donation-button">👉 Seguros BCI</a>
             </div>
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    function cargarCorreo() {
+        // Array con las letras del correo
+        const letras = [
+            'D', 'h', 'e', 'r', 'm', 'e', 's',
+            'h', 'e', 'r', 'm', 'a', 'n', 'o', 's',
+            'm', 'e', 'n', 'o', 'r', 'e', 's',
+            '@', 'g', 'm', 'a', 'i', 'l', '.', 'c', 'o', 'm'
+        ];
+
+        // Construir el correo juntando las letras
+        const correo = letras.join("");
+
+        // Seleccionar el elemento <li> con el ID "correo_lista"
+        const li = document.getElementById("correo_lista");
+
+        // Verificar que el elemento existe
+        if (li) {
+            // Establecer el texto del correo dentro del <li>
+            li.textContent = correo;
+        } else {
+            console.error("No se encontró un elemento con el id 'correo_lista'.");
+        }
+    }
+
+    // Llamar a la función para cargar el correo
+    cargarCorreo();
+});
+
+</script>
 
 <style>
     body {
-        
-        background-size: contain; /* Asegura que la imagen cubra todo el fondo */
-        background-position: center; /* Centra la imagen */
-        color: #333; /* Color de texto general para mayor contraste */
+
+        background-size: contain;
+        /* Asegura que la imagen cubra todo el fondo */
+        background-position: center;
+        /* Centra la imagen */
+        color: #333;
+        /* Color de texto general para mayor contraste */
     }
 
-    h1, h2 {
-        color: black; /* Color de los títulos */
+    h1,
+    h2 {
+        color: black;
+        /* Color de los títulos */
     }
 
     .donation-card {
-        background-color: #ffffff; /* Fondo blanco para las tarjetas */
+        background-color: #ffffff;
+        /* Fondo blanco para las tarjetas */
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -70,15 +147,21 @@
 
     .donation-button {
         margin-top: 15px;
-        padding: 10px 20px; /* Mayor padding para botones */
-        font-size: 1.2rem; /* Tamaño de fuente más grande */
-        border-radius: 5px; /* Bordes redondeados */
-        transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+        padding: 10px 20px;
+        /* Mayor padding para botones */
+        font-size: 1.2rem;
+        /* Tamaño de fuente más grande */
+        border-radius: 5px;
+        /* Bordes redondeados */
+        transition: background-color 0.3s, transform 0.3s;
+        /* Efecto de transición */
     }
 
     .donation-button:hover {
-        background-color: #007bff; /* Color de fondo en hover */
-        transform: scale(1.05); /* Efecto de crecimiento al pasar el mouse */
+        background-color: #007bff;
+        /* Color de fondo en hover */
+        transform: scale(1.05);
+        /* Efecto de crecimiento al pasar el mouse */
     }
 </style>
 {% endblock %}
