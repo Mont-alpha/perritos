@@ -57,6 +57,22 @@ li {
   list-style: none;
 }
 
+.table_collapse {
+  overflow-x: scroll;
+  
+}
+table {
+  background-color: rgb(99, 148, 218);
+}
+thead {
+  color: white;
+}
+
+.img_thumbnail {
+  height: 300px;
+  max-width: 300px;
+}
+
 img {
   max-width: 100%;
   object-fit: cover;
@@ -234,7 +250,7 @@ body {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: #C0EEF2;
+  background: #ee6a96;
   transition: width 0.5s, height 0.5s;
 }
 
@@ -260,7 +276,7 @@ body {
 }
 
 .header__button:hover svg path {
-  fill: #333;
+  fill: #ff0000;
 }
 
 .header__burger {
@@ -403,7 +419,8 @@ body {
   max-width: 500px;
 }
 
-.top-arrow-left, .top-arrow-right {
+.top-arrow-left,
+.top-arrow-right {
   position: absolute;
   top: 48%;
   cursor: pointer;
@@ -520,6 +537,11 @@ body {
   transition: all 0.4s ease;
 }
 
+#input_descripcion {
+  height: 300px;
+  max-width: 300px;
+}
+
 .about__text._active {
   transform: translate(0, 0);
   opacity: 1;
@@ -529,6 +551,7 @@ body {
   0% {
     background: #1a8977;
   }
+
   100% {
     background: #1fa38d;
   }
@@ -632,6 +655,7 @@ body {
   0% {
     background: #cccccc;
   }
+
   100% {
     background: white;
   }
@@ -935,6 +959,7 @@ body {
   0% {
     background: #bfbfbf;
   }
+
   100% {
     background: #d9d9d9;
   }
@@ -1005,7 +1030,7 @@ body {
   gap: 110px;
   justify-content: center;
   animation: scroll 16s linear infinite;
-  
+
 }
 
 .team__slider-line:hover {
@@ -1062,7 +1087,7 @@ body {
   padding-bottom: 15px;
 }
 
-.team__row > .team__row::after {
+.team__row>.team__row::after {
   position: relative;
 }
 
@@ -1130,6 +1155,7 @@ body {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(calc(-455px * 4));
   }
@@ -1139,6 +1165,7 @@ body {
   0% {
     background: #148572;
   }
+
   100% {
     background: #179b85;
   }
@@ -1322,7 +1349,8 @@ body {
   transition: all 0.5s;
 }
 
-.contact__map.active::before, .contact__map.active::after {
+.contact__map.active::before,
+.contact__map.active::after {
   opacity: 0;
   z-index: -1;
 }
@@ -1337,6 +1365,7 @@ body {
   0% {
     background: #333333;
   }
+
   100% {
     background: #666666;
   }
@@ -1390,49 +1419,61 @@ body {
     font-size: 44px;
     line-height: 48px;
   }
+
   .pay__text {
     max-width: 675px;
     font-size: 24px;
   }
+
   .pay__row {
     margin-top: 75px;
   }
+
   .pay-qr {
     width: 350px;
     height: 350px;
   }
+
   .pay__button {
     height: 80px;
   }
+
   .card {
     padding: 30px 45px;
   }
+
   .card__buy {
     margin-top: 100px;
   }
+
   .card__bank {
     width: 530px;
     height: 290px;
     margin-bottom: 75px;
   }
+
   .card__bank::after {
     top: -90px;
     right: -90px;
     width: 275px;
     height: 275px;
   }
+
   .card__bank::before {
     bottom: -50px;
     left: -60px;
     width: 175px;
     height: 175px;
   }
+
   .card__form {
     gap: 15px;
   }
+
   .card__item-row {
     height: 69px;
   }
+
   .card__input {
     font-size: 22px;
   }
@@ -1442,59 +1483,75 @@ body {
   .top__text {
     margin-bottom: 40px;
   }
+
   .top-img {
     max-height: 500px;
   }
+
   .pay__row {
     margin-bottom: 3%;
   }
+
   .pay__title {
     margin-bottom: 10px;
   }
+
   .pay-qr {
     width: 325px;
     height: 325px;
   }
+
   .card {
     padding: 20px 45px;
   }
+
   .card__form {
     gap: 10px;
   }
+
   .card__item {
     gap: 3px;
   }
+
   .card__lable {
     font-size: 18px;
   }
+
   .card__item-row {
     height: 64px;
   }
+
   .card__input {
     font-size: 21px;
   }
+
   .card__buy {
     margin-top: 80px;
   }
+
   .card__about {
     margin-right: 90px;
   }
+
   .card__bank {
     height: 280px;
     margin-bottom: 75px;
   }
+
   .card__bank::after {
     top: -65px;
     right: -40px;
     width: 240px;
     height: 240px;
   }
+
   .card__bank::before {
     bottom: -45px;
     left: -50px;
     width: 165px;
     height: 165px;
   }
+
   .card__bank-text {
     font-size: 30px;
   }
@@ -1504,28 +1561,34 @@ body {
   .top {
     min-height: 700px;
   }
+
   .card__buy {
     margin-top: 0;
   }
+
   .card__bank {
     width: 520px;
     height: 250px;
   }
+
   .card__bank::after {
     top: -50px;
     right: -45px;
     width: 215px;
     height: 215px;
   }
+
   .card__bank::before {
     left: -40px;
     bottom: -50px;
     width: 150px;
     height: 150px;
   }
+
   .card__bank__bank-content {
     margin-bottom: 25pxc;
   }
+
   .card__about-btn {
     height: 70px;
     font-size: 21px;
@@ -1536,52 +1599,66 @@ body {
   .top-arrow {
     display: none;
   }
+
   .gallery__inner {
     padding: 90px 0;
   }
+
   .gallery__items {
     max-width: none;
   }
+
   .gallery__title {
     margin-bottom: 40px;
   }
+
   .gallery .dog-1 {
     width: 288px;
     height: 261px;
   }
+
   .gallery .dog-2 {
     width: 344px;
     height: 430px;
   }
+
   .gallery .dog-3 {
     width: 289px;
     height: 261px;
   }
+
   .gallery .dog-4 {
     width: 354px;
     height: 153px;
   }
+
   .gallery .dog-5 {
     width: 661px;
     height: 267px;
   }
+
   .gallery .dog-6 {
     width: 289px;
     height: 269px;
   }
+
   .gallery .dog-7 {
     width: 354px;
     height: 173px;
   }
+
   .gallery__items {
     gap: 15px;
   }
+
   .gallery__row {
     gap: 15px;
   }
+
   .gallery__column {
     gap: 15px;
   }
+
   .gallery-img {
     border-radius: 15px;
   }
@@ -1591,113 +1668,147 @@ body {
   .container {
     width: 1054px;
   }
+
   .title {
     font-size: 40px;
     line-height: 44px;
   }
+
   .top__info {
     justify-content: center;
     text-align: center;
   }
+
   .top-img {
     max-width: 300px;
   }
+
   .top__text {
     margin: 0 auto 85px;
   }
+
   .header__menu {
     gap: 20px;
   }
+
   .header__menu-list {
     font-size: 15px;
   }
+
   .about__inner {
     padding: 200px 0 160px;
   }
+
   .about__text {
     font-size: 18px;
   }
+
   .blog {
     padding: 75px 0;
   }
+
   .blog__more {
     gap: 20px;
   }
+
   .contact-input {
     width: 100%;
   }
+
   .contact-sent-input {
     width: 100%;
   }
+
   .contact-sent-input input {
     padding: 0 175px 0 20px;
   }
+
   .contact__button {
     padding: 15px 30px;
   }
+
   .contact__map {
     max-width: 500px;
     border-radius: 12px;
   }
+
   .pay-logo {
     height: 65px;
   }
+
   .pay-close {
     height: 50px;
     width: 50px;
   }
+
   .pay__row {
     margin-top: 0;
   }
+
   .pay__button {
     height: 70px;
   }
+
   .pay__button svg {
     width: 30px;
   }
+
   .pay__title {
     font-size: 41px;
     line-height: 45px;
     max-width: 395px;
   }
+
   .pay__text {
     max-width: 595px;
     font-size: 21px;
   }
+
   .pay-qr {
     width: 275px;
     height: 275px;
   }
+
   .card {
     padding: 20px 30px;
   }
+
   .card-logo {
     height: 65px;
   }
+
   .card-close {
     height: 50px;
     width: 50px;
   }
+
   .card__bank-content {
     padding-top: 10px;
   }
+
   .card__bank-text {
     font-size: 24px;
   }
+
   .card__buy {
     margin-top: 0;
   }
+
   .card__bank {
     width: 465px;
     height: 250px;
     margin-bottom: 40px;
   }
-  .card__bank::after, .card__bank::before {
+
+  .card__bank::after,
+  .card__bank::before {
     display: none;
   }
+
   .card__about {
     margin-right: 0;
   }
+
   .card__about-btn {
     padding: 20px 80px;
   }
@@ -1708,6 +1819,7 @@ body {
     width: 988px;
     padding: 0 10px;
   }
+
   .header__menu {
     position: absolute;
     right: 0;
@@ -1725,135 +1837,172 @@ body {
     transition: transform 0.8s;
     z-index: 4;
   }
+
   .header__menu.active {
     transform: translateX(0%);
-    max-height: 500px; /* or any desired height */
-    overflow-y: auto; /* allows scrolling if content is taller */
-}
+    max-height: 100vh;
+    /* or any desired height */
+    overflow-y: auto;
+    /* allows scrolling if content is taller */
+  }
+
   .header__logo-text {
     display: none;
   }
+
   .header__menu-list {
     transition: all 0.3s;
   }
+
   .header__menu-list:hover {
     transform: scale(1.1);
   }
+
   .header__menu-link {
     font-size: 28px;
   }
+
   .header__menu-link::after {
     display: none;
   }
+
   .header__burger {
     display: flex;
   }
+
   .header__button.disactive {
     display: none;
   }
+
   .header.active {
     background: rgba(255, 255, 255, 0.8);
   }
+
   .top__title {
     max-width: 545px;
     font-size: 42px;
     line-height: 46px;
     margin-bottom: 20px;
   }
+
   .top-title-second {
     max-width: 695px;
   }
+
   .top__text {
     font-size: 22px;
     margin: 0 auto 40px;
   }
+
   .about__inner {
     padding: 120px 0;
     flex-direction: column-reverse;
     align-items: center;
   }
+
   .about__info {
     width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
   }
+
   .blog__inner {
     flex-direction: column;
     gap: 60px;
   }
+
   .blog__more {
     flex-direction: row;
     gap: 40px;
   }
+
   .blog__more-item {
     width: 50%;
   }
+
   .blog__info {
     align-items: center;
     text-align: center;
     margin: 0 auto;
     max-width: 777px;
   }
+
   .blog__text {
     margin-bottom: 25px;
   }
+
   .blog__inner {
     gap: 25px;
   }
+
   .gallery .dog-1 {
     width: 240px;
     height: 217px;
   }
+
   .gallery .dog-2 {
     width: 286px;
     height: 358px;
   }
+
   .gallery .dog-3 {
     width: 240px;
     height: 217px;
   }
+
   .gallery .dog-4 {
     width: 295px;
     height: 126px;
   }
+
   .gallery .dog-5 {
     width: 550px;
     height: 222px;
   }
+
   .gallery .dog-6 {
     width: 240px;
     height: 185px;
   }
+
   .gallery .dog-7 {
     width: 295px;
     height: 144px;
   }
+
   .team {
     padding: 75px 0 120px;
   }
+
   .team__info {
     flex-direction: column;
     text-align: center;
     align-items: center;
     gap: 10px;
   }
+
   .team__title {
     max-width: none;
   }
+
   .team__item:hover {
     filter: grayscale(0);
     transform: scale(1);
   }
+
   .contact-input {
     width: 90%;
   }
+
   .contact-sent-input {
     width: 90%;
   }
+
   .contact-sent-input input {
     padding: 0 150px 0 20px;
   }
+
   .contact__map {
     max-width: 475px;
   }
@@ -1863,117 +2012,147 @@ body {
   .container {
     width: 864px;
   }
+
   .top-img {
     max-width: 275px;
   }
+
   .popup {
     padding: 25px 30px;
   }
+
   .gallery .dog-1 {
     width: 184px;
     height: 166px;
   }
+
   .gallery .dog-2 {
     width: 220px;
     height: 275px;
   }
+
   .gallery .dog-3 {
     width: 184px;
     height: 166px;
   }
+
   .gallery .dog-4 {
     width: 226px;
     height: 96px;
   }
+
   .gallery .dog-5 {
     width: 423px;
     height: 170px;
   }
+
   .gallery .dog-6 {
     width: 184px;
     height: 142px;
   }
+
   .gallery .dog-7 {
     width: 226px;
     height: 110px;
   }
+
   .team__slider-line {
     width: calc(300px * 8);
     gap: 50px;
   }
+
   .team__item {
     width: 250px;
     height: 355px;
   }
+
   .contact__inner {
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
     gap: 20px;
   }
+
   .contact__column {
     display: flex;
     align-items: center;
   }
+
   .contact__nav {
     align-items: center;
     flex-direction: column-reverse;
     font-size: 20px;
   }
+
   .contact__title.hello-title {
     display: none;
   }
+
   .contact-input {
     width: 100%;
   }
+
   .contact-sent-input {
     width: 100%;
   }
+
   .contact-sent-input input {
     padding: 0 200px 0 20px;
   }
+
   .contact__button {
     padding: 26px 42px;
   }
+
   .contact__map {
     max-width: 515px;
   }
+
   @keyframes scroll {
     0% {
       transform: translateX(0%);
     }
+
     100% {
       transform: translateX(calc(-300px * 4));
     }
   }
+
   .pay {
     padding: 25px 30px;
   }
+
   .pay__title {
     font-size: 31px;
     line-height: 36px;
     max-width: 350px;
     margin-bottom: 10px;
   }
+
   .pay__text {
     font-size: 16px;
     max-width: 460px;
   }
+
   .pay-qr {
     width: 200px;
     height: 200px;
   }
+
   .pay__button {
     font-size: 19px;
     gap: 10px;
   }
+
   .card__bank {
     width: 420px;
     height: 225px;
   }
+
   .card__item-row {
     width: 300px;
   }
+
   .card__row-lable {
     gap: 110px;
   }
@@ -1983,27 +2162,34 @@ body {
   .container {
     width: 744px;
   }
+
   .top-title-second {
     font-size: 32px;
     line-height: 36px;
     max-width: 540px;
   }
+
   .top-img {
     max-width: 250px;
   }
+
   .top .english-contribution {
     max-width: 575px;
   }
+
   .card__bank {
     display: none;
   }
+
   .card__buy {
     gap: 15px;
     flex-direction: column;
   }
+
   .card__item-row {
     width: 380px;
   }
+
   .card__about-btn {
     width: 380px;
     height: 70px;
@@ -2019,90 +2205,114 @@ body {
   .container {
     width: 628px;
   }
+
   .header-languages {
     display: none;
   }
+
   .header .burger-languages {
     display: flex;
     flex-direction: row;
     gap: 15px;
     font-size: 24px;
   }
+
   .header .header__burger:hover .header__burger-item {
     background: #fff;
   }
+
   .header .header__burger.active:hover .header__burger-item {
     background: #333;
   }
+
   .top-img {
     max-width: 200px;
   }
+
   .about__inner {
     gap: 45px;
   }
+
   .features__title {
     font-size: 36px;
     line-height: 40px;
   }
+
   .features__item {
     width: 50%;
   }
+
   .blog__more {
     margin: 0 auto;
     flex-direction: column;
   }
+
   .blog__more-item {
     width: 100%;
   }
+
   .gallery-img {
     border-radius: 10px;
   }
+
   .gallery__items {
     gap: 10px;
     max-width: 100%;
   }
+
   .gallery__column {
     gap: 10px;
   }
+
   .gallery__row {
     gap: 10px;
   }
+
   .gallery .dog-1 {
     width: 153px;
     height: 138px;
   }
+
   .gallery .dog-2 {
     width: 183px;
     height: 229px;
   }
+
   .gallery .dog-3 {
     width: 153px;
     height: 138px;
   }
+
   .gallery .dog-4 {
     width: 188px;
     height: 80px;
   }
+
   .gallery .dog-5 {
     width: 352px;
     height: 141px;
   }
+
   .gallery .dog-6 {
     width: 153px;
     height: 118px;
   }
+
   .gallery .dog-7 {
     width: 188px;
     height: 81px;
   }
+
   .pay__content {
     flex-direction: row;
   }
+
   .pay__row {
     flex-direction: column;
     align-items: initial;
     margin-bottom: 0;
   }
+
   .pay__more {
     flex-direction: column;
     margin-top: 0;
@@ -2110,13 +2320,16 @@ body {
     width: auto;
     height: 100%;
   }
+
   .pay__text {
     font-size: 14px;
     max-width: 375px;
   }
+
   .pay__button {
     width: 200px;
   }
+
   .pay-qr {
     margin-top: 10px;
   }
@@ -2132,62 +2345,77 @@ body {
   .container {
     width: 560px;
   }
+
   .top__title {
     margin: 0 auto 20px;
   }
+
   .top-title-second {
     font-size: 28px;
     line-height: 34px;
     max-width: 465px;
   }
+
   .top__text {
     font-size: 19px;
     max-width: 450px;
   }
+
   .about__info {
     max-width: 600px;
     width: auto;
   }
+
   .features::after {
     width: 301%;
     height: 255px;
     top: -192px;
     transform: translateX(-126px);
   }
+
   .features__inner {
     padding: 150px 0;
   }
+
   .features__title {
     font-size: 30px;
     line-height: 34px;
   }
+
   .features__items {
     margin-top: 60px;
   }
+
   .pay {
     padding: 15px;
   }
+
   .pay-logo {
     height: 50px;
   }
+
   .pay-close {
     height: 35px;
     width: 35px;
   }
+
   .pay__content {
     flex-direction: column;
   }
+
   .pay__row {
     flex-direction: column;
     text-align: center;
     align-items: center;
   }
+
   .pay__more {
     width: 100%;
     flex-direction: row;
     margin-top: 5%;
     justify-content: space-evenly;
   }
+
   .pay__info {
     width: 100%;
     display: flex;
@@ -2195,28 +2423,35 @@ body {
     align-items: center;
     justify-content: center;
   }
+
   .pay__title {
     max-width: 310px;
     font-size: 21px;
     line-height: 24px;
   }
+
   .pay .english-pay-title {
     max-width: 243px;
   }
+
   .pay__text {
     max-width: none;
   }
+
   .pay__button {
     height: 75px;
     width: 75px;
   }
+
   .pay__button svg {
     width: 60px;
     height: 60px;
   }
+
   .pay__button span {
     display: none;
   }
+
   .pay-qr {
     width: 185px;
     height: 185px;
@@ -2227,84 +2462,107 @@ body {
   .container {
     width: 494px;
   }
+
   .header__menu-link {
     font-size: 24px;
   }
+
   .header .burger-languages {
     font-size: 20px;
   }
+
   .top-img {
     max-width: 175px;
   }
+
   .top .english-paw {
     font-size: 40px;
     line-height: 44px;
   }
+
   .top .english-contribution {
     max-width: 370px;
   }
+
   .about__info {
     align-items: center;
     text-align: center;
   }
+
   .about__img {
     height: 225px;
     width: 125%;
   }
+
   .about__img img {
     width: 100%;
     height: 100%;
   }
+
   .blog__text {
     font-size: 19px;
   }
+
   .blog__more-btn {
     height: 60px;
     width: 60px;
   }
+
   .gallery-img {
     min-width: 100%;
     border-radius: 20px;
   }
+
   .gallery__items {
     display: block;
   }
+
   .gallery__row {
     flex-direction: column;
     gap: 35px;
   }
+
   .gallery__column {
     margin: 0 auto;
     max-width: 300px;
     gap: 35px;
   }
+
   .gallery__column:first-child {
     align-items: initial;
     margin-bottom: 35px;
   }
+
   .gallery .dog-1 {
     height: 289px;
   }
+
   .gallery .dog-2 {
     height: 399px;
   }
+
   .gallery .dog-3 {
     height: 289px;
   }
+
   .gallery .dog-4 {
     height: 138px;
     order: -1;
   }
+
   .gallery .dog-5 {
     width: 300px;
     height: 184px;
   }
+
   .gallery .dog-6 {
     height: 297px;
   }
+
   .gallery .dog-7 {
     height: 277px;
   }
+
   .contact__map {
     max-width: 475px;
     height: 300px;
@@ -2316,82 +2574,103 @@ body {
     width: 430px;
     padding: 0 5px;
   }
+
   .header__button {
     padding: 16px 32px;
     gap: 10px;
     font-size: 13px;
   }
+
   .header__button svg {
     display: none;
   }
+
   .top__title {
     font-size: 30px;
     line-height: 36px;
   }
+
   .top-title-second {
     font-size: 21px;
     line-height: 25px;
     max-width: 350px;
   }
+
   .top .english-paw {
     font-size: 32px;
     line-height: 36px;
   }
+
   .top__text {
     font-size: 16px;
     max-width: 380px;
     margin: 0 auto 25px;
   }
+
   .top__button {
     padding: 18px 25px;
   }
+
   .top__button svg {
     display: none;
   }
+
   .popup {
     padding: 10px;
   }
+
   .features__title {
     font-size: 28px;
     line-height: 32px;
   }
+
   .features__item {
     width: 100%;
   }
+
   .blog__text {
     margin-bottom: 25px;
   }
+
   .blog__inner {
     gap: 25px;
   }
+
   .team__text {
     max-width: none;
     font-size: 20px;
   }
+
   .contact__nav {
     font-size: 16px;
   }
+
   .contact__map {
     max-width: 420px;
     height: 250px;
   }
+
   .contact__map::before {
     width: 40px;
     height: 49px;
   }
+
   .footer__inner {
     flex-direction: column;
     align-items: center;
     gap: 25px;
   }
+
   .loader-paw {
     width: 200px;
     height: 200px;
   }
+
   @keyframes loader-start {
     0% {
       height: 200px;
     }
+
     100% {
       height: 0;
     }
@@ -2403,82 +2682,105 @@ body {
     font-size: 14px;
     max-width: 330px;
   }
+
   .top__title {
     font-size: 28px;
     line-height: 32px;
   }
+
   .top-title-second {
     font-size: 18px;
     line-height: 22px;
     max-width: 305px;
   }
+
   .top-img {
     max-width: 150px;
   }
+
   .top .english-paw {
     font-size: 30px;
     line-height: 34px;
   }
+
   .top .english-contribution {
     max-width: 330px;
   }
+
   .about__inner {
     gap: 20px;
   }
+
   .about__text {
     font-size: 16px;
   }
+
   .container {
     width: 380px;
   }
+
   .features__title {
     font-size: 24px;
     line-height: 28px;
   }
+
   .blog__title {
     font-size: 34px;
     line-height: 38px;
   }
+
   .blog__text {
     font-size: 16px;
   }
+
   .contact__button {
     padding: 20px;
   }
+
   .contact-input {
     font-size: 21px;
   }
+
   .contact-sent-input input {
     padding: 0 145px 0 20px;
   }
+
   .contact__map {
     max-width: 370px;
     height: 225px;
   }
+
   .card {
     padding: 15px;
   }
+
   .card-logo {
     height: 50px;
   }
+
   .card-close {
     width: 35px;
     height: 35px;
   }
+
   .card__about-btn {
     width: 300px;
     height: 60px;
   }
+
   .card__item-row {
     width: 300px;
     height: 60px;
   }
+
   .card__form {
     gap: 8px;
   }
+
   .card__buy {
     gap: 10px;
   }
+
   .card__lable {
     font-size: 16px;
   }
@@ -2488,20 +2790,25 @@ body {
   .container {
     width: 320px;
   }
+
   .top .english-paw {
     max-width: 300px;
     font-size: 25px;
     line-height: 28px;
   }
+
   .top .english-contribution {
     max-width: 235px;
   }
+
   .blog__text {
     font-size: 14px;
   }
+
   .contact .contact-item {
     font-size: 13px;
   }
+
   .contact__map {
     max-width: 310px;
     height: 200px;
@@ -2518,6 +2825,7 @@ body {
   .pay__container {
     justify-content: start;
   }
+
   .card__wrapper {
     align-items: start;
   }
@@ -2525,7 +2833,8 @@ body {
 
 /*# sourceMappingURL=style.css.map */
 .carousel-item {
-  height: 400px !important; /* Ajusta a la altura deseada */
+  height: 400px !important;
+  /* Ajusta a la altura deseada */
 }
 
 .carousel-image-wrapper {
