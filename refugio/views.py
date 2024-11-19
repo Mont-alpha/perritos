@@ -11,7 +11,7 @@ from django.views.generic import DetailView
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django import forms
-
+from django.shortcuts import get_object_or_404, redirect
 from .forms import ImageForm,PerritoForm
 from .models import Perrito
 import os
@@ -54,10 +54,46 @@ def dhermes_admin(request):
 
 @login_required
 def admin_section(request):
-    perros = Perrito.objects.all()
-    lista_perros = ['Quiltro','Affenpinscher', 'Airedale terrier', 'Akita', 'Akita americano', 'Alaskan Husky', 'Alaskan malamute', 'American Foxhound', 'American pit bull terrier', 'American staffordshire terrier', 'Ariegeois', 'Artois', 'Australian silky terrier', 'Australian Terrier', 'Austrian Black & Tan Hound', 'Azawakh', 'Balkan Hound', 'Basenji', 'Basset Alpino (Alpine Dachsbracke)', 'Basset Artesiano Normando', 'Basset Azul de Gascuña (Basset Bleu de Gascogne)', 'Basset de Artois', 'Basset de Westphalie', 'Basset Hound', 'Basset Leonado de Bretaña (Basset fauve de Bretagne)', 'Bavarian Mountain Scenthound', 'Beagle', 'Beagle Harrier', 'Beauceron', 'Bedlington Terrier', 'Bichon Boloñes', 'Bichón Frisé', 'Bichón Habanero', 'Billy', 'Black and Tan Coonhound', 'Bloodhound (Sabueso de San Huberto)', 'Bobtail', 'Boerboel', 'Border Collie', 'Border terrier', 'Borzoi', 'Bosnian Hound', 'Boston terrier', 'Bouvier des Flandres', 'Boxer', 'Boyero de Appenzell', 'Boyero de Australia', 'Boyero de Entlebuch', 'Boyero de las Ardenas', 'Boyero de Montaña Bernes', 'Braco Alemán de pelo corto', 'Braco Alemán de pelo duro', 'Braco de Ariege', 'Braco de Auvernia', 'Braco de Bourbonnais', 'Braco de Saint Germain', 'Braco Dupuy', 'Braco Francés', 'Braco Italiano', 'Broholmer', 'Buhund Noruego', 'Bull terrier', 'Bulldog americano', 'Bulldog inglés', 'Bulldog francés', 'Bullmastiff', 'Ca de Bestiar', 'Cairn terrier', 'Cane Corso', 'Cane da Pastore Maremmano-Abruzzese', 'Caniche (Poodle)', 'Caniche Toy (Toy Poodle)', 'Cao da Serra de Aires', 'Cao da Serra de Estrela', 'Cao de Castro Laboreiro', 'Cao de Fila de Sao Miguel', 'Cavalier King Charles Spaniel', 'Cesky Fousek', 'Cesky Terrier', 'Chesapeake Bay Retriever', 'Chihuahua', 'Chin', 'Chow Chow', 'Cirneco del Etna', 'Clumber Spaniel', 'Cocker Spaniel Americano', 'Cocker Spaniel Inglés', 'Collie Barbudo', 'Collie de Pelo Cort', 'Collie de Pelo Largo', 'Cotón de Tuléar', 'Curly Coated Retriever', 'Dálmata', 'Dandie dinmont terrier', 'Deerhound', 'Dobermann', 'Dogo Argentino', 'Dogo de Burdeos', 'Dogo del Tibet', 'Drentse Partridge Dog', 'Drever', 'Dunker', 'Elkhound Noruego', 'Elkhound Sueco', 'English Foxhound', 'English Springer Spaniel', 'English Toy Terrier', 'Epagneul Picard', 'Eurasier', 'Fila Brasileiro', 'Finnish Lapphound', 'Flat Coated Retriever', 'Fox terrier de pelo de alambre', 'Fox terrier de pelo liso', 'Foxhound Inglés', 'Frisian Pointer', 'Galgo Español', 'Galgo húngaro (Magyar Agar)', 'Galgo Italiano', 'Galgo Polaco (Chart Polski)', 'Glen of Imaal Terrier', 'Golden Retriever', 'Gordon Setter', "Gos d'Atura Catalá", 'Gran Basset Griffon Vendeano', 'Gran Boyero Suizo', 'Gran Danés (Dogo Aleman)', 'Gran Gascón Saintongeois', 'Gran Griffon Vendeano', 'Gran Munsterlander', 'Gran Perro Japonés', 'Grand Anglo Francais Tricoleur', 'Grand Bleu de Gascogne', 'Greyhound', 'Griffon Bleu de Gascogne', 'Griffon de pelo duro (Grifón Korthals)', 'Griffon leonado de Bretaña', 'Griffon Nivernais', 'Grifon Belga', 'Grifón de Bruselas', 'Haldenstoever', 'Harrier', 'Hokkaido', 'Hovawart', 'Husky Siberiano (Siberian Husky)', 'Ioujnorousskaia Ovtcharka', 'Irish Glen of Imaal terrier', 'Irish soft coated wheaten terrier', 'Irish terrier', 'Irish Water Spaniel', 'Irish Wolfhound', 'Jack Russell terrier', 'Jindo Coreano', 'Kai', 'Keeshond', 'Kelpie australiano (Australian kelpie)', 'Kerry blue terrier', 'King Charles Spaniel', 'Kishu', 'Komondor', 'Kooiker', 'Kromfohrländer', 'Kuvasz', 'Labrador Retriever', 'Lagotto Romagnolo', 'Laika de Siberia Occidental', 'Laika de Siberia Oriental', 'Laika Ruso Europeo', 'Lakeland terrier', 'Landseer', 'Lapphund Sueco', 'Lebrel Afgano', 'Lebrel Arabe (Sloughi)', 'Leonberger', 'Lhasa Apso', 'Lowchen (Pequeño Perro León)', 'Lundehund Noruego', 'Malamute de Alaska', 'Maltés', 'Manchester terrier', 'Mastiff', 'Mastín de los Pirineos', 'Mastín Español', 'Mastín Napolitano', 'Mudi', 'Norfolk terrier', 'Norwich terrier', 'Nova Scotia duck tolling retriever', 'Ovejero alemán', 'Otterhound', 'Rafeiro do Alentejo', 'Ratonero Bodeguero Andaluz', 'Retriever de Nueva Escocia', 'Rhodesian Ridgeback', 'Ridgeback de Tailandia', 'Rottweiler', 'Saarloos', 'Sabueso de Hamilton', 'Sabueso de Hannover', 'Sabueso de Hygen', 'Sabueso de Istria', 'Sabueso de Posavaz', 'Sabueso de Schiller (Schillerstovare)', 'Sabueso de Smaland (Smalandsstovare)', 'Sabueso de Transilvania', 'Sabueso del Tirol', 'Sabueso Español', 'Sabueso Estirio de pelo duro', 'Sabueso Finlandés', 'Sabueso Francés blanco y negro', 'Sabueso Francés tricolor', 'Sabueso Griego', 'Sabueso Polaco (Ogar Polski)', 'Sabueso Serbio', 'Sabueso Suizo', 'Sabueso Yugoslavo de Montaña', 'Sabueso Yugoslavo tricolor', 'Saluki', 'Samoyedo', 'San Bernardo', 'Sarplaninac', 'Schapendoes', 'Schipperke', 'Schnauzer estándar', 'Schnauzer gigante (Riesenschnauzer)', 'Schnauzer miniatura (Zwergschnauzer)', 'Scottish terrier', 'Sealyham terrier', 'Segugio Italiano', 'Seppala Siberiano', 'Setter Inglés', 'Setter Irlandés', 'Setter Irlandés rojo y blanco', 'Shar Pei', 'Shiba Inu', 'Shih Tzu', 'Shikoku', 'Skye terrier', 'Slovensky Cuvac', 'Slovensky Kopov', 'Smoushond Holandés', 'Spaniel Alemán (German Wachtelhund)', 'Spaniel Azul de Picardía', 'Spaniel Bretón', 'Spaniel de Campo', 'Spaniel de Pont Audemer', 'Spaniel Francés', 'Spaniel Tibetano', 'Spinone Italiano', 'Spítz Alemán', 'Spitz de Norbotten (Norbottenspets)', 'Spitz Finlandés', 'Spitz Japonés', 'Staffordshire bull terrier', 'Staffordshire terrier americano', 'Sussex Spaniel', 'Teckel (Dachshund)', 'Tchuvatch eslovaco', 'Terranova (Newfoundland)', 'Terrier australiano (Australian terrier)', 'Terrier brasilero', 'Terrier cazador alemán', 'Terrier checo (Ceský teriér)', 'Terrier galés', 'Terrier irlandés (Irish terrier)', 'Terrier japonés (Nihon teria)', 'Terrier negro ruso', 'Terrier tibetano', 'Tosa', 'Viejo Pastor Inglés', 'Viejo Pointer Danés (Old Danish Pointer)', 'Vizsla', 'Volpino Italiano', 'Weimaraner', 'Welsh springer spaniel', 'Welsh Corgi Cardigan', 'Welsh Corgi Pembroke', 'Welsh terrier', 'West highland white terrier', 'Whippet', 'Wirehaired solvakian pointer', 'Xoloitzcuintle', 'Yorkshire Terrier']      
-    data = {'perritos': perros,'razas': lista_perros}
-    return render(request,'dhermes_admin_section.html',data)
+    # Obtener todos los perritos
+    perritos = Perrito.objects.all()
+
+    # Buscar un único perrito
+    buscar = request.GET.get('buscar')
+    unico_perrito = None
+    if buscar:
+        perritos = perritos.filter(nombre__icontains=buscar)
+        if perritos.count() == 1:
+            unico_perrito = perritos.first()
+
+    # Manejar POST para guardar cambios
+    if unico_perrito and request.method == "POST":
+        unico_perrito.nombre = request.POST.get('nombre', unico_perrito.nombre)
+        unico_perrito.edad = request.POST.get('edad', unico_perrito.edad)
+        unico_perrito.tamano = request.POST.get('tamano', unico_perrito.tamano)
+        unico_perrito.nivel_energia = request.POST.get('nivel_energia', unico_perrito.nivel_energia)
+        unico_perrito.descripcion = request.POST.get('descripcion', unico_perrito.descripcion)
+
+        # Manejar adopción doble
+        adopcion_doble_id = request.POST.get('es_adopcion_doble')
+        if adopcion_doble_id:
+            unico_perrito.es_adopcion_doble = Perrito.objects.get(id=adopcion_doble_id)
+        else:
+            unico_perrito.es_adopcion_doble = None
+
+        # Manejar actualización de la imagen
+        if 'imagen' in request.FILES:  # Si hay una nueva imagen en el formulario
+            if unico_perrito.imagen:  # Si ya existe una imagen
+                # Eliminar la imagen anterior del sistema de archivos
+                if os.path.exists(unico_perrito.imagen.path):
+                    os.remove(unico_perrito.imagen.path)
+            # Asignar la nueva imagen
+            unico_perrito.imagen = request.FILES['imagen']
+
+        # Guardar los cambios
+        unico_perrito.save()
+        return redirect('admin_section')
+
+    return render(request, 'dhermes_admin_section.html', {'perritos': perritos, 'unico_perrito': unico_perrito})
 
 @login_required
 def eliminar_perrito(request,id):
@@ -88,11 +124,16 @@ def lista_perritos(request):
     perritos = Perrito.objects.all()
     
     # Obtener los parámetros de filtrado desde el request
+    buscar = request.GET.get('buscar')  # Nuevo filtro por nombre
     nivel_energia = request.GET.get('nivel_energia')
     sexo = request.GET.get('sexo')
     adopcion_doble = request.GET.get('adopcion_doble')
     tamano = request.GET.get('tamano')
     edad = request.GET.get('edad')  # Nuevo filtro de edad
+
+    # Filtrar por nombre (búsqueda)
+    if buscar:
+        perritos = perritos.filter(nombre__icontains=buscar)
 
     # Filtrar por nivel de energía
     if nivel_energia in ['baja', 'alta']:
@@ -125,6 +166,7 @@ def lista_perritos(request):
 
     return render(request, 'adopcion.html', {'perritos': perritos})
 
+
 def detalle_perrito(request, perrito_id):
     perrito = get_object_or_404(Perrito, id=perrito_id)
     return render(request, 'detalle_perrito.html', {'perrito': perrito})
@@ -132,39 +174,37 @@ def detalle_perrito(request, perrito_id):
 @login_required
 def editar_perrito(request, id):
     perro = get_object_or_404(Perrito, pk=id)
-    if request.POST:
-        nombre = request.POST.get('nombre', perro.nombre)
-        edad = request.POST.get('edad', perro.edad)
-        genero = request.POST.get('genero', perro.sexo)
-        descripcion = request.POST.get('descripcion', perro.descripcion)
 
-        perro.nombre = nombre
-        perro.edad = edad
-        perro.sexo = genero
-        perro.descripcion = descripcion
-        perro.save()
-            
-        old_image = Perrito.objects.get(id=id)
+    if request.method == "POST":
+        # Actualizar campos básicos
+        perro.nombre = request.POST.get('nombre', perro.nombre)
+        perro.edad = request.POST.get('edad', perro.edad)
+        perro.sexo = request.POST.get('genero', perro.sexo)
+        perro.descripcion = request.POST.get('descripcion', perro.descripcion)
+
+        # Manejar la adopción doble
+        adopcion_doble_id = request.POST.get('es_adopcion_doble')
+        if adopcion_doble_id:
+            perro.es_adopcion_doble = Perrito.objects.get(id=adopcion_doble_id)
+        else:
+            perro.es_adopcion_doble = None
+
+        # Manejar la imagen si se sube una nueva
         if 'img' in request.FILES:
-            # elimina la antigua foto.
-            image_path = old_image.imagen.path
-            if os.path.exists(image_path):
-                os.remove(image_path)
-                # updating with new image
-                old_image.imagen = request.FILES['img']
-        
-        form = ImageForm(request.POST, request.FILES, instance=old_image)
-        if form.is_valid():
-            form.save()
-        
+            if perro.imagen and os.path.exists(perro.imagen.path):
+                os.remove(perro.imagen.path)
+            perro.imagen = request.FILES['img']
+
+        # Guardar cambios
+        perro.save()
         return redirect('administracion')
-        
-        return redirect('administracion')
-    else:
-        return redirect('administracion')
+
+    return redirect('administracion')
     
 
 from django.shortcuts import render
 
 def custom_404_view(request, exception):
     return render(request, '404.html', status=404)
+
+
