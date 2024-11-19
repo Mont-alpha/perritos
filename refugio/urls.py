@@ -15,6 +15,7 @@ urlpatterns = [
     path('agregar_perrito/', views.agregar_perrito, name='agregar_perrito'),
     path('perrito/<int:perrito_id>/', views.detalle_perrito, name='detalle_perrito'),
     path('editar_perrito/<int:id>/', views.editar_perrito, name='editar_perrito'),
+    path('logout/', views.logout_view, name='logout'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

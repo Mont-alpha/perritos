@@ -19,7 +19,10 @@ import os
 
 
 # Create your views here.
-
+@login_required
+def logout_view(request):
+    logout(request)  # Cierra la sesión del usuario
+    return redirect('/')  # Redirige al usuario a la página principal o a donde desees
 def home(request):
     return render(request,'inicio_dhermes.html')
 

@@ -4,8 +4,37 @@
 {% block title %}Administración - Refugio Dhermes{% endblock %}
 
 {% block content %}
-<div>
-    <h2 class="my-4">Lista de Perritos</h2>
+<style>
+    /* Ajuste de imágenes para que sean responsivas */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilo adicional para la tabla */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Espaciado para elementos en pantallas pequeñas */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%; /* Botones ocupan todo el ancho */
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        margin-bottom: 10px;
+    }
+}
+
+</style>
+<div class="container-fluid">
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+    </form>
+    <h2 class="my-4 text-center">Lista de Perritos</h2>
     <form method="get" action="{% url 'administracion' %}" class="mb-3">
         <div class="input-group">
             <input type="text" name="buscar" class="form-control" placeholder="Buscar por nombre" value="{{ request.GET.buscar }}">
@@ -63,14 +92,10 @@
                         </td>
                         <td>
                             <select name="es_adopcion_doble" class="form-control">
-                                <!-- Opción "Ninguno" -->
-                                <option value="" {% if not unico_perrito.es_adopcion_doble %}selected{% endif %}>Ninguno</option>
-                        
-                                <!-- Lista de otros perritos para selección -->
+                                <option value="" {% if not perrito.es_adopcion_doble %}selected{% endif %}>Ninguno</option>
                                 {% for otro_perrito in perritos %}
-                                {% if otro_perrito.id != unico_perrito.id %}
-                                <option value="{{ otro_perrito.id }}" 
-                                        {% if unico_perrito.es_adopcion_doble and unico_perrito.es_adopcion_doble.id == otro_perrito.id %}selected{% endif %}>
+                                {% if otro_perrito.id != perrito.id %}
+                                <option value="{{ otro_perrito.id }}" {% if perrito.es_adopcion_doble and perrito.es_adopcion_doble.id == otro_perrito.id %}selected{% endif %}>
                                     {{ otro_perrito.nombre }}
                                 </option>
                                 {% endif %}
