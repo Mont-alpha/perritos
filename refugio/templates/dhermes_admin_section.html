@@ -41,6 +41,26 @@
             <button type="submit" class="btn btn-primary">Buscar</button>
         </div>
     </form>
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+    data-bs-target="#modal_agregar_perrito">
+    Agregar perrito +
+</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal_agregar_perrito" tabindex="-1" aria-labelledby="modal_agregar_perritoLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="modal_agregar_perritoLabel">Nuevo Perrito</h1>
+                                </div>
+                                <div class="modal-body">
+                                    {% include "form_body.html" %}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
     {% if unico_perrito %}
     <!-- Mostrar solo el perrito filtrado -->
@@ -193,8 +213,7 @@
     </div>
     {% endif %}
 
-    <h3 class="my-4">Agregar Nuevo Perrito</h3>
-    {% include "form_body.html" %}
+    
 </div>
 <script>
     function onFileSelected(event) {
