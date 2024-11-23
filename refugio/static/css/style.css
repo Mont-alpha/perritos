@@ -379,7 +379,7 @@ body {
 }
 
 .top__title span {
-  color: #4A9B8D;
+  color: #6fd5f1;
 }
 
 .top-title-second {
@@ -457,7 +457,7 @@ body {
 }
 
 .top__pagination-item.top__pagination-item--active {
-  background: #4A9B8D;
+  background: #15b0db;
   transform: rotate3d(1, 1, 1, 6rad);
 }
 
@@ -522,7 +522,7 @@ body {
 }
 
 .about__title span {
-  color: #4A9B8D;
+  color: #73c0d5;
 }
 
 .about__title._active {
@@ -549,11 +549,11 @@ body {
 
 @keyframes about-skelet {
   0% {
-    background: #1a8977;
+    background: #54acc4;
   }
 
   100% {
-    background: #1fa38d;
+    background: #73c0d5;
   }
 }
 
@@ -687,7 +687,7 @@ body {
 }
 
 .blog__title span {
-  color: #4A9B8D;
+  color: #73c0d5;
 }
 
 .blog__title._active {
@@ -842,7 +842,7 @@ body {
 }
 
 .gallery {
-  background: #1A8875;
+  background: #73c0d5;
 }
 
 .gallery img {
@@ -990,7 +990,7 @@ body {
 }
 
 .team__title span {
-  color: #4A9B8D;
+  color: #73c0d5;
 }
 
 .team__title._active {
@@ -2850,4 +2850,12 @@ body {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  color: white;
 }

@@ -33,8 +33,10 @@
 					<nav class="header__inner">
 						<div class="header__logo">
 
-							<img src="{% static 'img/Logo-dhermes-sin-fondo.png' %}" alt="Logo de dhermes" width="60"
-								height="59" viewBox="0 0 60 59" fill="none" class="header-img">
+							<a href="{% url 'historia' %}">
+								<img src="{% static 'img/Logo-dhermes-sin-fondo.png' %}" alt="Logo de dhermes" width="60" 
+									 height="59" viewBox="0 0 60 59" fill="none" class="header-img">
+							</a>
 
 							<g clip-path="url(#clip0_320_427)">
 								<path
@@ -92,7 +94,9 @@
 								</clipPath>
 							</defs>
 							</svg>
-							<span class="header__logo-text">Refugio Dhermes</span>
+							<a href="{% url 'historia' %}" class="header__logo-link">
+								<span class="header__logo-text">Refugio Dhermes</span>
+							</a>
 						</div>
 						<ul class="header__menu">
 							<li class="header__menu-list"><a aria-label="About" href="{% url 'adopcion' %}"
@@ -174,8 +178,14 @@
 			<!-- /footer -->
 
 	</div>
-
-
+	<!-- back-to-top -->
+	<button
+			type="button"
+			class="btn btn-info btn-floating btn-lg rounded-circle"
+			id="btn-back-to-top"
+			>
+	 <i class="fas fa-arrow-up"></i>
+	</button>
 
 
 
